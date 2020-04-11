@@ -1,0 +1,269 @@
+{
+  "appInfo": {
+    "footer": "Cashbag ©2018 Created by Enouvo IT Soluttions",
+    "name": "React Admin"
+  },
+  "sideBar": {
+    "settings": "Settings",
+    "analysis": {
+      "title": "Analysis",
+      "transactions": "Transactions"
+    }
+  },
+  "header": {
+    "profile": "Profile",
+    "logout": "Logout"
+  },
+  "input": {
+    "username": {
+      "placeholder": "Username",
+      "validateMsg": {
+        "required": "Please input your username!"
+      }
+    },
+    "fullName": {
+      "placeholder": "Full Name",
+      "validateMsg": {
+        "required": "Please input your full name!"
+      }
+    },
+    "firstName": {
+      "placeholder": "First Name",
+      "validateMsg": {
+        "required": "Please input your first name!"
+      }
+    },
+    "lastName": {
+      "placeholder": "Last Name",
+      "validateMsg": {
+        "required": "Please input your last name!"
+      }
+    },
+    "password": {
+      "placeholder": "Password",
+      "validateMsg": {
+        "required": "Please input your password!"
+      }
+    },
+    "confirmPassword": {
+      "placeholder": "Confirm Password",
+      "validateMsg": {
+        "required": "Please input your confirm password!"
+      }
+    },
+    "email": {
+      "placeholder": "Email",
+      "validateMsg": {
+        "required": "Please input your email!",
+        "invalid": "Email is invalid"
+      }
+    },
+    "phoneNumber": {
+      "placeholder": "PhoneNumber",
+      "validateMsg": {
+        "required": "Please input your phone number!",
+        "invalid": "Phone number is invalid"
+      }
+    }
+  },
+
+  "form": {
+    "btn": {
+      "add": "Add new",
+      "edit": "Edit"
+    }
+  },
+  "invite": {
+    "acceptSuccess": "Congratulations! You become to administrator",
+    "backToHome": "Back to Login"
+  },
+  "login": {
+    "title": "Login",
+    "rememberMe": "Remember me",
+    "yourEmail": "Your Email",
+    "resetPassword": "Reset password",
+    "password": "Password"
+  },
+
+  "register": {
+    "title": "Register",
+    "registerBtn": "Register"
+  },
+
+  "forgotPassword": {
+    "title": "Forgot password",
+    "success": {
+      "title": "Reset Password Success!",
+      "description": "Please check your email and create a new password."
+    }
+  },
+
+  "dashboard": {
+    "summary": {
+      "customers": "Customers",
+      "orders": "Orders",
+      "revenue": "Revenue",
+      "products": "Products"
+    },
+    "newOrders": "New Orders"
+  },
+  "users": {
+    "title": "Users",
+    "summary": {
+      "customers": "Customers",
+      "orders": "Orders",
+      "revenue": "Revenue",
+      "products": "Products"
+    },
+    "newOrders": "New Orders"
+  },
+  "settings": {
+    "title": "Settings"
+  },
+  "button": {
+    "create": "Create",
+    "add": "Add",
+    "edit": "Edit",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "save": "Save",
+    "ok": "Ok",
+    "duplicate": "Duplicate",
+    "search": "Search",
+    "reset": "Reset",
+    "resetMyPassword": "Reset Password",
+    "submit": "Submit",
+    "call": "Call",
+    "loadMore": "Load More...",
+    "sentInvite": "Sent Invite",
+    "resendInvite": "Resend Invite",
+    "publish": "Publish & Save",
+    "draft": "Draft & Save",
+    "clear": "Clear",
+    "sendEmail": "Send Email"
+  },
+  "popup": {
+    "alertDelete": "Delete Data",
+    "alertDeleteDes": "Do you want to delete {{customMessage}}?"
+  },
+  "error": {
+    "title": "Oops!",
+    "description": "Some thing wrong!",
+    "waitingUpdate": "Waiting  Update",
+    "required": "This field is required",
+    "email": "The input is not valid E-mail!",
+    "customerName": "The input is not valid! (only a-z, 0-9, -, _ and 3->100 characters)",
+    "unAuth": "You don't have permission",
+    "phone": "The input is not valid Phone!",
+    "password": "Password must be at least 6 characters (0-9 a-z)",
+    "fullname": "FullName must contain characters and numbers only (0-9 a-z)",
+    "validateType": "The input is not valid",
+    "name": "Name must be at most 255 characters",
+    "customername": "Name must not contain white spaces",
+    "username": "Username must contain characters and numbers only (0-9 a-z)"
+  },
+  "success": {
+    "title": "Successfully!",
+    "description": "The update is successful!",
+    "updateSuccess": "Update Successfully",
+    "createSuccess": "Create new Data Successfully"
+  },
+  "settingTabs": {
+    "staff": "Admin & Staff",
+    "specifiers": "Specifiers",
+    "productCategories": "Product Categories",
+    "productNonContains": "Product Non Contains",
+    "questions": "Questions",
+    "supplements": "Supplements",
+    "discounts": "Discounts",
+    "supportCountries": "Support Countries",
+    "currencies": "Currencies"
+  },
+  "gender": {
+    "title": "Gender",
+    "male": "Male",
+    "female": "Female",
+    "other": "Other"
+  },
+  "placeholder": {
+    "undefined": "select...",
+    "search": "Search..."
+  },
+  "text": {
+    "or": "OR"
+  },
+  "analysis": {
+    "title": {
+      "transactions": "Analysis - Transactions"
+    },
+    "tabs": {
+      "order": "Đơn hàng",
+      "transactionValue": "Transaction value",
+      "brand": "Brand"
+    },
+    "filter": {
+      "time": "Time",
+      "status": {
+        "title": "Status",
+        "placeholder": "Select status"
+      },
+      "orderCode": {
+        "title": "Order Code",
+        "placeholder": "Search..."
+      },
+      "cashbackFrom": {
+        "title": "Cashback from",
+        "placeholder": "Select cashback resource"
+      },
+      "brand": {
+        "title": "Brand",
+        "placeholder": "Select brand"
+      },
+      "resource": {
+        "title": "Resource",
+        "placeholder": "Select resource"
+      }
+    },
+    "summaries": {
+      "totalTransaction": "Total transaction / Num of buyers",
+      "totalTransactionValue": "Total transaction value",
+      "totalCommission": "Total commission",
+      "cashback": "Cashback",
+      "totalRevenue": "Total revenue",
+      "averagePerTransaction": "Average per transaction"
+    },
+    "brands": {
+      "name": "Name",
+      "transactionValue": "Transaction value",
+      "commission": "Total Commission",
+      "cashback": "Cashback"
+    },
+    "transactions": {
+      "title": "Transaction Histories ({{total}}): {{date}}",
+      "user": "User Name",
+      "brand": "Brand",
+      "value": "Value",
+      "commission": "Commission",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "orderCode": "Order Code"
+    },
+    "status": {
+      "all": "All",
+      "pending": "Pending",
+      "cashback": "Cashback",
+      "approved": "Approved",
+      "rejected": "Rejected",
+      "notRejected": "Not Rejected"
+    },
+    "cashbackFrom": {
+      "all": "All",
+      "partner": "Partner",
+      "cashbag": "Cashbag"
+    },
+    "resource": {
+      "all": "All",
+      "access_trade": "Access Trade"
+    }
+  }
+}

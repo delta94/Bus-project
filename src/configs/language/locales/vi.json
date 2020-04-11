@@ -1,0 +1,122 @@
+{
+  "user": "Người dùng",
+  "brand": "Thương hiệu",
+  "commission": "Hoa hồng",
+  "value": "Giá trị",
+  "title": "Tiêu đề",
+  "order": "Đơn hàng",
+  "refund": "Hoàn tiền",
+  "updateDay": "Ngày cập nhật",
+  "orderCode": "Mã đơn hàng",
+  "transactionHistory": "Lịch sử giao dịch",
+  "totalTransaction": "Tổng đơn hàng",
+  "currentCash": "Số dư khả dụng",
+  "transactions": "giao dịch",
+  "currentCashTotal": "Tổng Số dư khả dụng",
+  "pendingCommission": "Hoàn tiền chờ duyệt",
+  "company": "Công ty",
+  "successCommission": "Hoàn tiền thành công",
+  "pendingCash": "Tổng hoàn tiền chờ duyệt",
+  "withdrawCash": "Tiền đã rút",
+  "totalExpense": "Tổng chi tiêu",
+  "topup": "Chương trình Topup",
+  "createDay": "Ngày ghi nhận",
+  "cashbag": "Tổng hoàn tiền",
+  "status": "Trạng thái",
+  "upload": "Cập nhật",
+  "commissionTotal": "Tổng hoa hồng",
+  "meanComissionTotal": "Hoa hồng trung bình trên đơn hàng",
+  "uploadConfirm": "Bạn có muốn cập nhật hình ảnh này",
+  "createSuccess": "Tạo thành công",
+  "editSuccess": "Chỉnh sửa thành công",
+  "deleteSuccess": "Xoá thành công",
+  "back": "Quay lại",
+  "confirm": "Xác nhận",
+  "sendOTP": "Gửi OTP",
+  "createNew": "Tạo mới",
+  "cancel": "Huỷ bỏ",
+  "continue": "Tiếp tục",
+  "update": "Cập nhật",
+  "input": {
+    "username": {
+      "placeholder": "Tên đăng nhập",
+      "validateMsg": {
+        "required": "Nhập tên đăng nhập!"
+      }
+    },
+    "fullName": {
+      "placeholder": "Tên đầy đủ",
+      "validateMsg": {
+        "required": "Nhập tên đầy đủ của bạn!"
+      }
+    },
+    "firstName": {
+      "placeholder": "Tên",
+      "validateMsg": {
+        "required": "Nhập tên của bạn!"
+      }
+    },
+    "lastName": {
+      "placeholder": "Họ",
+      "validateMsg": {
+        "required": "Nhập họ của bạn!"
+      }
+    },
+    "password": {
+      "placeholder": "Mật khẩu",
+      "validateMsg": {
+        "required": "Nhập mật khẩu của bạn!"
+      }
+    },
+    "confirmPassword": {
+      "placeholder": "Nhập lại mật  khẩu",
+      "validateMsg": {
+        "required": "Nhập lại mật khẩu xác nhận!"
+      }
+    },
+    "email": {
+      "placeholder": "Email",
+      "validateMsg": {
+        "required": "Nhập Email của bạn!"
+      }
+    },
+    "phoneNumber": {
+      "placeholder": "PhoneNumber",
+      "validateMsg": {
+        "required": "Số điện thoại không hợp lệ!",
+        "invalid": "Phone number is invalid"
+      }
+    }
+  },
+  "login": {
+    "title": "Đăng nhập",
+    "rememberMe": "Lưu",
+    "loginBtn": "Đăng nhập",
+    "yourEmail": "Email của bạn",
+    "resetPassword": "Làm mới mật khẩu",
+    "password": "Mật khẩu"
+  },
+  "forgotPassword": {
+    "title": "Quên mật khẩu",
+    "success": {
+      "title": "Làm mới mật khẩu thành công!",
+      "description": "Bạn hãy kiểm tra email và tạo mật khẩu mới."
+    }
+  },
+  "sideBar": {
+    "companies": "Công ty",
+    "transactions": "Lịch sử giao dịch",
+    "categories": "Danh mục",
+    "topup": "Chương trình Topup",
+    "audit": "Audit",
+    "staff": "Nhân viên",
+    "balance": "Số dư"
+  },
+  "companies": "Công ty",
+  "audit": "Audit",
+  "guides": "Hướng dẫn",
+  "branches": "Chi nhánh",
+  "categories": "Danh mục",
+  "staff": "Nhân viên",
+  "balance": "Số dư"
+}

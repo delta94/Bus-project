@@ -1,0 +1,90 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "airbnb",
+    "prettier",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+  "env": {
+    "browser": true
+  },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "prettier",
+    "eslint-comments",
+    "jsx-a11y",
+    "jam3"
+  ],
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
+  },
+  "globals": {
+    "describe": true,
+    "it": true,
+    "expect": true,
+    "fetch": true,
+    "navigator": true,
+    "__DEV__": true,
+    "XMLHttpRequest": true,
+    "FormData": true,
+    "__PATH_PREFIX__": true
+  },
+  "rules": {
+    "jam3/no-sanitizer-with-danger": [
+      2,
+      {
+        "wrapperName": ["your-own-sanitizer-function-name"]
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "tabWidth": 2,
+        "printWidth": 80,
+        "bracketSpacing": true,
+        "semi": true,
+        "trailingComma": "all"
+      }
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "import/prefer-default-export": 0,
+    "comma-dangle": [1, "always-multiline"],
+    "no-use-before-define": 0,
+    "jsx-a11y/label-has-for": 0,
+    "jsx-a11y/label-has-associated-control": 0,
+    "import/no-extraneous-dependencies": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/destructuring-assignment": 0,
+    "react/require-default-props": 0,
+    "react/forbid-prop-types": 0,
+    "no-mixed-operators": [
+      "error",
+      {
+        "groups": [
+          ["&", "|", "^", "~", "<<", ">>", ">>>"],
+          ["&&", "||"]
+        ]
+      }
+    ],
+    "no-unused-expressions": [
+      "error",
+      { "allowShortCircuit": true, "allowTernary": true }
+    ],
+    "react/jsx-props-no-spreading": 0,
+    "jsx-a11y/control-has-associated-label": 0,
+    "react/no-danger": 0,
+    "import/no-unresolved": 0,
+    "no-shadow": 0,
+    "no-param-reassign": [
+      "error",
+      { "props": true, "ignorePropertyModificationsForRegex": ["^state"] }
+    ]
+  }
+}

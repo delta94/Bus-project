@@ -1,0 +1,136 @@
+# Check https://circleci.com/docs/2.0/language-go/ for more details
+version: 2.1
+
+orbs:
+  aws-cli: circleci/aws-cli@0.1.19
+  aws-eks: circleci/aws-eks@0.2.6
+  kubernetes: circleci/kubernetes@0.11.0
+
+jobs:
+  build:
+    docker:
+      # specify the version
+      - image: circleci/node
+
+    steps:
+      - checkout
+
+      # remote docker
+      - setup_remote_docker:
+          docker_layer_caching: false
+
+      # make share variables folder
+      - run:
+          name: Create shared workspace
+          command: |
+            mkdir -p /tmp/workspace
+            # Echo sample variables, for make sure 'env-vars' existed
+            echo 'export SOMETEXT="some_text"' >> /tmp/workspace/env-vars
+
+      # save to workspace, for reuse in other jobs
+      - persist_to_workspace:
+          root: /tmp/workspace
+          paths:
+              - env-vars
+
+      # install aws utils
+      - aws-eks/install-aws-iam-authenticator
+      - aws-cli/install
+
+      - run:
+          name: Configure AWS
+          command: |
+            aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+            aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+            aws configure set default.region $AWS_REGION
+
+      # login ECR
+      - run:
+          name: Login to ECR
+          command: aws ecr get-login --region $AWS_REGION --no-include-email | bash
+
+      # build the application image
+      - run: docker build -t $AWS_ECR_ACCOUNT_URL/$AWS_ECR_REPO_PREFIX-$CIRCLE_BRANCH-web-admin-offline:latest -t $AWS_ECR_ACCOUNT_URL/$AWS_ECR_REPO_PREFIX-$CIRCLE_BRANCH-web-admin-offline:$CIRCLE_SHA1 .
+
+      # push the image
+      - run: docker push $AWS_ECR_ACCOUNT_URL/$AWS_ECR_REPO_PREFIX-$CIRCLE_BRANCH-web-admin-offline:latest
+      - run: docker push $AWS_ECR_ACCOUNT_URL/$AWS_ECR_REPO_PREFIX-$CIRCLE_BRANCH-web-admin-offline:$CIRCLE_SHA1
+
+  # deploy
+  deploy:
+    machine:
+      image: ubuntu-1604:201903-01
+
+    steps:
+      - checkout
+
+      # add ssh keys for pull code
+      - add_ssh_keys:
+          fingerprints:
+          - "c2:4b:7b:4d:66:fa:a7:17:22:83:73:b7:dc:af:19:4b"
+
+      # init & update submodule
+      - run:
+          name: Init submodule
+          command: |
+            git submodule update --init --recursive
+            git submodule update 
+            git submodule foreach git checkout $CIRCLE_BRANCH 
+            git submodule foreach git pull origin $CIRCLE_BRANCH
+
+      # install aws utils
+      - aws-eks/install-aws-iam-authenticator
+      - aws-cli/install
+      - kubernetes/install-kubectl
+
+      - run:
+          name: Configure AWS
+          command: |
+            aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+            aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+            aws configure set default.region $AWS_REGION
+
+      - run:
+          name: Update kubeconfig
+          command: aws eks --region $AWS_REGION update-kubeconfig --name $EKS_CLUSTER_NAME
+
+      # Install ytt
+      - run:
+          name: Install ytt
+          command: |
+            curl -L https://github.com/k14s/ytt/releases/download/v0.25.0/ytt-linux-amd64 --output ytt
+            chmod +x ytt
+            sudo cp ytt /usr/local/bin
+            ls /usr/local/bin
+            ytt version
+
+      - run:
+          name: Apply k8s values
+          command: |
+            cd k8s
+            ytt -f . --data-value stage=$CIRCLE_BRANCH | kubectl apply -f-
+
+      - run:
+          name: Deploy web
+          command: |
+            kubectl set image deployment/$CIRCLE_BRANCH-web-admin-offline $CIRCLE_BRANCH-web-admin-offline=$AWS_ECR_ACCOUNT_URL/$AWS_ECR_REPO_PREFIX-$CIRCLE_BRANCH-web-admin-offline:$CIRCLE_SHA1
+
+# Workflows
+workflows:
+  version: 2
+  build_deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - develop
+          context: cashbag-dev
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - develop
+          context: cashbag-dev

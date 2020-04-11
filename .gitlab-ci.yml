@@ -1,0 +1,54 @@
+image: docker:stable
+
+services:
+  - docker:dind
+
+stages:
+  - build
+  - deploy
+
+variables:
+  DOCKER_HOST: tcp://docker:2375/
+  DOCKER_DRIVER: overlay2
+  DOCKER_CI_STG_CONTAINER_NAME: $CI_STG_CONTAINER_NAME
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+  - build
+
+build:
+  image: node:10.14
+  stage: build
+  script:
+    - echo $CI_PROJECT_DIR
+
+    - sed -i "s~CI_REACT_APP_SERVER_URL~$CI_STG_REACT_APP_SERVER_URL~g" .env.example
+    - sed -i "s~CI_SKIP_PREFLIGHT_CHECK~$CI_STG_SKIP_PREFLIGHT_CHECK~g" .env.example
+
+    - cp -f .env.example .env
+
+    - echo "Install package dependency"
+    - yarn install
+
+    - echo "Generate static file"
+    - npm run build
+  only:
+    - staging
+  tags:
+    - zte
+
+deploy:
+  image: microsoft/azure-cli:latest
+  stage: deploy
+  script:
+    - echo $DOCKER_CI_STG_CONTAINER_NAME
+    - echo "Generate static file"
+    - az storage blob upload-batch --source build/ --destination "\$web" --account-key $CI_STG_AZURE_STORAGE_KEY --account-name $CI_STG_AZURE_STORAGE_ACCOUNT
+  only:
+    - staging
+  tags:
+    - zte
+  environment:
+        name: staging
+        url: https://ztestgadmin.z7.web.core.windows.net

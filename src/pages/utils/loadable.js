@@ -1,0 +1,33 @@
+import React, { lazy, Suspense } from 'react';
+import Loading from 'components/common/Loading';
+
+const retry = (fn, retriesLeft = 5, interval = 1000) => {
+  return new Promise((resolve, reject) => {
+    fn()
+      .then(resolve)
+      .catch((error) => {
+        setTimeout(() => {
+          if (retriesLeft === 1) {
+            // reject('maximum retries exceeded');
+            reject(error);
+            return;
+          }
+
+          // Passing on "reject" is the important part
+          retry(fn, retriesLeft - 1, interval).then(resolve, reject);
+        }, interval);
+      });
+  });
+};
+
+const loadable = (importFunc, { fallback } = { fallback: <Loading /> }) => {
+  const LazyComponent = lazy(() => retry(() => importFunc));
+
+  return (props) => (
+    <Suspense fallback={fallback}>
+      <LazyComponent {...props} />
+    </Suspense>
+  );
+};
+
+export default loadable;
