@@ -1,29 +1,62 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { Layout, BackTop, Menu, Alert } from 'antd';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import { Alert, BackTop, Layout, Menu } from 'antd';
+import useMedia from 'hooks/useMedia';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 import SideBar from './SideBar';
 import UserInfo from './UserInfo';
 
 const { Content, Header } = Layout;
 const { ErrorBoundary } = Alert;
 
-const PrivateLayout = ({ children, px, widthSideBar }) => {
+const StyledLayout = styled(Layout)`
+  padding-left: 0;
+  @media (min-width: 576px) {
+    padding-left: ${(props) => (props.collapsed ? '80px' : props.width)};
+  }
+`;
+
+const StyledHeader = styled(Header)`
+  width: 100%;
+  @media (min-width: 576px) {
+    width: calc(100% - ${(props) => (props.collapsed ? '80px' : props.width)});
+  }
+`;
+
+const PrivateLayout = ({ children, px, widthSideBar, logo, fullLogo }) => {
   const [collapsed, setCollapsed] = useState(true);
+  const [visible, toggleVisible] = useState(false);
+  const isMobileBreakpoint = useMedia('(max-width: 576px)');
+
   const toggle = () => {
-    setCollapsed(!collapsed);
+    if (isMobileBreakpoint) {
+      setCollapsed(false);
+      toggleVisible(true);
+    } else {
+      setCollapsed(!collapsed);
+    }
   };
   return (
     <Layout>
-      <SideBar collapsed={collapsed} width={widthSideBar} />
-      <Layout style={{ paddingLeft: collapsed ? 80 : widthSideBar }}>
-        <Header
+      <SideBar
+        isMobileBreakpoint={isMobileBreakpoint}
+        visible={visible}
+        toggleVisible={toggleVisible}
+        collapsed={collapsed}
+        width={widthSideBar}
+        logo={logo}
+        fullLogo={fullLogo}
+      />
+      <StyledLayout collapsed={collapsed} width={widthSideBar}>
+        <StyledHeader
           style={{
             padding: `0 ${px}px`,
             zIndex: 9,
-            width: `calc(100% - ${collapsed ? '80px' : widthSideBar})`,
           }}
+          collapsed={collapsed}
+          width={widthSideBar}
           className="shadow fixed top-0 flex items-center justify-between"
         >
           {collapsed ? (
@@ -44,7 +77,7 @@ const PrivateLayout = ({ children, px, widthSideBar }) => {
               <UserInfo />
             </Menu.Item>
           </Menu>
-        </Header>
+        </StyledHeader>
         <Content>
           <div
             className="overflow-x-hidden overflow-y-scroll flex flex-col"
@@ -53,7 +86,7 @@ const PrivateLayout = ({ children, px, widthSideBar }) => {
             <ErrorBoundary>{children}</ErrorBoundary>
           </div>
         </Content>
-      </Layout>
+      </StyledLayout>
       <BackTop />
     </Layout>
   );
@@ -63,6 +96,8 @@ PrivateLayout.propTypes = {
   children: PropTypes.node,
   px: PropTypes.number,
   widthSideBar: PropTypes.string,
+  logo: PropTypes.any,
+  fullLogo: PropTypes.any,
 };
 
 PrivateLayout.defaultProps = {

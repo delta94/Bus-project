@@ -1,8 +1,6 @@
-/* eslint-disable global-require */
-/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/jsx-wrap-multilines */
 import { ShopOutlined } from '@ant-design/icons';
-import { Layout, Menu } from 'antd';
+import { Drawer, Layout, Menu } from 'antd';
 import useRouter from 'hooks/useRouter';
 import I18n from 'i18next';
 import PropTypes from 'prop-types';
@@ -18,13 +16,19 @@ const getCurrentTab = (str) => {
 
 const sidebarMenu = [
   {
-    text: 'sideBar.companies',
+    key: 'dashboad',
+    text: 'overview.sidebar',
     icon: ShopOutlined,
-    url: '/companies',
+    url: '/',
   },
 ];
 
-const StyledSider = styled(Layout.Sider)``;
+const StyledSider = styled(Layout.Sider)`
+  display: none;
+  @media (min-width: 576px) {
+    display: block;
+  }
+`;
 
 const Logo = styled.div`
   height: 60px;
@@ -47,46 +51,36 @@ StyledSider.Menu = styled(Menu)`
     }
     .ant-menu-item .anticon,
     .ant-menu-submenu-title .anticon {
-      font-size: ${(props) => (props.collapsed ? '20px' : '14px')};
+      font-size: ${(props) => (props.collapsed === 'true' ? '20px' : '14px')};
     }
   }
 `;
 
-const SideBar = ({ collapsed, width }) => {
+const SideBar = ({
+  collapsed,
+  visible,
+  toggleVisible,
+  isMobileBreakpoint,
+  width,
+  logo,
+  fullLogo,
+}) => {
   const { history, location } = useRouter();
   const url = getCurrentTab(location.pathname);
-  return (
-    <Layout.Sider
-      width={width}
-      collapsed={collapsed}
-      trigger={null}
-      collapsible
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        height: '100%',
-        overflow: 'auto',
-        zIndex: 10,
-      }}
-      className="shadow-md"
-    >
+  const children = (
+    <>
       <Logo>
         {collapsed ? (
-          <img
-            src={require('assets/images/logo.png')}
-            alt=""
-            style={{ width: 39 }}
-          />
+          <img src={logo} alt="" style={{ width: 39 }} />
         ) : (
-          <img src={require('assets/images/fullLogo.png')} alt="" />
+          <img src={fullLogo} alt="" />
         )}
       </Logo>
       <StyledSider.Menu
         mode="inline"
         selectedKeys={[url || 'dashboard']}
         defaultSelectedKeys={[url || 'dashboard']}
-        collapsed={collapsed}
+        collapsed={collapsed.toString()}
       >
         {sidebarMenu.map((menu) =>
           menu.subMenu ? (
@@ -121,13 +115,52 @@ const SideBar = ({ collapsed, width }) => {
           ),
         )}
       </StyledSider.Menu>
-    </Layout.Sider>
+    </>
+  );
+  return (
+    <StyledSider
+      width={width}
+      collapsed={collapsed}
+      trigger={null}
+      collapsible
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        height: '100%',
+        overflow: 'auto',
+        zIndex: 10,
+      }}
+      className="shadow-md"
+    >
+      {!isMobileBreakpoint ? (
+        children
+      ) : (
+        <Drawer
+          width={width}
+          closable={false}
+          placement="left"
+          onClose={() => {
+            toggleVisible(false);
+          }}
+          visible={visible}
+          style={{ padding: 0 }}
+        >
+          {children}
+        </Drawer>
+      )}
+    </StyledSider>
   );
 };
 
 SideBar.propTypes = {
+  isMobileBreakpoint: PropTypes.bool,
   collapsed: PropTypes.bool,
   width: PropTypes.string,
+  logo: PropTypes.any,
+  fullLogo: PropTypes.any,
+  toggleVisible: PropTypes.func.isRequired,
+  visible: PropTypes.bool.isRequired,
 };
 
 export default SideBar;

@@ -103,20 +103,9 @@
       "description": "Bạn hãy kiểm tra email và tạo mật khẩu mới."
     }
   },
-  "sideBar": {
-    "companies": "Công ty",
-    "transactions": "Lịch sử giao dịch",
-    "categories": "Danh mục",
-    "topup": "Chương trình Topup",
-    "audit": "Audit",
-    "staff": "Nhân viên",
-    "balance": "Số dư"
-  },
-  "companies": "Công ty",
-  "audit": "Audit",
-  "guides": "Hướng dẫn",
-  "branches": "Chi nhánh",
-  "categories": "Danh mục",
-  "staff": "Nhân viên",
-  "balance": "Số dư"
+  "overview": {
+    "breadCrumb": "Tổng quan",
+    "sidebar": "Tổng quan",
+    "titleTable": "Danh sách công ty"
+  }
 }

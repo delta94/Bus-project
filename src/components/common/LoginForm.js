@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import FullLogo from 'assets/images/fullLogo.png';
 import { Button } from 'antd';
@@ -7,7 +6,6 @@ import i18next from 'i18next';
 import { ReactComponent as AccountIcon } from 'assets/svg/account.svg';
 import { ReactComponent as PasswordIcon } from 'assets/svg/password.svg';
 import { useDispatch } from 'react-redux';
-import { validateRegex } from 'utils/validateUtils';
 import actions from 'redux/utils/actions';
 import RestCreate from './RestCreate';
 import RestInput from './RestInput';
@@ -32,11 +30,10 @@ const LoginForm = () => {
       <img src={FullLogo} alt="cashbag" style={{ marginBottom: 41 }} />
       <RestCreate customSubmit={handleSubmit} resource="auth" footer={false}>
         <RestInput
-          fieldName="phone"
-          messageRequire={i18next.t('input.phoneNumber.validateMsg.required')}
-          messageValidate={i18next.t('input.phoneNumber.validateMsg.invalid')}
-          pattern={validateRegex.phone}
-          placeholder="Số điện thoại"
+          fieldName="username"
+          messageRequire={i18next.t('input.username.validateMsg.required')}
+          messageValidate={i18next.t('input.username.validateMsg.invalid')}
+          placeholder="Tên người dùng"
           prefix={<Icon component={AccountIcon} className="text-gray-250" />}
         />
         <RestInputPassword

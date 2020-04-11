@@ -50,20 +50,6 @@
       "validateMsg": {
         "required": "Please input your confirm password!"
       }
-    },
-    "email": {
-      "placeholder": "Email",
-      "validateMsg": {
-        "required": "Please input your email!",
-        "invalid": "Email is invalid"
-      }
-    },
-    "phoneNumber": {
-      "placeholder": "PhoneNumber",
-      "validateMsg": {
-        "required": "Please input your phone number!",
-        "invalid": "Phone number is invalid"
-      }
     }
   },
 

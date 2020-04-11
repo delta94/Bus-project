@@ -11,7 +11,7 @@ function* loginSaga({ payload }) {
     if (response.data) {
       yield put(actions.auth.loginSuccess());
       localStorage.setItem('sessionToken', response.data.token);
-      history.push('/companies');
+      history.push('/');
     } else {
       throw response;
     }

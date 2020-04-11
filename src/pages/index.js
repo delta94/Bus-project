@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Layout from 'components/common/Layout';
 import PrivateRoute from 'pages/utils/PrivateRoute';
 import loadable from './utils/loadable';
@@ -12,7 +12,9 @@ const Routes = () => {
         {/* ------------------------------Route Add on------------------------ */}
         <PrivateRoute
           path="/"
-          component={() => <Redirect to="/companies" />}
+          component={loadable(import('./Overview'), {
+            fallback: null,
+          })}
           exact
         />
         {/* ------------------------------Route Add on------------------------ */}
