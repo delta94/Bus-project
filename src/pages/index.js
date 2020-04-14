@@ -2,7 +2,10 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Layout from 'components/common/Layout';
 import PrivateRoute from 'pages/utils/PrivateRoute';
+import CreateCard from 'components/Overview/Create';
+import Topup from 'components/Overview/Topup';
 import loadable from './utils/loadable';
+import ModalRoute from './utils/ModalRoute';
 
 const Routes = () => {
   return (
@@ -26,6 +29,8 @@ const Routes = () => {
         />
       </Switch>
       {/* ------------------------------Model Add on------------------------ */}
+      <ModalRoute path="#cards/create" component={CreateCard} title="Tạo thẻ" />
+      <ModalRoute path="#cards/topup" component={Topup} title="Nộp tiền" />
     </Layout>
   );
 };

@@ -107,5 +107,9 @@
     "breadCrumb": "Tổng quan",
     "sidebar": "Tổng quan",
     "titleTable": "Danh sách công ty"
+  },
+  "cards": {
+    "breadCrumb": "Tổng quan",
+    "titleTable": "Danh sách thẻ"
   }
 }

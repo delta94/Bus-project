@@ -9,8 +9,8 @@ const crudSlice = ({ name, initialState = {}, reducers = {} }) => {
   const { actions, reducer } = createSlice({
     name: capitalize(name),
     initialState: {
-      allData: [],
-      data: {},
+      items: [],
+      item: {},
       messageError: null,
       totalPage: 0,
       totalItems: 0,
@@ -22,36 +22,10 @@ const crudSlice = ({ name, initialState = {}, reducers = {} }) => {
     },
     reducers: {
       // actions
-      getAllData: () => {},
-      getDataById: () => {},
-      deleteDataById: {
-        reducer: () => {},
-        prepare: (data) => ({
-          payload: {
-            ...data,
-          },
-          meta: { async: true },
-        }),
-      },
-      createData: {
-        reducer: () => {},
-        prepare: (data) => ({
-          payload: {
-            ...data,
-          },
-          meta: { async: true },
-        }),
-      },
-      editData: {
-        reducer: () => {},
-        prepare: (data) => ({
-          payload: {
-            ...data,
-          },
-          meta: { async: true },
-        }),
-      },
-      customData: {
+      getAll: () => {},
+      getById: () => {},
+      getData: () => {},
+      update: {
         reducer: () => {},
         prepare: (data) => ({
           payload: {
@@ -64,52 +38,55 @@ const crudSlice = ({ name, initialState = {}, reducers = {} }) => {
       setLoading: (state, { payload }) => {
         state.loading = payload;
       },
-      getMessageError: (state, { payload }) => {
-        state.messageError = payload;
-      },
-      getAllDataSuccess: (state, { payload }) => {
-        state.allData = payload.items?.map((item, index) => {
-          return {
-            ...item,
-            key: (payload.currentPage - 1) * payload.limit + index + 1,
-          };
-        });
-        state.totalPage = payload.totalPage;
-        state.totalItems = payload.totalItems;
-        state.limit = payload.limit;
-        state.page = payload.currentPage;
-        state.loading = false;
-      },
-      getDataByIdSuccess: (state, { payload }) => {
+      getDataSuccess: (state, { payload }) => {
         state.data = {
           ...state.data,
           ...payload,
         };
       },
-      deleteDataSuccess: (state, { payload }) => {
-        state.allData.filter(
-          (data) => data[PRIMARY_KEY] !== payload[PRIMARY_KEY],
+      getMessageError: (state, { payload }) => {
+        state.messageError = payload;
+      },
+      getAllDataSuccess: (state, { payload }) => {
+        state.items = payload.data?.map((item, index) => {
+          return {
+            ...item,
+            key: (payload.page - 1) * 10 + index + 1,
+          };
+        });
+        state.totalPage = payload.pageCount;
+        state.totalItems = payload.total;
+        state.limit = payload.limit;
+        state.page = payload.page;
+        state.loading = false;
+      },
+      getByIdSuccess: (state, { payload }) => {
+        state.item = payload;
+      },
+      deleteByIdSuccess: (state, { payload }) => {
+        state.items.filter(
+          (item) => item[PRIMARY_KEY] !== payload[PRIMARY_KEY],
         );
       },
-      editDataSuccess: (state, { payload }) => {
-        state.allData = state.allData.map((data) => {
-          if (data[PRIMARY_KEY] === payload[PRIMARY_KEY]) {
-            return { ...data, ...payload, key: data.key };
+      editSuccess: (state, { payload }) => {
+        state.items = state.items.map((item) => {
+          if (item[PRIMARY_KEY] === payload[PRIMARY_KEY]) {
+            return { ...item, ...payload, key: item.key };
           }
-          return data;
+          return item;
         });
-        state.data = { ...payload, key: state.data.key };
+        state.item = { ...payload, key: state.item.key };
       },
-      createDataSuccess: (state, { payload }) => {
-        state.allData.forEach((e) => {
+      createSuccess: (state, { payload }) => {
+        state.items.forEach((e) => {
           e.key += 1;
         });
-        state.allData = [
+        state.items = [
           {
             ...payload,
             key: 1,
           },
-          ...state.allData,
+          ...state.items,
         ];
         state.totalItems += 1;
       },

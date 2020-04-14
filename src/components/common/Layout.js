@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
@@ -8,7 +9,14 @@ const Layout = ({ children }) => {
   useGetUserInfo();
   const isAuth = useSelector((state) => state.auth.isAuth);
   if (isAuth) {
-    return <PrivateLayout>{children}</PrivateLayout>;
+    return (
+      <PrivateLayout
+        logo={require('assets/images/logo.png')}
+        fullLogo={require('assets/images/fullLogo.png')}
+      >
+        {children}
+      </PrivateLayout>
+    );
   }
   return <>{children}</>;
 };

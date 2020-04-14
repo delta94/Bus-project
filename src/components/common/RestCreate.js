@@ -25,7 +25,7 @@ const RestCreate = ({
       customSubmit(values);
     } else {
       dispatch(
-        actions[resource].createData({
+        actions[resource].update({
           customResource,
           data: { ...(formatSubmit ? formatSubmit(values) : values) },
         }),

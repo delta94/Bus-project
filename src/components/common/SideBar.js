@@ -16,7 +16,7 @@ const getCurrentTab = (str) => {
 
 const sidebarMenu = [
   {
-    key: 'dashboad',
+    key: 'dashboard',
     text: 'overview.sidebar',
     icon: ShopOutlined,
     url: '/',
@@ -85,7 +85,7 @@ const SideBar = ({
         {sidebarMenu.map((menu) =>
           menu.subMenu ? (
             <SubMenu
-              key={getCurrentTab(menu.url)}
+              key={menu.key}
               title={
                 <span>
                   {React.createElement(menu.icon)}
@@ -94,10 +94,7 @@ const SideBar = ({
               }
             >
               {menu.subMenu.map((e) => (
-                <Menu.Item
-                  onClick={() => history.push(e.url)}
-                  key={getCurrentTab(e.url)}
-                >
+                <Menu.Item onClick={() => history.push(e.url)} key={menu.key}>
                   {React.createElement(e.icon)}
                   {I18n.t(e.text)}
                 </Menu.Item>
@@ -105,7 +102,7 @@ const SideBar = ({
             </SubMenu>
           ) : (
             <Menu.Item
-              key={getCurrentTab(menu.url)}
+              key={menu.key}
               title={I18n.t(menu.text)}
               onClick={() => history.push(menu.url)}
             >

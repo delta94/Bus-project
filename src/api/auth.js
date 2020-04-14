@@ -1,9 +1,9 @@
-import { post, get } from './utils';
+import request from './request';
 
 export async function loginApi(data) {
-  return post(`/auth/signin`, data);
+  return request.post(`/auth/signin`, data);
 }
 
 export async function getInfoApi() {
-  return get(`/auth/info`, null);
+  return request(`/auth/info`, null);
 }

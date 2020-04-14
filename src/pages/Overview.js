@@ -1,7 +1,9 @@
 import React from 'react';
+import RestList from 'components/Rest/RestList';
+import CardTable from 'components/Overview/Table';
 
 const Overview = () => {
-  return <div>Hello</div>;
+  return <RestList resource="cards" table={CardTable} />;
 };
 
 Overview.propTypes = {};

@@ -1,63 +1,42 @@
-import { showError } from 'redux/utils/exception';
 import {
   call,
   put,
   takeLatest,
   takeEvery,
   select,
-  delay,
+  fork,
 } from 'redux-saga/effects';
-import {
-  getAllDataApi,
-  getDataByIdApi,
-  postDataApi,
-  deleteDataByIdApi,
-  putDataApi,
-  patchDataApi,
-} from 'api/crud';
 import { replace } from 'connected-react-router';
 import { notification } from 'antd';
 import i18next from 'i18next';
-import Action from './actions';
+import request from 'api/request';
+import { handleError } from './handleError';
 
 const crudSaga = (resource, actions, sagas = []) => {
-  function* getAllDataSaga({ payload }) {
+  function* getAllSaga({ payload }) {
     try {
       yield put(actions.setLoading(true));
-      const response = yield call(getAllDataApi, {
-        resource: payload?.customResource || resource,
-        query: payload?.query,
-        customURL: payload?.customURL,
-        headers: payload?.headers,
-        prefix: payload?.prefix,
+      const response = yield call(request, {
+        ...payload,
+        url: payload?.url || resource,
       });
       if (response.data) {
-        yield put(actions.getAllDataSuccess(response.data));
+        yield put(actions.getAllDataSuccess(response));
         yield put(actions.setLoading(false));
       } else {
         throw response;
       }
     } catch (error) {
-      if (error.status === 401) {
-        showError(error?.data);
-        yield delay(2000);
-        yield put(Action.auth.logout());
-      } else {
-        yield put(actions.setLoading(false));
-        showError(error?.data);
-      }
+      yield fork(handleError, error);
+      yield put(actions.setLoading(false));
     }
   }
 
-  function* getDataByIdSaga({ payload }) {
+  function* getByIdSaga({ payload }) {
     try {
-      const response = yield call(getDataByIdApi, {
-        resource: payload?.customResource || resource,
-        id: payload?.id,
-        query: payload?.query,
-        customURL: payload?.customURL,
-        headers: payload?.headers,
-        prefix: payload?.prefix,
+      const response = yield call(request, {
+        ...payload,
+        url: payload?.url || resource,
       });
       if (response.data) {
         yield put(actions.getDataByIdSuccess(response.data));
@@ -65,198 +44,68 @@ const crudSaga = (resource, actions, sagas = []) => {
         throw response;
       }
     } catch (error) {
-      if (error.status === 401) {
-        showError(error?.data);
-        yield delay(2000);
-        yield put(Action.auth.logout());
-      } else {
-        showError(error?.data);
-      }
+      yield fork(handleError, error);
     }
   }
-  function* editDataSaga({
-    payload: { method = 'PUT', ...payload },
+
+  function* updateSaga({
+    payload: { hasActionAfterSucess = true, method = 'post', ...payload },
     deferred,
   }) {
     try {
       const options = {
-        PUT: {
-          type: putDataApi,
-        },
-        PATCH: {
-          type: patchDataApi,
-        },
-      };
-      const location = yield select((state) => state.router.location);
-      const response = yield call(options[method].type, {
-        resource: payload?.customResource || resource,
-        id: payload?.id,
-        data: payload?.data,
-        customURL: payload?.customURL,
-        headers: payload?.headers,
-        prefix: payload?.prefix,
-      });
-      if (response.data) {
-        yield put(actions.editDataSuccess(response.data));
-        yield put(replace(`${location.pathname}${location.search}`));
-        deferred.resolve();
-        notification.success({
-          message: i18next.t('editSuccess'),
-        });
-      } else {
-        throw response;
-      }
-    } catch (error) {
-      if (error.status === 401) {
-        showError(error?.data);
-        yield delay(2000);
-        yield put(Action.auth.logout());
-      } else {
-        showError(error?.data);
-        yield put(actions.getMessageError(error?.data?.message));
-        yield delay(2000);
-        yield put(actions.getMessageError(null));
-      }
-    }
-  }
-
-  function* createDataSaga({ payload, deferred }) {
-    try {
-      const location = yield select((state) => state.router.location);
-      const response = yield call(postDataApi, {
-        resource: payload?.customResource || resource,
-        data: payload?.data,
-        customURL: payload?.customURL,
-        headers: payload?.headers,
-        prefix: payload?.prefix,
-      });
-      if (response.data) {
-        yield put(actions.createDataSuccess(response.data));
-        yield put(replace(`${location.pathname}${location.search}`));
-        deferred.resolve();
-        notification.success({
-          message: i18next.t('createSuccess'),
-        });
-      } else {
-        throw response;
-      }
-    } catch (error) {
-      if (error.status === 401) {
-        showError(error?.data);
-        yield delay(2000);
-        yield put(Action.auth.logout());
-      } else {
-        yield put(actions.getMessageError(error?.data?.message));
-        showError(error?.data);
-      }
-    }
-  }
-
-  function* deleteDataByIdSaga({ payload, deferred }) {
-    try {
-      const response = yield call(deleteDataByIdApi, {
-        resource: payload?.customResource || resource,
-        id: payload?.id,
-        customURL: payload?.customURL,
-        headers: payload?.headers,
-        prefix: payload?.prefix,
-      });
-      if (response.data) {
-        // yield put(actions.getDataByIdSuccess(response.data));
-        deferred.resolve();
-        notification.success({
-          message: i18next.t('deleteSuccess'),
-        });
-      } else {
-        throw response;
-      }
-    } catch (error) {
-      if (error.status === 401) {
-        showError(error?.data);
-        yield delay(2000);
-        yield put(Action.auth.logout());
-      } else {
-        yield put(actions.getMessageError(error?.data?.message));
-        showError(error?.data);
-      }
-    }
-  }
-
-  function* customDataSaga({
-    payload: { hasActionAfterSucess = true, ...payload },
-    deferred,
-  }) {
-    try {
-      const options = {
-        POST: {
-          type: postDataApi,
+        post: {
           message: 'createSuccess',
-          action: actions.createDataSuccess,
+          action: actions.createSuccess,
         },
-        PUT: {
-          type: putDataApi,
+        put: {
           message: 'editSuccess',
-          action: actions.editDataSuccess,
+          action: actions.editSuccess,
         },
-        PATCH: {
-          type: patchDataApi,
-          message: actions.editDataSuccess,
+        patch: {
+          message: 'editSuccess',
+          action: actions.editSuccess,
         },
-        DELETE: {
-          type: deleteDataByIdApi,
+        delete: {
           message: 'deleteSuccess',
+          action: actions.deleteByIdSuccess,
         },
       };
       const location = yield select((state) => state.router.location);
-      const response = yield call(options[payload?.method].type, {
-        resource: payload?.customResource || resource,
-        id: payload?.id,
-        data: payload?.data,
-        customURL: payload?.customURL,
-        headers: payload?.headers,
-        prefix: payload?.prefix,
+      const response = yield call(request, {
+        ...payload,
+        url: payload?.url || resource,
+        method,
       });
-      if (response.data) {
-        deferred.resolve();
-
-        // CHECK IF POST, PUT, PATCH -> Call Action
-        if (['POST', 'PUT', 'PATCH'].includes(payload?.method)) {
+      if (response) {
+        // CHECK IF post, put, patch -> Call Action
+        if (['post', 'put', 'patch'].includes(method)) {
           if (hasActionAfterSucess) {
-            yield put(options[payload?.method].action(response?.data));
+            yield put(options[method].action(response));
           }
           yield put(replace(`${location.pathname}${location.search}`));
         } else if (hasActionAfterSucess) {
-          yield put(options[payload?.method].action(payload?.id));
+          yield put(options[method].action(payload?.id));
         }
 
-        if (options[payload?.method].message) {
-          notification.success({
-            message: i18next.t(options[payload?.method].message),
-          });
-        }
+        deferred.resolve();
+
+        notification.success({
+          message: i18next.t(options[method].message),
+        });
       } else {
         throw response;
       }
     } catch (error) {
-      if (error.status === 401) {
-        showError(error?.data);
-        yield delay(2000);
-        yield put(Action.auth.logout());
-      } else {
-        yield put(actions.getMessageError(error?.data?.message));
-        yield put(actions.setLoading(false));
-        showError(error?.data);
-      }
+      yield fork(handleError, error);
+      yield put(actions.getMessageError(error?.data?.message));
     }
   }
 
   return [
-    takeLatest([actions.getAllData().type], getAllDataSaga),
-    takeLatest([actions.getDataById().type], getDataByIdSaga),
-    takeEvery([actions.createData().type], createDataSaga),
-    takeEvery([actions.deleteDataById().type], deleteDataByIdSaga),
-    takeEvery([actions.editData().type], editDataSaga),
-    takeEvery([actions.customData().type], customDataSaga),
+    takeLatest([actions.getAll().type], getAllSaga),
+    takeLatest([actions.getById().type], getByIdSaga),
+    takeEvery([actions.update().type], updateSaga),
     ...sagas,
   ];
 };

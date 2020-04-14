@@ -48,6 +48,7 @@ module.exports = override(
       // MODAL
       '@modal-body-padding': '10px 20px',
       // STEPS
+      '@drawer-body-padding': '0',
     },
   }),
   addDecoratorsLegacy(),

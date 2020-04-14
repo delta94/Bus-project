@@ -15,7 +15,7 @@ import {
 } from '@ant-design/icons';
 import { isNull } from 'utils/validateUtils';
 import FullScreen from 'react-full-screen';
-import TooltipIcon from './TooltipIcon';
+import TooltipIcon from 'components/common/TooltipIcon';
 
 const RestTable = ({
   title,
@@ -55,7 +55,7 @@ const RestTable = ({
     <FullScreen enabled={isFull} onChange={(isFull) => setFull(isFull)}>
       <Card
         title=<CardTitle
-          title={title || i18next.t(resource)}
+          title={title || i18next.t(`${resource}.titleTable`)}
           subTitle={`Tổng số: ${data?.totalItems}`}
         />
         className="card-padding-body-0"
@@ -96,7 +96,7 @@ const RestTable = ({
         <Table
           bordered={bordered}
           size={size}
-          dataSource={data?.allData}
+          dataSource={data?.items}
           columns={columns}
           onChange={onChange || handlePaginate}
           expandable={expandable}
@@ -105,7 +105,7 @@ const RestTable = ({
               ? {
                   current: +query.page,
                   total: data?.totalItems,
-                  pageSize: data?.limit,
+                  pageSize: query?.limit,
                   showQuickJumper: true,
                   showSizeChanger: true,
                 }
