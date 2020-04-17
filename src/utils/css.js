@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 export const CSS_RESET = `
   html {
     box-sizing: border-box;

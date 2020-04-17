@@ -82,6 +82,7 @@
     "react/no-danger": 0,
     "import/no-unresolved": 0,
     "no-shadow": 0,
+    "max-lines": ["error", 150],
     "no-param-reassign": [
       "error",
       { "props": true, "ignorePropertyModificationsForRegex": ["^state"] }

@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 /* eslint-disable react/jsx-wrap-multilines */
 import { ShopOutlined } from '@ant-design/icons';
 import { Drawer, Layout, Menu } from 'antd';
