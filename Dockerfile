@@ -1,13 +1,11 @@
-# Dockerfile References: https://docs.docker.com/engine/reference/builder/
-
 # Start from the latest node base image
 FROM node:alpine as builder
 
 # Add Maintainer Info
-LABEL maintainer="Cashbag <dev@cashbag.vn>"
+LABEL maintainer="shyn <thaison.coderstokyo@gmail.com>"
 
 # Set the Current Working Directory inside the container
-WORKDIR /app
+WORKDIR '/app'
 
 # Copy package.json first, for caching deps
 COPY ./package.json ./
@@ -17,7 +15,7 @@ RUN npm install
 COPY . .
 
 # Set env vars
-ENV REACT_APP_SERVER_URL=https://svc.cashbagmain.com
+ENV REACT_APP_SERVER_URL=https://netjs.herokuapp.com/
 ENV REACT_APP_GOOGLE_MAP_KEY=AIzaSyDGZOhb6qWmy1PLYJrLmtBho18Vasw0C_U
 ENV REACT_APP_API_UPLOAD_IMAGE=https://upload.cashbagmain.com
 ENV SKIP_PREFLIGHT_CHECK=true
