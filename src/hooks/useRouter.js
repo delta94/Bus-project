@@ -1,12 +1,11 @@
+import qs from 'query-string';
+import { useMemo } from 'react';
 import {
-  useParams,
-  useLocation,
   useHistory,
+  useLocation,
+  useParams,
   useRouteMatch,
 } from 'react-router-dom';
-import { useMemo } from 'react';
-import { convertParamsToObject } from 'utils/url';
-import { convertObjToQueryParams } from 'utils/tools';
 
 const useRouter = () => {
   const params = useParams();
@@ -22,12 +21,14 @@ const useRouter = () => {
       routerState: location.state,
       handlePushParams: (params) => {
         const newParams = {
-          ...convertParamsToObject(location.search),
+          ...qs.parse(location.search),
           ...params,
         };
         history.push({
           pathname: match.url,
-          search: convertObjToQueryParams(newParams),
+          search: qs.stringify(newParams, {
+            skipEmptyString: true,
+          }),
         });
       },
       resetParams: (params) => {
@@ -36,18 +37,22 @@ const useRouter = () => {
         };
         history.push({
           pathname: match.url,
-          search: convertObjToQueryParams(newParams),
+          search: qs.stringify(newParams, {
+            skipEmptyString: true,
+          }),
         });
       },
       removeParams: (keys) => {
-        const newParams = convertParamsToObject(location.search);
+        const newParams = qs.parse(location.search);
         keys.forEach((key) => {
           delete newParams[key];
         });
 
         history.push({
           pathname: match.url,
-          search: convertObjToQueryParams(newParams),
+          search: qs.stringify(newParams, {
+            skipEmptyString: true,
+          }),
         });
       },
       handlePushModal: (modal, data) => {
@@ -63,7 +68,7 @@ const useRouter = () => {
       },
       pathname: location.pathname,
       query: {
-        ...convertParamsToObject(location.search), // Convert string to object
+        ...qs.parse(location.search),
         ...params,
       },
       match,

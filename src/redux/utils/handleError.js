@@ -8,6 +8,6 @@ export function* handleError(error) {
     yield delay(2000);
     yield put(Action.auth.logout());
   } else {
-    showError(error);
+    showError(error?.data);
   }
 }

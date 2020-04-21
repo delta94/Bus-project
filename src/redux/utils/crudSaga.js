@@ -21,7 +21,12 @@ const crudSaga = (resource, actions, sagas = []) => {
         url: payload?.url || resource,
       });
       if (response.data) {
-        yield put(actions.getAllDataSuccess(response));
+        yield put(
+          actions.getAllDataSuccess({
+            ...response.data,
+            limit: payload.params.limit,
+          }),
+        );
         yield put(actions.setLoading(false));
       } else {
         throw response;
@@ -77,11 +82,11 @@ const crudSaga = (resource, actions, sagas = []) => {
         url: payload?.url || resource,
         method,
       });
-      if (response) {
+      if (response.data) {
         // CHECK IF post, put, patch -> Call Action
         if (['post', 'put', 'patch'].includes(method)) {
           if (hasActionAfterSucess) {
-            yield put(options[method].action(response));
+            yield put(options[method].action(response.data));
           }
           yield put(replace(`${location.pathname}${location.search}`));
         } else if (hasActionAfterSucess) {
@@ -98,7 +103,6 @@ const crudSaga = (resource, actions, sagas = []) => {
       }
     } catch (error) {
       yield fork(handleError, error);
-      yield put(actions.getMessageError(error?.data?.message));
     }
   }
 

@@ -1,9 +1,10 @@
-import { call, put, takeEvery, delay } from 'redux-saga/effects';
+import { call, put, takeEvery, fork, takeLatest } from 'redux-saga/effects';
 import { loginApi, getInfoApi } from 'api/auth';
 // eslint-disable-next-line import/no-cycle
 import { history } from 'redux/store';
 import { showError } from 'redux/utils/exception';
 import actions from 'redux/utils/actions';
+import { handleError } from 'redux/utils/handleError';
 
 function* loginSaga({ payload }) {
   try {
@@ -30,17 +31,11 @@ function* getInfoSaga() {
       throw response;
     }
   } catch (error) {
-    if (error.status === 401) {
-      showError(error?.data);
-      yield delay(2000);
-      yield put(actions.auth.logout());
-    } else {
-      showError(error?.data);
-    }
+    yield fork(handleError, error);
   }
 }
 
 export default [
   takeEvery([actions.auth.login.type], loginSaga),
-  takeEvery([actions.auth.getInfo.type], getInfoSaga),
+  takeLatest([actions.auth.getInfo.type], getInfoSaga),
 ];
