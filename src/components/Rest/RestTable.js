@@ -105,7 +105,7 @@ const RestTable = ({
               ? {
                   current: +query.page,
                   total: data?.totalItems,
-                  pageSize: query?.limit,
+                  pageSize: query?.limit || 10,
                   showQuickJumper: true,
                   showSizeChanger: true,
                 }
