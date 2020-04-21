@@ -51,7 +51,7 @@ const crudSlice = ({ name, initialState = {}, reducers = {} }) => {
         state.items = payload.data?.map((item, index) => {
           return {
             ...item,
-            key: (payload.page - 1) * 10 + index + 1,
+            key: (payload.page - 1) * payload.limit + index + 1,
           };
         });
         state.totalPage = payload.pageCount;
