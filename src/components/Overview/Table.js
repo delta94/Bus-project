@@ -23,6 +23,12 @@ const Table = () => {
       key: 'email',
     },
     {
+      title: 'Số diện thoại',
+      dataIndex: 'phoneNumber',
+      key: 'phoneNumber',
+    },
+
+    {
       title: 'Tên',
       dataIndex: 'name',
       key: 'name',
