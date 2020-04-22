@@ -5,5 +5,5 @@ export async function loginApi(data) {
 }
 
 export async function getInfoApi() {
-  return request(`/auth/info`, null);
+  return request(`/auth/info`);
 }
