@@ -20,6 +20,13 @@ const Routes = () => {
           })}
           exact
         />
+        <PrivateRoute
+          path="/transactions"
+          component={loadable(import('./Transactions'), {
+            fallback: null,
+          })}
+          exact
+        />
         {/* ------------------------------Route Add on------------------------ */}
         <Route
           path="*"
