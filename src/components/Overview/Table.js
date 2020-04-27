@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-wrap-multilines */
 import RestTable from 'components/Rest/RestTable';
 import React from 'react';
-import { formatNumberToMoney } from 'utils/textUtils';
+import { formatNumberToMoney, formatNumber } from 'utils/textUtils';
 import { Button } from 'antd';
 import useRouter from 'hooks/useRouter';
 
@@ -38,6 +38,12 @@ const Table = () => {
       dataIndex: 'amount',
       key: 'amount',
       render: (row) => <span>{formatNumberToMoney(row)}</span>,
+    },
+    {
+      title: 'Tổng số lần đi',
+      dataIndex: 'totalTransaction',
+      key: 'totalTransaction',
+      render: (row) => <span>{formatNumber(row)}</span>,
     },
   ];
   return (

@@ -108,6 +108,11 @@
     "sidebar": "Tổng quan",
     "titleTable": "Danh sách công ty"
   },
+  "transactions": {
+    "breadCrumb": "Lịch sử giao dịch",
+    "sidebar": "Lịch sử giao dịch",
+    "titleTable": "Danh sách giao dịch"
+  },
   "cards": {
     "breadCrumb": "Tổng quan",
     "titleTable": "Danh sách thẻ"
