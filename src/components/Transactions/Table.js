@@ -29,7 +29,15 @@ const Table = () => {
       render: (row) => <span>{row}</span>,
     },
   ];
-  return <RestTable columns={columns} resource="transactions" />;
+  return (
+    <>
+      <RestTable
+        columns={columns}
+        resource="transactions"
+        hasCreateButton={false}
+      />
+    </>
+  );
 };
 
 Table.propTypes = {};

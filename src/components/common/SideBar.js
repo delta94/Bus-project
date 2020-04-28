@@ -1,6 +1,10 @@
 /* eslint-disable max-lines */
 /* eslint-disable react/jsx-wrap-multilines */
-import { ShopOutlined, TransactionOutlined } from '@ant-design/icons';
+import {
+  ShopOutlined,
+  TransactionOutlined,
+  AreaChartOutlined,
+} from '@ant-design/icons';
 import { Drawer, Layout, Menu } from 'antd';
 import useRouter from 'hooks/useRouter';
 import I18n from 'i18next';
@@ -27,6 +31,12 @@ const sidebarMenu = [
     text: 'transactions.sidebar',
     icon: TransactionOutlined,
     url: '/transactions',
+  },
+  {
+    key: 'analytic',
+    text: 'analytic.sidebar',
+    icon: AreaChartOutlined,
+    url: '/analytic',
   },
 ];
 

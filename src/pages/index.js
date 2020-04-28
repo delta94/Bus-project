@@ -27,6 +27,13 @@ const Routes = () => {
           })}
           exact
         />
+        <PrivateRoute
+          path="/analytic"
+          component={loadable(import('./Analytic'), {
+            fallback: null,
+          })}
+          exact
+        />
         {/* ------------------------------Route Add on------------------------ */}
         <Route
           path="*"
