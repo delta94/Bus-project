@@ -11,7 +11,6 @@
   "transactionHistory": "Lịch sử giao dịch",
   "totalTransaction": "Tổng đơn hàng",
   "currentCash": "Số dư khả dụng",
-  "transactions": "giao dịch",
   "currentCashTotal": "Tổng Số dư khả dụng",
   "pendingCommission": "Hoàn tiền chờ duyệt",
   "company": "Công ty",
@@ -115,6 +114,11 @@
   },
   "cards": {
     "breadCrumb": "Tổng quan",
+    "titleTable": "Danh sách thẻ"
+  },
+  "analytic": {
+    "breadCrumb": "Phân tích",
+    "sidebar": "Phân tích",
     "titleTable": "Danh sách thẻ"
   }
 }
