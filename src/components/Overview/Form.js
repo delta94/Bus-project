@@ -1,6 +1,6 @@
-import RestInput from 'components/common/RestInput';
+import RestInput from 'components/Rest/RestInput';
 import React from 'react';
-import RestInputNumber from 'components/common/RestInputNumber';
+import RestInputNumber from 'components/Rest/RestInputNumber';
 import { moneyFomatter } from 'utils/formatter';
 
 const Form = () => {

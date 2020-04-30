@@ -7,9 +7,9 @@ import { ReactComponent as AccountIcon } from 'assets/svg/account.svg';
 import { ReactComponent as PasswordIcon } from 'assets/svg/password.svg';
 import { useDispatch } from 'react-redux';
 import actions from 'redux/utils/actions';
-import RestCreate from './RestCreate';
-import RestInput from './RestInput';
-import RestInputPassword from './RestInputPassword';
+import RestCreate from '../Rest/RestCreate';
+import RestInput from '../Rest/RestInput';
+import RestInputPassword from '../Rest/RestInputPassword';
 
 const LoginForm = () => {
   const dispatch = useDispatch();

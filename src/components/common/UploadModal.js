@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 import React from 'react';
 import { notification } from 'antd';
-import RestEdit from './RestEdit';
-import RestUploadImage from './RestUploadImage';
+import RestEdit from '../Rest/RestEdit';
+import RestUploadImage from '../Rest/RestUploadImage';
 
 const UploadModal = () => {
   const handleSubmit = (values) => {

@@ -1,16 +1,14 @@
+import { Card, Tooltip } from 'antd';
 import React from 'react';
-import styled from 'styled-components';
-import { Card, DatePicker, Tooltip } from 'antd';
-import moment from 'moment';
-import useRouter from 'hooks/useRouter';
 import {
-  ResponsiveContainer,
-  AreaChart,
-  XAxis,
-  CartesianGrid,
-  YAxis,
   Area,
+  AreaChart,
+  CartesianGrid,
+  ResponsiveContainer,
+  XAxis,
+  YAxis,
 } from 'recharts';
+import styled from 'styled-components';
 import { compactNumber } from 'utils/textUtils';
 
 const StyledCard = styled(Card)`
@@ -20,24 +18,10 @@ const StyledCard = styled(Card)`
 `;
 
 const AnalyticChart = () => {
-  const { query } = useRouter();
-
   return (
     <StyledCard style={{ height: 303 }}>
       <div className="flex justify-between">
         <h2 className="t-600-14px-17px text-header-table">Biến động số dư</h2>
-        <DatePicker
-          value={moment(query.startTime, 'DD-MM-YYYY')}
-          format="DD-MM-YYYY"
-          style={{
-            width: 200,
-            height: 48,
-            background: '#FAFAFA',
-            borderRadius: 10,
-            border: 'none',
-          }}
-          // onChange={changeDate}
-        />
       </div>
       <div
         style={{ width: '100%', height: 225, padding: '20px 23px 0 0' }}

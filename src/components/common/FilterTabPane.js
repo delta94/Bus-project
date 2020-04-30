@@ -3,13 +3,7 @@ import { Tabs } from 'antd';
 import useRouter from 'hooks/useRouter';
 import React from 'react';
 import styled from 'styled-components';
-import {
-  rangeMonth,
-  rangeToday,
-  rangeWeek,
-  range6MonthBefore,
-  rangeYesterday,
-} from 'utils/time';
+import { rangeMonth, rangeToday, rangeWeek, rangeYesterday } from 'utils/time';
 
 const { TabPane } = Tabs;
 
@@ -28,7 +22,7 @@ const StyledFilterTabPane = styled(Tabs)`
     padding: 16px 0px;
   }
   .ant-tabs-ink-bar {
-    background-color: ${({ theme }) => theme.palette.primary};
+    background-color: #2979ff;
     height: 3px;
   }
 `;
@@ -50,16 +44,18 @@ const FilterTabPane = () => {
       case '4':
         handlePushParams(rangeMonth);
         break;
-      case '5':
-        handlePushParams(range6MonthBefore);
-        break;
       default:
         break;
     }
   };
 
   const getDefaultValue = () => {
-    switch (JSON.stringify({ start: query.start, end: query.end })) {
+    switch (
+      JSON.stringify({
+        startTime: query.startTime,
+        endTime: query.endTime,
+      })
+    ) {
       case JSON.stringify(rangeToday):
         return '1';
       case JSON.stringify(rangeYesterday):
@@ -68,8 +64,6 @@ const FilterTabPane = () => {
         return '3';
       case JSON.stringify(rangeMonth):
         return '4';
-      case JSON.stringify(range6MonthBefore):
-        return '5';
       default:
         break;
     }
@@ -81,11 +75,10 @@ const FilterTabPane = () => {
       activeKey={getDefaultValue()}
       onChange={handleChange}
     >
-      <TabPane tab="Hôm nay" key="1" />
-      <TabPane tab="Hôm qua" key="2" />
       <TabPane tab="7 ngày trước" key="3" />
       <TabPane tab="30 ngày trước" key="4" />
-      <TabPane tab="90 ngày trước" key="5" />
+      <TabPane tab="Hôm nay" key="1" />
+      <TabPane tab="Hôm qua" key="2" />
     </StyledFilterTabPane>
   );
 };
