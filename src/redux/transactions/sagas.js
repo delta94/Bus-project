@@ -4,18 +4,16 @@ import { handleError } from 'redux/utils/handleError';
 import { getAnalyticApi } from 'api/transactions';
 import { RESOURCE, actions } from './slice';
 
-function* getAnalyticSaga() {
+function* getAnalyticSaga({ payload }) {
   try {
-    const response = yield call(getAnalyticApi, {
-      startTime: '2020-04-28',
-      endTime: '2020-04-28',
-    });
+    const response = yield call(getAnalyticApi, payload);
     if (response.data) {
       yield put(actions.getAnalyticSuccess(response.data));
     } else {
       throw response;
     }
   } catch (error) {
+    yield put(actions.getAnalyticFailure());
     yield fork(handleError, error);
   }
 }

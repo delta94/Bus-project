@@ -1,8 +1,8 @@
-import React from 'react';
-import { Row, Col, Card } from 'antd';
-import { useSelector } from 'react-redux';
-import { formatNumberToMoney, formatNumber } from 'utils/textUtils';
+import { Card, Col, Row, Skeleton } from 'antd';
 import FilterTabPane from 'components/common/FilterTabPane';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { formatNumber, formatNumberToMoney } from 'utils/textUtils';
 import AnalyticChart from './AnalyticChart';
 
 const DataAnalytic = () => {
@@ -14,19 +14,31 @@ const DataAnalytic = () => {
       </div>
       <Row gutter={20}>
         <Col sm={8} xs={24} style={{ marginBottom: 20 }}>
-          <Card title="Tổng số giao dịch">
-            {formatNumber(+data?.analytic?.totalTransaction)}
-          </Card>
+          {data.loading === 'analytic' ? (
+            <Skeleton active />
+          ) : (
+            <Card title="Tổng số giao dịch">
+              {formatNumber(data?.analytic?.totalTransaction)}
+            </Card>
+          )}
         </Col>
         <Col sm={8} xs={24} style={{ marginBottom: 20 }}>
-          <Card title="Tổng số tiền">
-            {formatNumberToMoney(+data?.analytic?.totalAmount)}
-          </Card>
+          {data.loading === 'analytic' ? (
+            <Skeleton active />
+          ) : (
+            <Card title="Tổng số tiền">
+              {formatNumberToMoney(data?.analytic?.totalAmount)}
+            </Card>
+          )}
         </Col>
         <Col sm={8} xs={24} style={{ marginBottom: 20 }}>
-          <Card title="Tổng số khách hàng">
-            {formatNumber(+data?.analytic?.totalCustomer)}
-          </Card>
+          {data.loading === 'analytic' ? (
+            <Skeleton active />
+          ) : (
+            <Card title="Tổng số khách hàng">
+              {formatNumber(data?.analytic?.totalCustomers)}
+            </Card>
+          )}
         </Col>
       </Row>
       <AnalyticChart />

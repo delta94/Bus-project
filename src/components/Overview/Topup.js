@@ -1,6 +1,6 @@
-import RestCreate from 'components/common/RestCreate';
+import RestCreate from 'components/Rest/RestCreate';
 import React from 'react';
-import RestInputNumber from 'components/common/RestInputNumber';
+import RestInputNumber from 'components/Rest/RestInputNumber';
 import { moneyFomatter } from 'utils/formatter';
 import { useDispatch } from 'react-redux';
 import actions from 'redux/utils/actions';

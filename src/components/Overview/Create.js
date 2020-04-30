@@ -1,4 +1,4 @@
-import RestCreate from 'components/common/RestCreate';
+import RestCreate from 'components/Rest/RestCreate';
 import React from 'react';
 import Form from './Form';
 

@@ -138,6 +138,7 @@ RestTable.defaultProps = {
   bordered: true,
   hasCreateButton: true,
   hasToggleFullScreen: false,
+  scroll: { x: 1000 },
 };
 
 export default RestTable;
