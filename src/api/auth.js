@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import request from './request';
 
 export async function loginApi(data) {

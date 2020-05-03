@@ -1,4 +1,19 @@
+/* eslint-disable import/no-cycle */
 import crudSlice from 'redux/utils/crudSlice';
+import { getAnalyticApi } from 'api/transactions';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+
+export const getAnalytic = createAsyncThunk(
+  'transactions/getAnalytic',
+  async (payload, thunkAPI) => {
+    try {
+      const response = await getAnalyticApi(payload);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue();
+    }
+  },
+);
 
 export const RESOURCE = 'transactions';
 export const { actions, reducer } = crudSlice({
@@ -7,15 +22,15 @@ export const { actions, reducer } = crudSlice({
     analytic: {},
     loading: null,
   },
-  reducers: {
-    getAnalytic: (state) => {
+  extraReducers: {
+    [getAnalytic.pending]: (state) => {
       state.loading = 'analytic';
     },
-    getAnalyticSuccess: (state, { payload }) => {
+    [getAnalytic.fulfilled]: (state, { payload }) => {
       state.analytic = payload;
       state.loading = null;
     },
-    getAnalyticFailure: (state) => {
+    [getAnalytic.rejected]: (state) => {
       state.loading = null;
     },
   },

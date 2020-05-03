@@ -1,12 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
-import { Alert, BackTop, Layout, Menu } from 'antd';
+import { Alert, BackTop, Layout } from 'antd';
 import useMedia from 'hooks/useMedia';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import SideBar from './SideBar';
-import UserInfo from './UserInfo';
+import Menu from './Menu';
 
 const { Content, Header } = Layout;
 const { ErrorBoundary } = Alert;
@@ -72,11 +72,7 @@ const PrivateLayout = ({ children, px, widthSideBar, logo, fullLogo }) => {
               onClick={toggle}
             />
           )}
-          <Menu mode="horizontal" className="flex">
-            <Menu.Item key="1">
-              <UserInfo />
-            </Menu.Item>
-          </Menu>
+          <Menu />
         </StyledHeader>
         <Content>
           <div

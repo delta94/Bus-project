@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import { reduxBatch } from '@manaflair/redux-batch';

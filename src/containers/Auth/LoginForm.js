@@ -5,18 +5,18 @@ import Icon from '@ant-design/icons';
 import i18next from 'i18next';
 import { ReactComponent as AccountIcon } from 'assets/svg/account.svg';
 import { ReactComponent as PasswordIcon } from 'assets/svg/password.svg';
-import { useDispatch } from 'react-redux';
-import actions from 'redux/utils/actions';
-import RestCreate from '../Rest/RestCreate';
-import RestInput from '../Rest/RestInput';
-import RestInputPassword from '../Rest/RestInputPassword';
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from 'redux/auth/slice';
+import RestCreate from '../../components/Rest/RestCreate';
+import RestInput from '../../components/Rest/RestInput';
+import RestInputPassword from '../../components/Rest/RestInputPassword';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
-
+  const { loading } = useSelector((state) => state.auth);
   const handleSubmit = (values) => {
     dispatch(
-      actions.auth.login({
+      login({
         data: values,
       }),
     );
@@ -50,6 +50,7 @@ const LoginForm = () => {
           htmlType="submit"
           style={{ marginTop: 20 }}
           className="w-full"
+          loading={loading}
         >
           {i18next.t('login.loginBtn')}
         </Button>

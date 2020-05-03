@@ -1,16 +1,10 @@
-import {
-  call,
-  put,
-  takeLatest,
-  takeEvery,
-  select,
-  fork,
-} from 'redux-saga/effects';
-import { replace } from 'connected-react-router';
+/* eslint-disable import/no-cycle */
 import { notification } from 'antd';
-import i18next from 'i18next';
 import request from 'api/request';
-import { handleError } from './handleError';
+import { replace } from 'connected-react-router';
+import i18next from 'i18next';
+import { call, put, select, takeEvery, takeLatest } from 'redux-saga/effects';
+import { showError } from './exception';
 
 const crudSaga = (resource, actions, sagas = []) => {
   function* getAllSaga({ payload }) {
@@ -32,7 +26,7 @@ const crudSaga = (resource, actions, sagas = []) => {
         throw response;
       }
     } catch (error) {
-      yield fork(handleError, error);
+      showError(error?.data);
       yield put(actions.setLoading(false));
     }
   }
@@ -49,7 +43,7 @@ const crudSaga = (resource, actions, sagas = []) => {
         throw response;
       }
     } catch (error) {
-      yield fork(handleError, error);
+      showError(error?.data);
     }
   }
 
@@ -102,7 +96,7 @@ const crudSaga = (resource, actions, sagas = []) => {
         throw response;
       }
     } catch (error) {
-      yield fork(handleError, error);
+      showError(error?.data);
     }
   }
 

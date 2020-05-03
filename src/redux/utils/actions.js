@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { actions as auth } from '../auth/slice';
 // import here
 import { actions as cards } from '../cards/slice';

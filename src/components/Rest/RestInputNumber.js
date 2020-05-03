@@ -76,7 +76,7 @@ const RestInputNumber = ({
       >
         <InputNumber
           min={min}
-          style={{ width }}
+          style={{ width, ...style }}
           parser={parser}
           formatter={formatter}
           step={step}

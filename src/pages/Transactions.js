@@ -1,5 +1,5 @@
 import RestList from 'components/Rest/RestList';
-import TransactionsTable from 'components/Transactions/Table';
+import TransactionsTable from 'containers/Transactions/Table';
 import React from 'react';
 
 const Transactions = () => {

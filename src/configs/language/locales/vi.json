@@ -36,6 +36,11 @@
   "cancel": "Huỷ bỏ",
   "continue": "Tiếp tục",
   "update": "Cập nhật",
+  "sum": "Tổng số",
+  "language": {
+    "vietnamese": "Tiếng việt",
+    "english": "Tiếng Anh"
+  },
   "input": {
     "username": {
       "placeholder": "Tên đăng nhập",

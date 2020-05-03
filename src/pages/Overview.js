@@ -1,6 +1,6 @@
 import React from 'react';
 import RestList from 'components/Rest/RestList';
-import CardTable from 'components/Overview/Table';
+import CardTable from 'containers/Overview/Table';
 
 const Overview = () => {
   return <RestList resource="cards" table={CardTable} />;

@@ -5,7 +5,12 @@ import { capitalize } from 'utils/string';
 
 export const PRIMARY_KEY = 'id';
 
-const crudSlice = ({ name, initialState = {}, reducers = {} }) => {
+const crudSlice = ({
+  name,
+  initialState = {},
+  reducers = {},
+  extraReducers = {},
+}) => {
   const { actions, reducer } = createSlice({
     name: capitalize(name),
     initialState: {
@@ -92,6 +97,7 @@ const crudSlice = ({ name, initialState = {}, reducers = {} }) => {
       },
       ...reducers,
     },
+    extraReducers,
   });
 
   return { actions, reducer };

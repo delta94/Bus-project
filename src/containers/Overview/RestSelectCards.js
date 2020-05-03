@@ -26,17 +26,7 @@ const RestSelectCards = ({
       wrapperCol={wrapperCol}
       labelCol={wrapperCol}
     >
-      <Select
-        mode={mode}
-        style={{ width: 400 }}
-        showArrow
-        filterOption={
-          (input, option) =>
-            option.props.children.toLowerCase().indexOf(input.toLowerCase()) >=
-            0
-          // eslint-disable-next-line react/jsx-curly-newline
-        }
-      >
+      <Select mode={mode} style={{ width: 400 }} showArrow>
         {data.map((e) => (
           <Select.Option key={e.id}>{e?.name}</Select.Option>
         ))}

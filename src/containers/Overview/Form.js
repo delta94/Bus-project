@@ -6,8 +6,12 @@ import { moneyFomatter } from 'utils/formatter';
 const Form = () => {
   return (
     <>
-      <RestInput label="Email" fieldName="email" />
-      <RestInput label="Họ và tên" fieldName="name" />
+      <RestInput label="Email" fieldName="email" placeholder="Nhập email" />
+      <RestInput
+        label="Họ và tên"
+        fieldName="name"
+        placeholder="Nhập họ và tên"
+      />
       <RestInputNumber
         label="Số tiền"
         fieldName="amount"

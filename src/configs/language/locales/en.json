@@ -1,255 +1,129 @@
 {
-  "appInfo": {
-    "footer": "Cashbag ©2018 Created by Enouvo IT Soluttions",
-    "name": "React Admin"
-  },
-  "sideBar": {
-    "settings": "Settings",
-    "analysis": {
-      "title": "Analysis",
-      "transactions": "Transactions"
-    }
-  },
-  "header": {
-    "profile": "Profile",
-    "logout": "Logout"
+  "user": "Người dùng",
+  "brand": "Thương hiệu",
+  "commission": "Hoa hồng",
+  "value": "Giá trị",
+  "title": "Tiêu đề",
+  "order": "Đơn hàng",
+  "refund": "Hoàn tiền",
+  "updateDay": "Ngày cập nhật",
+  "orderCode": "Mã đơn hàng",
+  "transactionHistory": "Lịch sử giao dịch",
+  "totalTransaction": "Tổng đơn hàng",
+  "currentCash": "Số dư khả dụng",
+  "currentCashTotal": "Tổng Số dư khả dụng",
+  "pendingCommission": "Hoàn tiền chờ duyệt",
+  "company": "Công ty",
+  "successCommission": "Hoàn tiền thành công",
+  "pendingCash": "Tổng hoàn tiền chờ duyệt",
+  "withdrawCash": "Tiền đã rút",
+  "totalExpense": "Tổng chi tiêu",
+  "topup": "Chương trình Topup",
+  "createDay": "Ngày ghi nhận",
+  "cashbag": "Tổng hoàn tiền",
+  "status": "Trạng thái",
+  "upload": "Cập nhật",
+  "commissionTotal": "Tổng hoa hồng",
+  "meanComissionTotal": "Hoa hồng trung bình trên đơn hàng",
+  "uploadConfirm": "Bạn có muốn cập nhật hình ảnh này",
+  "createSuccess": "Tạo thành công",
+  "editSuccess": "Chỉnh sửa thành công",
+  "deleteSuccess": "Xoá thành công",
+  "back": "Quay lại",
+  "confirm": "Xác nhận",
+  "sendOTP": "Gửi OTP",
+  "createNew": "Tạo mới",
+  "cancel": "Huỷ bỏ",
+  "continue": "Tiếp tục",
+  "update": "Cập nhật",
+  "sum": "Sum",
+  "language": {
+    "vietnamese": "Vietnamese",
+    "english": "English"
   },
   "input": {
     "username": {
-      "placeholder": "Username",
+      "placeholder": "Tên đăng nhập",
       "validateMsg": {
-        "required": "Please input your username!"
+        "required": "Nhập tên đăng nhập!"
       }
     },
     "fullName": {
-      "placeholder": "Full Name",
+      "placeholder": "Tên đầy đủ",
       "validateMsg": {
-        "required": "Please input your full name!"
+        "required": "Nhập tên đầy đủ của bạn!"
       }
     },
     "firstName": {
-      "placeholder": "First Name",
+      "placeholder": "Tên",
       "validateMsg": {
-        "required": "Please input your first name!"
+        "required": "Nhập tên của bạn!"
       }
     },
     "lastName": {
-      "placeholder": "Last Name",
+      "placeholder": "Họ",
       "validateMsg": {
-        "required": "Please input your last name!"
+        "required": "Nhập họ của bạn!"
       }
     },
     "password": {
-      "placeholder": "Password",
+      "placeholder": "Mật khẩu",
       "validateMsg": {
-        "required": "Please input your password!"
+        "required": "Nhập mật khẩu của bạn!"
       }
     },
     "confirmPassword": {
-      "placeholder": "Confirm Password",
+      "placeholder": "Nhập lại mật  khẩu",
       "validateMsg": {
-        "required": "Please input your confirm password!"
+        "required": "Nhập lại mật khẩu xác nhận!"
+      }
+    },
+    "email": {
+      "placeholder": "Email",
+      "validateMsg": {
+        "required": "Nhập Email của bạn!"
+      }
+    },
+    "phoneNumber": {
+      "placeholder": "PhoneNumber",
+      "validateMsg": {
+        "required": "Số điện thoại không hợp lệ!",
+        "invalid": "Phone number is invalid"
       }
     }
-  },
-
-  "form": {
-    "btn": {
-      "add": "Add new",
-      "edit": "Edit"
-    }
-  },
-  "invite": {
-    "acceptSuccess": "Congratulations! You become to administrator",
-    "backToHome": "Back to Login"
   },
   "login": {
-    "title": "Login",
-    "rememberMe": "Remember me",
-    "yourEmail": "Your Email",
-    "resetPassword": "Reset password",
-    "password": "Password"
+    "title": "Đăng nhập",
+    "rememberMe": "Lưu",
+    "loginBtn": "Đăng nhập",
+    "yourEmail": "Email của bạn",
+    "resetPassword": "Làm mới mật khẩu",
+    "password": "Mật khẩu"
   },
-
-  "register": {
-    "title": "Register",
-    "registerBtn": "Register"
-  },
-
   "forgotPassword": {
-    "title": "Forgot password",
+    "title": "Quên mật khẩu",
     "success": {
-      "title": "Reset Password Success!",
-      "description": "Please check your email and create a new password."
+      "title": "Làm mới mật khẩu thành công!",
+      "description": "Bạn hãy kiểm tra email và tạo mật khẩu mới."
     }
   },
-
-  "dashboard": {
-    "summary": {
-      "customers": "Customers",
-      "orders": "Orders",
-      "revenue": "Revenue",
-      "products": "Products"
-    },
-    "newOrders": "New Orders"
+  "overview": {
+    "breadCrumb": "Overview",
+    "sidebar": "Overview",
+    "titleTable": "Danh sách công ty"
   },
-  "users": {
-    "title": "Users",
-    "summary": {
-      "customers": "Customers",
-      "orders": "Orders",
-      "revenue": "Revenue",
-      "products": "Products"
-    },
-    "newOrders": "New Orders"
+  "transactions": {
+    "breadCrumb": "Transaction History",
+    "sidebar": "Transaction History",
+    "titleTable": "Transaction List"
   },
-  "settings": {
-    "title": "Settings"
+  "cards": {
+    "breadCrumb": "Overview",
+    "titleTable": "Card List"
   },
-  "button": {
-    "create": "Create",
-    "add": "Add",
-    "edit": "Edit",
-    "cancel": "Cancel",
-    "delete": "Delete",
-    "save": "Save",
-    "ok": "Ok",
-    "duplicate": "Duplicate",
-    "search": "Search",
-    "reset": "Reset",
-    "resetMyPassword": "Reset Password",
-    "submit": "Submit",
-    "call": "Call",
-    "loadMore": "Load More...",
-    "sentInvite": "Sent Invite",
-    "resendInvite": "Resend Invite",
-    "publish": "Publish & Save",
-    "draft": "Draft & Save",
-    "clear": "Clear",
-    "sendEmail": "Send Email"
-  },
-  "popup": {
-    "alertDelete": "Delete Data",
-    "alertDeleteDes": "Do you want to delete {{customMessage}}?"
-  },
-  "error": {
-    "title": "Oops!",
-    "description": "Some thing wrong!",
-    "waitingUpdate": "Waiting  Update",
-    "required": "This field is required",
-    "email": "The input is not valid E-mail!",
-    "customerName": "The input is not valid! (only a-z, 0-9, -, _ and 3->100 characters)",
-    "unAuth": "You don't have permission",
-    "phone": "The input is not valid Phone!",
-    "password": "Password must be at least 6 characters (0-9 a-z)",
-    "fullname": "FullName must contain characters and numbers only (0-9 a-z)",
-    "validateType": "The input is not valid",
-    "name": "Name must be at most 255 characters",
-    "customername": "Name must not contain white spaces",
-    "username": "Username must contain characters and numbers only (0-9 a-z)"
-  },
-  "success": {
-    "title": "Successfully!",
-    "description": "The update is successful!",
-    "updateSuccess": "Update Successfully",
-    "createSuccess": "Create new Data Successfully"
-  },
-  "settingTabs": {
-    "staff": "Admin & Staff",
-    "specifiers": "Specifiers",
-    "productCategories": "Product Categories",
-    "productNonContains": "Product Non Contains",
-    "questions": "Questions",
-    "supplements": "Supplements",
-    "discounts": "Discounts",
-    "supportCountries": "Support Countries",
-    "currencies": "Currencies"
-  },
-  "gender": {
-    "title": "Gender",
-    "male": "Male",
-    "female": "Female",
-    "other": "Other"
-  },
-  "placeholder": {
-    "undefined": "select...",
-    "search": "Search..."
-  },
-  "text": {
-    "or": "OR"
-  },
-  "analysis": {
-    "title": {
-      "transactions": "Analysis - Transactions"
-    },
-    "tabs": {
-      "order": "Đơn hàng",
-      "transactionValue": "Transaction value",
-      "brand": "Brand"
-    },
-    "filter": {
-      "time": "Time",
-      "status": {
-        "title": "Status",
-        "placeholder": "Select status"
-      },
-      "orderCode": {
-        "title": "Order Code",
-        "placeholder": "Search..."
-      },
-      "cashbackFrom": {
-        "title": "Cashback from",
-        "placeholder": "Select cashback resource"
-      },
-      "brand": {
-        "title": "Brand",
-        "placeholder": "Select brand"
-      },
-      "resource": {
-        "title": "Resource",
-        "placeholder": "Select resource"
-      }
-    },
-    "summaries": {
-      "totalTransaction": "Total transaction / Num of buyers",
-      "totalTransactionValue": "Total transaction value",
-      "totalCommission": "Total commission",
-      "cashback": "Cashback",
-      "totalRevenue": "Total revenue",
-      "averagePerTransaction": "Average per transaction"
-    },
-    "brands": {
-      "name": "Name",
-      "transactionValue": "Transaction value",
-      "commission": "Total Commission",
-      "cashback": "Cashback"
-    },
-    "transactions": {
-      "title": "Transaction Histories ({{total}}): {{date}}",
-      "user": "User Name",
-      "brand": "Brand",
-      "value": "Value",
-      "commission": "Commission",
-      "createdAt": "Created At",
-      "updatedAt": "Updated At",
-      "orderCode": "Order Code"
-    },
-    "status": {
-      "all": "All",
-      "pending": "Pending",
-      "cashback": "Cashback",
-      "approved": "Approved",
-      "rejected": "Rejected",
-      "notRejected": "Not Rejected"
-    },
-    "cashbackFrom": {
-      "all": "All",
-      "partner": "Partner",
-      "cashbag": "Cashbag"
-    },
-    "resource": {
-      "all": "All",
-      "access_trade": "Access Trade"
-    }
+  "analytic": {
+    "breadCrumb": "Analytic",
+    "sidebar": "Analytic",
+    "titleTable": "Danh sách thẻ"
   }
 }
