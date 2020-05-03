@@ -4,6 +4,7 @@ import moment from 'moment';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
+import { formatDate } from 'utils/textUtils';
 
 const StyledDatePicker = styled(DatePicker.RangePicker)`
   width: 280px;
@@ -44,8 +45,8 @@ const DateFilter = ({ isUserTab }) => {
   const { query, handlePushParams } = useRouter();
   const handleChange = (e) => {
     handlePushParams({
-      start: new Date(e[0]).toISOString(),
-      end: new Date(e[1]).toISOString(),
+      startTime: formatDate(new Date(e[0]), 'YYYY-MM-DD'),
+      endTime: formatDate(new Date(e[1]), 'YYYY-MM-DD'),
     });
   };
   return (
@@ -53,8 +54,8 @@ const DateFilter = ({ isUserTab }) => {
       <StyledDatePicker
         isUserTab={isUserTab}
         value={[
-          moment(new Date(query.start), 'DD/MM/YYYY'),
-          moment(new Date(query.end), 'DD/MM/YYYY'),
+          moment(new Date(query.startTime), 'DD/MM/YYYY'),
+          moment(new Date(query.endTime), 'DD/MM/YYYY'),
         ]}
         disabledDate={disabledDate}
         format="DD/MM/YYYY"

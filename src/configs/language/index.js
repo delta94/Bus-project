@@ -16,7 +16,7 @@ i18n
         translation: enLocale,
       },
     },
-    lng: localStorage.getItem('locale'),
+    lng: localStorage.getItem('language'),
     fallbackLng: 'vi',
     interpolation: {
       escapeValue: false,

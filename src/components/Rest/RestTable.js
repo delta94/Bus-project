@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 import useRouter from 'hooks/useRouter';
 import CardTitle from 'components/common/CardTitle';
 import PropTypes from 'prop-types';
-import i18next from 'i18next';
 import { hashSortParams } from 'utils/url';
 import {
   ColumnHeightOutlined,
@@ -16,6 +15,7 @@ import {
 import { isNull } from 'utils/validateUtils';
 import FullScreen from 'react-full-screen';
 import TooltipIcon from 'components/common/TooltipIcon';
+import { useTranslation } from 'react-i18next';
 
 const RestTable = ({
   title,
@@ -31,6 +31,8 @@ const RestTable = ({
   pagination,
   bordered,
 }) => {
+  const { t } = useTranslation();
+
   const data = useSelector((state) => state[resource]);
   const { query, handlePushModal, handlePushParams } = useRouter();
   const [size, setSize] = useState('default');
@@ -55,8 +57,8 @@ const RestTable = ({
     <FullScreen enabled={isFull} onChange={(isFull) => setFull(isFull)}>
       <Card
         title=<CardTitle
-          title={title || i18next.t(`${resource}.titleTable`)}
-          subTitle={`Tổng số: ${data?.totalItems}`}
+          title={title || t(`${resource}.titleTable`)}
+          subTitle={`${t('sum')}: ${data?.totalItems}`}
         />
         className="card-padding-body-0"
         extra=<div className="flex items-center">

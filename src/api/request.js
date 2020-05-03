@@ -2,6 +2,8 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable no-console */
 import axios from 'axios';
+import { actions } from 'redux/auth/slice';
+import store from '../redux/store';
 
 const logger = (error) => {
   console.error('Request Failed:', error.config);
@@ -38,6 +40,9 @@ request.interceptors.response.use(
   },
   (error) => {
     logger(error);
+    if (error.response.status === 401) {
+      store.dispatch(actions.logout());
+    }
     return Promise.reject(error.response || error.message);
   },
 );

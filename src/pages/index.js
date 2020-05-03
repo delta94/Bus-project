@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Layout from 'components/common/Layout';
+import Layout from 'components/Layout/Layout';
 import PrivateRoute from 'pages/utils/PrivateRoute';
-import CreateCard from 'components/Overview/Create';
-import Topup from 'components/Overview/Topup';
+import CreateCard from 'containers/Overview/Create';
+import Topup from 'containers/Overview/Topup';
 import loadable from './utils/loadable';
 import ModalRoute from './utils/ModalRoute';
 

@@ -19,6 +19,7 @@ const RestInput = ({
   addonAfter,
   labelCol,
   disabled,
+  initialValue,
 }) => {
   return (
     <Form.Item
@@ -36,6 +37,7 @@ const RestInput = ({
       ]}
       labelCol={labelCol}
       wrapperCol={wrapperCol}
+      initialValue={initialValue}
     >
       <Input
         disabled={disabled}
@@ -57,6 +59,7 @@ RestInput.propTypes = {
   required: PropTypes.bool,
   messageRequire: PropTypes.string,
   messageValidate: PropTypes.string,
+  initialValue: PropTypes.string,
   onChange: PropTypes.func,
   pattern: PropTypes.any,
   placeholder: PropTypes.string,

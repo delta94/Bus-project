@@ -3,14 +3,16 @@ import FilterTabPane from 'components/common/FilterTabPane';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { formatNumber, formatNumberToMoney } from 'utils/textUtils';
+import DateFilter from 'components/common/DateFilter';
 import AnalyticChart from './AnalyticChart';
 
 const DataAnalytic = () => {
   const data = useSelector((state) => state.transactions);
   return (
     <>
-      <div style={{ marginBottom: 20 }}>
+      <div style={{ marginBottom: 20 }} className="flex justify-between">
         <FilterTabPane />
+        <DateFilter />
       </div>
       <Row gutter={20}>
         <Col sm={8} xs={24} style={{ marginBottom: 20 }}>
