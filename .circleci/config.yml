@@ -34,7 +34,10 @@ workflows:
       - build_and_test
   build_deploy_stg:
     jobs:
-      - build_and_test
+      - build_and_test:
+        filters:
+          branches:
+            only: develop
       - deploy:
           filters:
             branches:
@@ -42,7 +45,10 @@ workflows:
           context: staging
   build_deploy_prod:
     jobs:
-      - build_and_test
+      - build_and_test:
+        filters:
+          branches:
+            only: master
       - deploy:
           filters:
             branches:
