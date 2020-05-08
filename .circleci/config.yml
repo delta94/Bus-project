@@ -30,11 +30,11 @@ workflows:
           filters:
             branches:
               only: develop
-            context: stating
+          context: stating
   build_deploy_prod:
     jobs:
       - build_deploy:
           filters:
             branches:
               only: master
-            context: production
+          context: production
