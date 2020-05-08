@@ -138,9 +138,6 @@ const AppWrapper = createGlobalStyle`
   .text-600-50-46 {
     font: normal 600 50px/46px ${({ theme }) => theme.fonts.primary};
   }
-  .text-600-50-46 {
-    font: normal 600 50px/46px ${({ theme }) => theme.fonts.primary};
-  }
   .border-l-4-solid-error {
     border-left: 4px solid ${({ theme }) => theme.border.error};
   }
