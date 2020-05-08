@@ -2,7 +2,7 @@ version: 2.1
 orbs:
   node: circleci/node@1.1.6
 jobs:
-  build_deploy:
+  build_and_test:
     executor:
       name: node/default
     steps:
@@ -38,10 +38,7 @@ workflows:
                 - develop
   build_deploy_stg:
     jobs:
-      - build_and_test:
-          filters:
-            branches:
-              only: develop
+      - build_and_test
       - deploy:
           filters:
             branches:
@@ -49,10 +46,7 @@ workflows:
           context: stating
   build_deploy_prod:
     jobs:
-      - build_and_test:
-          filters:
-            branches:
-              only: master
+      - build_and_test
       - deploy:
           filters:
             branches:
