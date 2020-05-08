@@ -2,7 +2,7 @@ version: 2.1
 orbs:
   node: circleci/node@1.1.6
 jobs:
-  build_and_test:
+  build_deploy:
     executor:
       name: node/default
     steps:
@@ -20,37 +20,21 @@ jobs:
       - run:
           name: 'Build Project'
           command: 'yarn build'
-  deploy:
-    executor:
-      name: node/default
-    steps:
       - run:
           name: 'Deploy to Firebase Hosting'
           command: './node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --project=$FIREBASE_PROJECT_ID_STATING'
 workflows:
-  version: 2
-  build_and_test:
-    jobs:
-      - build_and_test
   build_deploy_stg:
     jobs:
-      - build_and_test:
+      - build_deploy:
           filters:
             branches:
               only: develop
-      - deploy:
-          filters:
-            branches:
-              only: develop
-          context: staging
+            context: stating
   build_deploy_prod:
     jobs:
-      - build_and_test:
+      - build_deploy:
           filters:
             branches:
               only: master
-      - deploy:
-          filters:
-            branches:
-              only: master
-          context: prodution
+            context: production
