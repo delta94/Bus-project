@@ -20,11 +20,17 @@ jobs:
       - run:
           name: 'Build Project'
           command: 'yarn build'
+      - persist_to_workspace:
+          root: /tmp/workspace
+          paths:
+            - firebase.json
+            - .firebaserc
   deploy:
     executor:
       name: node/default
     steps:
-      - checkout
+      - attach_workspace:
+          at: /tmp/workspace
       - run:
           name: 'Deploy to Firebase Hosting'
           command: './node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --project=$FIREBASE_PROJECT_ID'
