@@ -64,6 +64,8 @@ jobs:
           command: 'yarn build'
 workflows:
   build_and_test:
+    jobs:
+      - build_and_test
   build_deploy_stg:
     jobs:
       - build_deploy_stg:
