@@ -50,8 +50,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "yarn pretty && yarn lint",
-      "pre-push": "yarn test"
+      "pre-commit": "yarn pretty && yarn lint"
     }
   },
   "browserslist": [
