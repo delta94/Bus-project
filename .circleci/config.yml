@@ -44,7 +44,26 @@ jobs:
       - run:
           name: 'Deploy to Firebase Hosting'
           command: './node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --project=$FIREBASE_PROJECT_ID_PRODUCT'
+  build_and_test:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - 'v1-dependencies-{{ checksum "package.json" }}'
+            - v1-dependencies-
+      - run: 'yarn install'
+      - save_cache:
+          paths:
+            - node_modules
+          key: 'v1-dependencies-{{ checksum "package.json" }}'
+      - run: 'yarn lint'
+      - run:
+          name: 'Build Project'
+          command: 'yarn build'
 workflows:
+  build_and_test:
   build_deploy_stg:
     jobs:
       - build_deploy_stg:
