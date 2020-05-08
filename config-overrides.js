@@ -7,9 +7,26 @@ const {
   useBabelRc,
 } = require('customize-cra');
 const themeConfig = require('./src/configs/theme/adminTheme');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 /* eslint-disable */
+function myOverrides(config, env) {
+  if (!config.plugins) {
+    config.plugins = [];
+  }
+  for (let i = 0; i < config.plugins.length; i++) {
+    const p = config.plugins[i];
+    if (!!p.constructor && p.constructor.name === MiniCssExtractPlugin.name) {
+      const miniCssExtractOptions = { ...p.options, ignoreOrder: true };
+      config.plugins[i] = new MiniCssExtractPlugin(miniCssExtractOptions);
+      break;
+    }
+  }
+  return config;
+}
+
 module.exports = override(
+  myOverrides,
   fixBabelImports('import', {
     libraryName: 'antd',
     libraryDirectory: 'es',
