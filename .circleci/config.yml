@@ -2,20 +2,6 @@ version: 2.1
 orbs:
   node: circleci/node@1.1.6
 jobs:
-  build_deploy_stg:
-    executor:
-      name: node/default
-    steps:
-      - run:
-          name: 'Deploy to Firebase Hosting'
-          command: './node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --project=$FIREBASE_PROJECT_ID_STATING'
-  build_deploy_prod:
-    executor:
-      name: node/default
-    steps:
-      - run:
-          name: 'Deploy to Firebase Hosting'
-          command: './node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --project=$FIREBASE_PROJECT_ID_PRODUCT'
   build_and_test:
     executor:
       name: node/default
@@ -34,17 +20,31 @@ jobs:
       - run:
           name: 'Build Project'
           command: 'yarn build'
+  deploy_stg:
+    executor:
+      name: node/default
+    steps:
+      - run:
+          name: 'Deploy to Firebase Hosting'
+          command: './node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --project=$FIREBASE_PROJECT_ID_STATING'
+  deploy_prod:
+    executor:
+      name: node/default
+    steps:
+      - run:
+          name: 'Deploy to Firebase Hosting'
+          command: './node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --project=$FIREBASE_PROJECT_ID_PRODUCT'
 workflows:
   build_and_test:
+    jobs:
+      - build_and_test
+  build_deploy_stg:
     jobs:
       - build_and_test:
         filters:
           branches:
             only: develop
-  build_deploy_stg:
-    jobs:
-      - build_and_test
-      - build_deploy_stg:
+      - deploy_stg:
           requires:
             - build_and_test
           filters:
@@ -52,8 +52,11 @@ workflows:
               only: develop
   build_deploy_prod:
     jobs:
-      - build_and_test
-      - build_deploy_prod:
+      - build_and_test:
+        filters:
+          branches:
+            only: master
+      - deploy_prod:
           requires:
             - build_and_test
           filters:
