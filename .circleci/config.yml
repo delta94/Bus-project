@@ -2,6 +2,48 @@ version: 2.1
 orbs:
   node: circleci/node@1.1.6
 jobs:
+  build_deploy_stg:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - 'v1-dependencies-{{ checksum "package.json" }}'
+            - v1-dependencies-
+      - run: 'yarn install'
+      - save_cache:
+          paths:
+            - node_modules
+          key: 'v1-dependencies-{{ checksum "package.json" }}'
+      - run: 'yarn lint'
+      - run:
+          name: 'Build Project'
+          command: 'yarn build'
+      - run:
+          name: 'Deploy to Firebase Hosting'
+          command: './node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --project=$FIREBASE_PROJECT_ID_STATING'
+  build_deploy_prod:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - 'v1-dependencies-{{ checksum "package.json" }}'
+            - v1-dependencies-
+      - run: 'yarn install'
+      - save_cache:
+          paths:
+            - node_modules
+          key: 'v1-dependencies-{{ checksum "package.json" }}'
+      - run: 'yarn lint'
+      - run:
+          name: 'Build Project'
+          command: 'yarn build'
+      - run:
+          name: 'Deploy to Firebase Hosting'
+          command: './node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --project=$FIREBASE_PROJECT_ID_PRODUCT'
   build_and_test:
     executor:
       name: node/default
@@ -20,45 +62,19 @@ jobs:
       - run:
           name: 'Build Project'
           command: 'yarn build'
-  deploy_stg:
-    executor:
-      name: node/default
-    steps:
-      - run:
-          name: 'Deploy to Firebase Hosting'
-          command: './node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --project=$FIREBASE_PROJECT_ID_STATING'
-  deploy_prod:
-    executor:
-      name: node/default
-    steps:
-      - run:
-          name: 'Deploy to Firebase Hosting'
-          command: './node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --project=$FIREBASE_PROJECT_ID_PRODUCT'
 workflows:
   build_and_test:
     jobs:
       - build_and_test
   build_deploy_stg:
     jobs:
-      - build_and_test:
-        filters:
-          branches:
-            only: develop
-      - deploy_stg:
-          requires:
-            - build_and_test
+      - build_deploy_stg:
           filters:
             branches:
               only: develop
   build_deploy_prod:
     jobs:
-      - build_and_test:
-        filters:
-          branches:
-            only: master
-      - deploy_prod:
-          requires:
-            - build_and_test
+      - build_deploy_prod:
           filters:
             branches:
               only: master
