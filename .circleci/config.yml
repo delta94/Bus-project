@@ -40,7 +40,7 @@ workflows:
           filters:
             branches:
               ignore:
-                - stating
+                - master
                 - develop
   build_deploy_stg:
     jobs:
