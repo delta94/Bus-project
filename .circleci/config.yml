@@ -35,7 +35,7 @@ workflows:
   build_deploy_stg:
     jobs:
       - build_and_test
-      - deploy_stg:
+      - deploy:
           filters:
             branches:
               only: develop
@@ -43,7 +43,7 @@ workflows:
   build_deploy_prod:
     jobs:
       - build_and_test
-      - deploy_prod:
+      - deploy:
           filters:
             branches:
               only: master
