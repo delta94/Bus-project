@@ -44,12 +44,12 @@ const RestTable = ({
     sorter,
     // { currentDataSource } = extra,
   ) => {
-    const q = hashSortParams(sorter.columnKey, sorter.order);
+    const sort = hashSortParams(sorter.columnKey, sorter.order);
     handlePushParams({
       page: pagination.current,
       limit: pagination.pageSize,
       ...(formatFilters ? formatFilters(filters) : filters),
-      q,
+      sort,
     });
   };
 

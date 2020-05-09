@@ -2,7 +2,7 @@
 import RestTable from 'components/Rest/RestTable';
 import React from 'react';
 import { formatNumberToMoney, formatNumber } from 'utils/textUtils';
-import { Button } from 'antd';
+import { Button, Typography } from 'antd';
 import useRouter from 'hooks/useRouter';
 
 const Table = () => {
@@ -26,6 +26,9 @@ const Table = () => {
       title: 'Số diện thoại',
       dataIndex: 'phoneNumber',
       key: 'phoneNumber',
+      render: (row) => (
+        <Typography.Paragraph copyable>{row}</Typography.Paragraph>
+      ),
     },
 
     {
@@ -38,12 +41,14 @@ const Table = () => {
       dataIndex: 'amount',
       key: 'amount',
       render: (row) => <span>{formatNumberToMoney(row)}</span>,
+      sorter: true,
     },
     {
       title: 'Tổng số lần đi',
       dataIndex: 'totalTransaction',
       key: 'totalTransaction',
       render: (row) => <span>{formatNumber(row)}</span>,
+      sorter: true,
     },
   ];
   return (

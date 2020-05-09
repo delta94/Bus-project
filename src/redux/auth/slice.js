@@ -65,7 +65,7 @@ export const { actions, reducer } = createSlice({
       state.data.name = payload.data.username;
       state.loading = null;
     },
-    [login.rejected]: (state) => {
+    [getInfo.rejected]: (state) => {
       state.loading = null;
     },
   },
