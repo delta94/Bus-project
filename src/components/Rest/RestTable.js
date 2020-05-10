@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/jsx-closing-tag-location */
 import React, { useState } from 'react';
@@ -16,16 +17,20 @@ import { isNull } from 'utils/validateUtils';
 import FullScreen from 'react-full-screen';
 import TooltipIcon from 'components/common/TooltipIcon';
 import { useTranslation } from 'react-i18next';
+import RestExportExcel from './RestExportExcel';
 
 const RestTable = ({
   title,
   columns,
   resource,
-  extra,
+  action: {
+    hasCreateButton = true,
+    hasToggleFullScreen = true,
+    hasExportExcelButton = true,
+    extra,
+  },
   expandable,
   scroll,
-  hasCreateButton,
-  hasToggleFullScreen,
   onChange,
   formatFilters,
   pagination,
@@ -38,12 +43,7 @@ const RestTable = ({
   const [size, setSize] = useState('default');
   const [isFull, setFull] = useState(false);
 
-  const handlePaginate = (
-    pagination,
-    filters,
-    sorter,
-    // { currentDataSource } = extra,
-  ) => {
+  const handlePaginate = (pagination, filters, sorter) => {
     const sort = hashSortParams(sorter.columnKey, sorter.order);
     handlePushParams({
       page: pagination.current,
@@ -67,9 +67,13 @@ const RestTable = ({
             <Button
               type="primary"
               onClick={() => handlePushModal(`${resource}/create`)}
+              style={{ marginLeft: 15 }}
             >
-              Tạo mới
+              {t('createNew')}
             </Button>
+          )}
+          {hasExportExcelButton && (
+            <RestExportExcel resource={resource} style={{ marginLeft: 15 }} />
           )}
           {hasToggleFullScreen && (
             <TooltipIcon
@@ -126,10 +130,13 @@ RestTable.propTypes = {
   columns: PropTypes.array,
   resource: PropTypes.string,
   title: PropTypes.string,
-  extra: PropTypes.any,
+  action: PropTypes.shape({
+    extra: PropTypes.any,
+    hasCreateButton: PropTypes.bool,
+    hasToggleFullScreen: PropTypes.bool,
+    hasExportExcelButton: PropTypes.bool,
+  }),
   scroll: PropTypes.object,
-  hasCreateButton: PropTypes.bool,
-  hasToggleFullScreen: PropTypes.bool,
   onChange: PropTypes.func,
   formatFilters: PropTypes.func,
   expandable: PropTypes.any,
@@ -138,8 +145,11 @@ RestTable.propTypes = {
 
 RestTable.defaultProps = {
   bordered: true,
-  hasCreateButton: true,
-  hasToggleFullScreen: false,
+  action: {
+    hasCreateButton: true,
+    hasToggleFullScreen: true,
+    hasExportExcelButton: true,
+  },
   scroll: { x: 1000 },
 };
 

@@ -55,11 +55,9 @@ const Table = () => {
     <RestTable
       columns={columns}
       resource="cards"
-      extra={
-        <Button onClick={onTopup} style={{ marginRight: 10 }}>
-          Nạp tiền
-        </Button>
-      }
+      action={{
+        extra: <Button onClick={onTopup}>Nạp tiền</Button>,
+      }}
     />
   );
 };

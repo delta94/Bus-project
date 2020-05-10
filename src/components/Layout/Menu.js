@@ -4,6 +4,7 @@ import Notification from './Notification';
 import UserInfo from './UserInfo';
 import Language from './Language';
 import Search from './Search';
+import Chat from './Chat';
 
 const Menu = () => {
   return (
@@ -15,10 +16,13 @@ const Menu = () => {
         <Notification />
       </MenuItem>
       <MenuItem>
-        <UserInfo />
+        <Language />
       </MenuItem>
       <MenuItem>
-        <Language />
+        <Chat />
+      </MenuItem>
+      <MenuItem>
+        <UserInfo />
       </MenuItem>
     </div>
   );

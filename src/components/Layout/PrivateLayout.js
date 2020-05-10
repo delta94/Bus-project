@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import SideBar from './SideBar';
-import Menu from './Menu/Menu';
+import Menu from './Menu';
 
 const { Content, Header } = Layout;
 const { ErrorBoundary } = Alert;

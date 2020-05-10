@@ -15,12 +15,14 @@ const Table = () => {
       dataIndex: 'updatedAt',
       key: 'updatedAt',
       render: (row) => <span>{formatDate(row, 'DD/MM/YYYY hh:mm:ss')}</span>,
+      sorter: true,
     },
     {
       title: 'Số tiền',
       dataIndex: 'amount',
       key: 'amount',
       render: (row) => <span>{formatNumberToMoney(row)}</span>,
+      sorter: true,
     },
     {
       title: 'Số thẻ',
@@ -29,15 +31,7 @@ const Table = () => {
       render: (row) => <span>{row}</span>,
     },
   ];
-  return (
-    <>
-      <RestTable
-        columns={columns}
-        resource="transactions"
-        hasCreateButton={false}
-      />
-    </>
-  );
+  return <RestTable columns={columns} resource="transactions" />;
 };
 
 Table.propTypes = {};
