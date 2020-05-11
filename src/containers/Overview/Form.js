@@ -2,6 +2,7 @@ import RestInput from 'components/Rest/RestInput';
 import React from 'react';
 import RestInputNumber from 'components/Rest/RestInputNumber';
 import { moneyFomatter } from 'utils/formatter';
+import { validateRegex } from 'utils/validateUtils';
 
 const Form = () => {
   return (
@@ -11,6 +12,12 @@ const Form = () => {
         label="Họ và tên"
         fieldName="name"
         placeholder="Nhập họ và tên"
+      />
+      <RestInput
+        label="Số điện thoại"
+        fieldName="phoneNumber"
+        pattern={validateRegex.phone}
+        placeholder="Nhập số điện thoại"
       />
       <RestInputNumber
         label="Số tiền"

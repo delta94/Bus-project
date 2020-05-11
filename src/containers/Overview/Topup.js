@@ -3,7 +3,7 @@ import React from 'react';
 import RestInputNumber from 'components/Rest/RestInputNumber';
 import { moneyFomatter } from 'utils/formatter';
 import { useDispatch } from 'react-redux';
-import actions from 'redux/utils/actions';
+import actions from 'redux/actions';
 import useRouter from 'hooks/useRouter';
 import RestSelectCards from './RestSelectCards';
 
@@ -17,8 +17,6 @@ const Topup = () => {
         data: {
           amount: values.amount,
         },
-        hasActionAfterSucess: false,
-        method: 'put',
       }),
     ).then(() => {
       dispatch(

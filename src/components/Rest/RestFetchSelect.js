@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { Select, Form } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
-import actions from 'redux/utils/actions';
+import actions from 'redux/actions';
 import { PRIMARY_KEY } from 'redux/utils/crudSlice';
 import PropTypes from 'prop-types';
 import { hashSearchParams, DEFAULT_QUERY } from 'utils/url';

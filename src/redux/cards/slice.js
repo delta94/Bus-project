@@ -1,8 +1,8 @@
+/* eslint-disable import/no-cycle */
 import crudSlice from 'redux/utils/crudSlice';
 
-export const RESOURCE = 'cards';
 export const { actions, reducer } = crudSlice({
-  name: RESOURCE,
+  name: 'cards',
 });
 
 export default reducer;

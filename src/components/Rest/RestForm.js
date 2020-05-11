@@ -31,7 +31,7 @@ const RestForm = ({
           <div className="flex justify-end" style={{ marginTop: '20px' }}>
             <Form.Item>
               <Button
-                loading={loading}
+                loading={loading === 'create' || loading === 'update'}
                 icon={<CheckCircleOutlined />}
                 type="primary"
                 htmlType="submit"

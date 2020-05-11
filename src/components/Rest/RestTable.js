@@ -1,5 +1,4 @@
 /* eslint-disable max-lines */
-/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/jsx-closing-tag-location */
 import React, { useState } from 'react';
 import { Table, Card, Button, Dropdown, Menu } from 'antd';
@@ -117,7 +116,7 @@ const RestTable = ({
                 }
               : false
           }
-          loading={data?.loading}
+          loading={data?.loading === 'getAll'}
           scroll={scroll}
         />
       </Card>
@@ -136,7 +135,10 @@ RestTable.propTypes = {
     hasToggleFullScreen: PropTypes.bool,
     hasExportExcelButton: PropTypes.bool,
   }),
-  scroll: PropTypes.object,
+  scroll: PropTypes.shape({
+    x: PropTypes.number,
+    y: PropTypes.number,
+  }),
   onChange: PropTypes.func,
   formatFilters: PropTypes.func,
   expandable: PropTypes.any,

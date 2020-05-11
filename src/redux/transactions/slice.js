@@ -15,9 +15,8 @@ export const getAnalytic = createAsyncThunk(
   },
 );
 
-export const RESOURCE = 'transactions';
 export const { actions, reducer } = crudSlice({
-  name: RESOURCE,
+  name: 'transactions',
   initialState: {
     analytic: {},
     loading: null,
