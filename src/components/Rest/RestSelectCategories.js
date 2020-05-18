@@ -3,8 +3,8 @@ import React, { useEffect } from 'react';
 import { Form, Select } from 'antd';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import actions from 'redux/utils/actions';
-import { PRIMARY_KEY } from 'redux/utils/crudSlice';
+import actions from 'modules/actions';
+import { PRIMARY_KEY } from 'shared/crudSlice';
 
 const RestSelectCategories = ({
   fieldName,

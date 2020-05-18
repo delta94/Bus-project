@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Form, notification } from 'antd';
 import PropTypes from 'prop-types';
-import actions from 'redux/utils/actions';
+import actions from 'modules/actions';
 import { useDispatch } from 'react-redux';
 import RestForm from './RestForm';
 
@@ -25,7 +25,7 @@ const RestCreate = ({
       customSubmit(values);
     } else {
       dispatch(
-        actions[resource].update({
+        actions[resource].create({
           customResource,
           data: { ...(formatSubmit ? formatSubmit(values) : values) },
         }),

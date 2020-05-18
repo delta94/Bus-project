@@ -2,9 +2,9 @@
 import React, { useEffect } from 'react';
 import { Form, notification } from 'antd';
 import PropTypes from 'prop-types';
-import actions from 'redux/utils/actions';
+import actions from 'modules/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import { PRIMARY_KEY } from 'redux/utils/crudSlice';
+import { PRIMARY_KEY } from 'shared/crudSlice';
 import RestForm from './RestForm';
 
 //

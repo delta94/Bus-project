@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Icon } from 'antd';
 import { useDispatch } from 'react-redux';
-import actions from 'redux/utils/actions';
+import actions from 'modules/actions';
 import { Link } from 'react-router-dom';
 
 const RestAction = ({ id, resource, customEditLink }) => {

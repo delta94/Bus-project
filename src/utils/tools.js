@@ -146,36 +146,6 @@ const getValidDataOfObj = (obj, isFilter) => {
 export const getValidData = (filter, isFilter) =>
   getValidDataOfObj(filter, isFilter);
 
-export const getFilterFromUrl = (searchStr) => {
-  const parsed = {};
-  if (!searchStr || searchStr.trim() === '') return {};
-  decodeURIComponent(searchStr)
-    .trim()
-    .substring(1)
-    .split('&')
-    .forEach((text) => {
-      const keyValue = text.split('=');
-      parsed[keyValue[0]] = keyValue[1];
-      try {
-        parsed[keyValue[0]] = JSON.parse(parsed[keyValue[0]]);
-      } catch (error) {
-        parsed[keyValue[0]] = parsed[keyValue[0]];
-      }
-    });
-  const filter = {
-    q: parsed.q,
-    orderBy: parsed.orderBy,
-    limit: parsed.limit,
-    page: parsed.page,
-  };
-  delete parsed.limit;
-  delete parsed.page;
-  delete parsed.orderBy;
-  delete parsed.q;
-  filter.filter = parsed;
-  return filter;
-};
-
 export const getRecordData = (record, source) => {
   // const arrKeys = source ? replaceAll(replaceAll(source, '\\[', '.'), '\\]', '').split('.') : [];
   // let data = record;

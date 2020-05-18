@@ -23,7 +23,7 @@ export const hashSortParams = (key, value) => {
   if (!value) {
     return '';
   }
-  return JSON.stringify({ sort: { [key]: value.slice(0, -3) } });
+  return `${key},${value.slice(0, -3).toUpperCase()}`;
 };
 
 export const DEFAULT_QUERY = `?page=1&limit=10`;

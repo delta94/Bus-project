@@ -62,50 +62,8 @@ export const CLASS_UTILITY = `
   .m-0 {
     margin: 0;
   }
-  .mt-19 {
-    margin-top: 19px;
-  }
-  .mt-32 {
-    margin-top: 32px;
-  }
-  .mt-378 {
-    margin-top: 378px;
-  }
-  .mt-39 {
-    margin-top: 39px;
-  }
-  .mt-24 {
-    margin-top: 24px;
-  }
-  .mb-39 {
-    margin-bottom: 39px;
-  }
-  .mb-41 {
-    margin-bottom: 41px;
-  }
-  .m-24 {
-    margin: 24px;
-  }
-  .ml-16 {
-    margin-left: 16px;
-  }
-  .ml-12 {
-    margin-left: 12px;
-  }
-  .mb-47 {
-    margin-bottom: 47px;
-  }
-  .mb-9 {
-    margin-bottom: 9px;
-  }
   .p-0 {
     padding: 0;
-  }
-  .p-20 {
-    padding: 20px;
-  }
-  .p-24 {
-    padding: 24px;
   }
   .cover {
     position: absolute;
@@ -236,21 +194,6 @@ export const CLASS_UTILITY = `
   .text-white {
     color: #fff;
   }
-  .text-15 {
-    font-size: 15px;
-  }
-  .text-11 {
-    font-size: 11px;
-  }
-  .text-20 {
-    font-size: 20px;
-  }
-  .text-30 {
-    font-size: 30px;
-  }
-  .text-80 {
-    font-size: 80px;
-  }
   .truncate-250 {
     width: 250px;
     white-space: nowrap;
@@ -264,15 +207,6 @@ export const CLASS_UTILITY = `
     overflow: hidden; 
   }
   /*--------------------Border---------------------------------*/
-  .rounded-16 {
-    border-radius: 16px;
-  }
-  .rounded-10 {
-    border-radius: 10px;
-  }
-  .rounded-4 {
-    border-radius: 4px;
-  }
   .border-tr {
     border-top-width: 1px;
     border-right-width: 1px;
@@ -353,37 +287,7 @@ export const CLASS_UTILITY = `
   .w-screen {
     width: 100vw;
   }
-  .w-400 {
-    width: 400px;
-  }
-  .w-100 {
-    width: 100px;
-  }
-  .w-62 {
-    width: 62px;
-  }
-  .h-22 {
-    height: 22px;
-  }
-  .h-31 {
-    height: 31px;
-  }
-  .h-48 {
-    height: 48px;
-  }
-  .h-405 {
-    height: 405px;
-  }
-  .h-368 {
-    height: 368px;
-  }
-  .h-400 {
-    height: 400px;
-  }
   /*-------------------------Height-------------------------------*/
-  .h-68 {
-    height: 68px;
-  }
   /*----------------------Background----------------------------*/
   .bg-auto {
     background-size: auto;

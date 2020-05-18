@@ -2,8 +2,9 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable no-console */
 import axios from 'axios';
-import { actions } from 'redux/auth/slice';
-import store from '../redux/store';
+import { actions } from 'modules/Auth/slice';
+import { REACT_APP_SERVER_URL } from 'configs/constants';
+import store from '../modules/store';
 
 const logger = (error) => {
   console.error('Request Failed:', error.config);
@@ -17,7 +18,7 @@ const logger = (error) => {
 };
 
 const request = axios.create({
-  baseURL: process.env.REACT_APP_SERVER_URL,
+  baseURL: REACT_APP_SERVER_URL,
   timeout: 10000,
 });
 
