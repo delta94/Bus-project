@@ -125,5 +125,10 @@
     "breadCrumb": "Phân tích",
     "sidebar": "Phân tích",
     "titleTable": "Danh sách thẻ"
+  },
+  "trips": {
+    "breadCrumb": "Danh sách chuyến",
+    "sidebar": "Danh sách chuyến",
+    "titleTable": "Danh sách chuyến"
   }
 }

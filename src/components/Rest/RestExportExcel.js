@@ -5,7 +5,7 @@ import { ReactComponent as ExcelIcon } from 'assets/svg/excel.svg';
 import PropTypes from 'prop-types';
 import { CSVLink } from 'react-csv';
 import request from 'api/request';
-import { showError } from 'redux/utils/exception';
+import { showError } from 'utils/exception';
 
 const RestExportExcel = ({ resource, style }) => {
   const csvLink = useRef();

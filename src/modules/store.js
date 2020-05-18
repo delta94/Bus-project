@@ -4,7 +4,7 @@ import { reduxBatch } from '@manaflair/redux-batch';
 import { createBrowserHistory } from 'history';
 import { routerMiddleware } from 'connected-react-router';
 // import logger from 'redux-logger';
-import deferredMiddleware from './utils/ExposedPromiseMiddleware';
+import deferredMiddleware from 'middlewares/ExposedPromiseMiddleware';
 import rootReducer from './reducers';
 
 export const history = createBrowserHistory();

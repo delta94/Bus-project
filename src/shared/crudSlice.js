@@ -1,13 +1,13 @@
 /* eslint-disable max-lines */
-/* eslint-disable no-param-reassign */
 /* eslint-disable import/no-cycle */
+/* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { capitalize } from 'utils/string';
 import request from 'api/request';
 import { replace } from 'connected-react-router';
 import { notification } from 'antd';
 import i18next from 'i18next';
-import { showError } from './exception';
+import { showError } from 'utils/exception';
 
 export const PRIMARY_KEY = 'id';
 

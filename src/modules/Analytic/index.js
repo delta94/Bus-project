@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import DataAnalytic from 'containers/Analytic/DataAnalytic';
+import DataAnalytic from 'modules/Analytic/components/DataAnalytic';
 import MaterialBreadcrumb from 'components/common/MaterialBreadcrumb';
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import useRouter from 'hooks/useRouter';
 import { rangeToday } from 'utils/time';
-import { getAnalytic } from 'redux/transactions/slice';
+import { getAnalytic } from 'modules/Transactions/slice';
 import { useTranslation } from 'react-i18next';
 
 const Index = () => {

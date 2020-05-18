@@ -3,7 +3,7 @@
 import React from 'react';
 import { Avatar, Dropdown, Menu, Spin } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { actions } from 'redux/auth/slice';
+import { actions } from 'modules/Auth/slice';
 import { LogoutOutlined } from '@ant-design/icons';
 
 const UserInfo = React.memo(() => {

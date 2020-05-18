@@ -3,7 +3,7 @@ import React from 'react';
 import RestInputNumber from 'components/Rest/RestInputNumber';
 import { moneyFomatter } from 'utils/formatter';
 import { useDispatch } from 'react-redux';
-import actions from 'redux/actions';
+import actions from 'modules/actions';
 import useRouter from 'hooks/useRouter';
 import RestSelectCards from './RestSelectCards';
 

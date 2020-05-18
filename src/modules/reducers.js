@@ -1,10 +1,10 @@
 /* eslint-disable import/no-cycle */
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
-import auth from './auth/slice';
+import auth from './Auth/slice';
 // import here
-import cards from './cards/slice';
-import transactions from './transactions/slice';
+import cards from './Cards/slice';
+import transactions from './Transactions/slice';
 
 export default (history) =>
   combineReducers({

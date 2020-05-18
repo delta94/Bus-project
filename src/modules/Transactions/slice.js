@@ -1,5 +1,5 @@
 /* eslint-disable import/no-cycle */
-import crudSlice from 'redux/utils/crudSlice';
+import crudSlice from 'shared/crudSlice';
 import { getAnalyticApi } from 'api/transactions';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 

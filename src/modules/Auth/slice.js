@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { loginApi, getInfoApi } from 'api/auth';
-import { showError } from 'redux/utils/exception';
+import { showError } from 'utils/exception';
 
 export const login = createAsyncThunk(
   'Auth/login',

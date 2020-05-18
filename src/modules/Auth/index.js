@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginForm from 'containers/Auth/LoginForm';
+import LoginForm from 'modules/Auth/components/LoginForm';
 import useAuth from 'hooks/useAuth';
 
 const Login = () => {

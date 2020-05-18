@@ -6,10 +6,10 @@ import i18next from 'i18next';
 import { ReactComponent as AccountIcon } from 'assets/svg/account.svg';
 import { ReactComponent as PasswordIcon } from 'assets/svg/password.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from 'redux/auth/slice';
-import RestCreate from '../../components/Rest/RestCreate';
-import RestInput from '../../components/Rest/RestInput';
-import RestInputPassword from '../../components/Rest/RestInputPassword';
+import { login } from 'modules/Auth/slice';
+import RestCreate from '../../../components/Rest/RestCreate';
+import RestInput from '../../../components/Rest/RestInput';
+import RestInputPassword from '../../../components/Rest/RestInputPassword';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
