@@ -2,7 +2,7 @@
 import RestTable from 'components/Rest/RestTable';
 import React from 'react';
 import { formatNumberToMoney, formatNumber } from 'utils/textUtils';
-import { Button, Typography } from 'antd';
+import { Button, Typography, Avatar } from 'antd';
 import useRouter from 'hooks/useRouter';
 
 const Table = () => {
@@ -16,6 +16,12 @@ const Table = () => {
       dataIndex: 'key',
       width: 60,
       key: 'key',
+    },
+    {
+      title: 'Avatar',
+      dataIndex: 'avatar',
+      key: 'avatar',
+      render: (row) => <Avatar size={40}>{row}</Avatar>,
     },
     {
       title: 'Email',

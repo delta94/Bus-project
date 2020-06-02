@@ -17,6 +17,7 @@ import FullScreen from 'react-full-screen';
 import TooltipIcon from 'components/common/TooltipIcon';
 import { useTranslation } from 'react-i18next';
 import RestExportExcel from './RestExportExcel';
+import ResizeableTitle from '../common/ResizeableTitle';
 
 const RestTable = ({
   title,
@@ -50,6 +51,12 @@ const RestTable = ({
       ...(formatFilters ? formatFilters(filters) : filters),
       sort,
     });
+  };
+
+  const components = {
+    header: {
+      cell: ResizeableTitle,
+    },
   };
 
   return (
@@ -102,6 +109,7 @@ const RestTable = ({
           bordered={bordered}
           size={size}
           dataSource={data?.items}
+          components={components}
           columns={columns}
           onChange={onChange || handlePaginate}
           expandable={expandable}

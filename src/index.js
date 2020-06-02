@@ -4,17 +4,17 @@ import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import { ConnectedRouter } from 'connected-react-router';
 import { ConfigProvider, Empty } from 'antd';
+import GlobalStyle from 'appStyle';
 import store, { history } from './modules/store';
 import theme from './configs/theme/adminTheme';
 import Routes from './modules';
 import './configs/language';
 import * as serviceWorker from './serviceWorker';
-import AppWrapper from './appStyle';
 
 ReactDOM.render(
   <Provider store={store}>
     <ThemeProvider theme={theme}>
-      <AppWrapper />
+      <GlobalStyle />
       <ConnectedRouter history={history}>
         <ConfigProvider renderEmpty={() => <Empty />}>
           <Routes />

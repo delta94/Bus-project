@@ -9,9 +9,10 @@ const Trips = () => {
         bootstrapURLKeys={{ key: REACT_APP_GOOGLE_MAP_API_KEY }}
         defaultZoom={11}
         defaultCenter={{
-          lat: 59.95,
-          lng: 30.33,
+          lat: 16.05,
+          lng: 108.2,
         }}
+        yesIWantToUseGoogleMapApiInternals
       />
     </div>
   );

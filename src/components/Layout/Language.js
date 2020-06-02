@@ -2,9 +2,9 @@ import React from 'react';
 import Icon from '@ant-design/icons';
 import { Dropdown, Menu } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { ReactComponent as EnIcon } from 'assets/svg/united-kingdom.svg';
-import { ReactComponent as EarthIcon } from 'assets/svg/earth-grid.svg';
 import { ReactComponent as ViIcon } from 'assets/svg/vietnam.svg';
+import { ReactComponent as EarthIcon } from 'assets/svg/earth-grid.svg';
+import { ReactComponent as EnIcon } from 'assets/svg/united-kingdom.svg';
 
 const MenuLanguage = () => {
   const { t, i18n } = useTranslation();

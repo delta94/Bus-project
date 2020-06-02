@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AppstoreOutlined } from '@ant-design/icons';
 import { Drawer } from 'antd';
+import FadeIn from 'react-fade-in';
 
 const Chat = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -26,9 +27,11 @@ const Chat = () => {
         width={520}
         visible={isVisible}
       >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <FadeIn>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </FadeIn>
       </Drawer>
     </>
   );

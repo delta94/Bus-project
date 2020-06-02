@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { CSS_RESET, CLASS_UTILITY } from 'utils/css';
 
-const AppWrapper = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   ${CSS_RESET}
   ${CLASS_UTILITY}
   body {
@@ -143,4 +143,4 @@ const AppWrapper = createGlobalStyle`
   }
 `;
 
-export default AppWrapper;
+export default GlobalStyle;

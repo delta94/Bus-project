@@ -50,7 +50,7 @@ const LoginForm = () => {
           htmlType="submit"
           style={{ marginTop: 20 }}
           className="w-full"
-          loading={loading}
+          loading={loading === 'login'}
         >
           {i18next.t('login.loginBtn')}
         </Button>
