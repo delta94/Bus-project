@@ -1,7 +1,6 @@
 export const validateRegex = {
   phone: /((\+84[0-9]{9})|(\b0[0-9]{9}))(?![0-9])/g,
   password: /^(?=.*[a-z])(?=.*[0-9])(?=.*\d).{6,}$/g,
-  username: /^(?=.{3,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/g,
   number: /^[-]?[0-9]*$/g,
   numberUnsigned: /^[0-9]*$/g,
   floatNumber: /^[-]?\d*\.?\d*$/,
