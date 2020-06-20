@@ -21,7 +21,11 @@ const Table = () => {
       title: 'Avatar',
       dataIndex: 'avatar',
       key: 'avatar',
-      render: (row) => <Avatar size={40}>{row}</Avatar>,
+      render: (row) => (
+        <Avatar size={50} src="https://i.pravatar.cc">
+          {row}
+        </Avatar>
+      ),
     },
     {
       title: 'Email',

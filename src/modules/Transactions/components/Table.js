@@ -26,8 +26,8 @@ const Table = () => {
     },
     {
       title: 'Số thẻ',
-      dataIndex: 'cardId',
-      key: 'cardId',
+      dataIndex: 'id',
+      key: 'id',
       render: (row) => <span>{row}</span>,
     },
   ];

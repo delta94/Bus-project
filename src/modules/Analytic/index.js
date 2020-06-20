@@ -1,16 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import DataAnalytic from 'modules/Analytic/components/DataAnalytic';
 import MaterialBreadcrumb from 'components/common/MaterialBreadcrumb';
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import useRouter from 'hooks/useRouter';
 import { rangeToday } from 'utils/time';
 import { getAnalytic } from 'modules/Transactions/slice';
 import { useTranslation } from 'react-i18next';
+import { transactionsSelector } from './selectors';
+import DataAnalytic from '../../components/DataAnalytic';
 
 const Index = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
+  const data = useSelector(transactionsSelector);
   const { location, query, handlePushParams } = useRouter();
   useEffect(() => {
     if (location.search) {
@@ -30,7 +32,7 @@ const Index = () => {
         data={[{ path: '#', title: t(`analytic.breadCrumb`) }]}
       />
       <div style={{ marginBottom: 115, marginTop: 19 }}>
-        <DataAnalytic />
+        <DataAnalytic data={data} />
       </div>
     </>
   );

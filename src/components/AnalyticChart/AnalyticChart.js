@@ -11,7 +11,7 @@ import {
 } from 'recharts';
 import styled from 'styled-components';
 import { compactNumber, formatDate } from 'utils/textUtils';
-import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const StyledCard = styled(Card)`
   .ant-card-body {
@@ -19,8 +19,7 @@ const StyledCard = styled(Card)`
   }
 `;
 
-const AnalyticChart = () => {
-  const { chart } = useSelector((state) => state.transactions.analytic);
+const AnalyticChart = ({ data }) => {
   return (
     <StyledCard style={{ height: 400 }}>
       <div className="flex justify-between">
@@ -31,7 +30,7 @@ const AnalyticChart = () => {
         className="t-10px-12px"
       >
         <ResponsiveContainer>
-          <AreaChart data={chart}>
+          <AreaChart data={data}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis
               dataKey="date"
@@ -64,6 +63,8 @@ const AnalyticChart = () => {
   );
 };
 
-AnalyticChart.propTypes = {};
+AnalyticChart.propTypes = {
+  data: PropTypes.array,
+};
 
 export default AnalyticChart;

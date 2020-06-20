@@ -1,13 +1,12 @@
 import { Card, Col, Row, Skeleton } from 'antd';
 import FilterTabPane from 'components/common/FilterTabPane';
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { formatNumber, formatNumberToMoney } from 'utils/textUtils';
 import DateFilter from 'components/common/DateFilter';
-import AnalyticChart from './AnalyticChart';
+import PropTypes from 'prop-types';
+import AnalyticChart from '../AnalyticChart';
 
-const DataAnalytic = () => {
-  const data = useSelector((state) => state.transactions);
+const DataAnalytic = ({ data }) => {
   return (
     <>
       <div style={{ marginBottom: 20 }} className="flex justify-between">
@@ -43,11 +42,18 @@ const DataAnalytic = () => {
           )}
         </Col>
       </Row>
-      <AnalyticChart />
+      <AnalyticChart data={data.analytic.chart} />
     </>
   );
 };
 
-DataAnalytic.propTypes = {};
+DataAnalytic.propTypes = {
+  data: PropTypes.shape({
+    loading: PropTypes.string,
+    analytic: PropTypes.shape({
+      chart: PropTypes.array,
+    }),
+  }),
+};
 
 export default DataAnalytic;

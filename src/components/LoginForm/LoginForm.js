@@ -1,25 +1,19 @@
-import React from 'react';
-import FullLogo from 'assets/images/fullLogo.png';
-import { Button } from 'antd';
 import Icon from '@ant-design/icons';
-import i18next from 'i18next';
+import { Button, Form, notification } from 'antd';
+import FullLogo from 'assets/images/fullLogo.png';
 import { ReactComponent as AccountIcon } from 'assets/svg/account.svg';
 import { ReactComponent as PasswordIcon } from 'assets/svg/password.svg';
-import { useDispatch, useSelector } from 'react-redux';
-import { login } from 'modules/Auth/slice';
-import RestCreate from '../../../components/Rest/RestCreate';
-import RestInput from '../../../components/Rest/RestInput';
-import RestInputPassword from '../../../components/Rest/RestInputPassword';
+import i18next from 'i18next';
+import React from 'react';
+import PropTypes from 'prop-types';
+import RestInputPassword from 'components/Rest/RestInputPassword';
+import RestInput from 'components/Rest/RestInput';
 
-const LoginForm = () => {
-  const dispatch = useDispatch();
-  const { loading } = useSelector((state) => state.auth);
-  const handleSubmit = (values) => {
-    dispatch(
-      login({
-        data: values,
-      }),
-    );
+const LoginForm = ({ loading, handleSubmit }) => {
+  const onFinishFailed = () => {
+    notification.error({
+      message: 'Không hợp lệ',
+    });
   };
 
   return (
@@ -28,7 +22,7 @@ const LoginForm = () => {
       style={{ padding: '40px 30px', width: 400 }}
     >
       <img src={FullLogo} alt="cashbag" style={{ marginBottom: 41 }} />
-      <RestCreate customSubmit={handleSubmit} resource="auth" footer={false}>
+      <Form onFinish={handleSubmit} onFinishFailed={onFinishFailed}>
         <RestInput
           fieldName="username"
           messageRequire={i18next.t('input.username.validateMsg.required')}
@@ -54,13 +48,19 @@ const LoginForm = () => {
         >
           {i18next.t('login.loginBtn')}
         </Button>
-      </RestCreate>
+      </Form>
     </div>
   );
 };
 
-LoginForm.propTypes = {};
+LoginForm.propTypes = {
+  loading: PropTypes.bool,
+  handleSubmit: PropTypes.func,
+};
 
-LoginForm.defaultProps = {};
+LoginForm.defaultProps = {
+  loading: false,
+  handleSubmit: () => {},
+};
 
 export default LoginForm;

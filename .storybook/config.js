@@ -6,10 +6,10 @@ import { ThemeProvider } from 'styled-components';
 import theme from '../src/configs/theme/adminTheme';
 import { Provider } from 'react-redux';
 
-const req = require.context('../../', true, /\.stories\.tsx$/);
+const req = require.context('../src/components', true, /\.stories\.js$/);
 
 function loadStories() {
-  req.keys().forEach((filename) => req(filename));
+  req.keys().forEach(req);
 }
 
 const withGlobal = (cb) => (
