@@ -118,7 +118,8 @@
     "titleTable": "Transaction List"
   },
   "cards": {
-    "breadCrumb": "Overview",
+    "breadCrumb": "Card",
+    "sidebar": "Card",
     "titleTable": "Card List"
   },
   "analytic": {

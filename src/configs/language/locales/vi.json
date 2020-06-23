@@ -118,7 +118,8 @@
     "titleTable": "Danh sách giao dịch"
   },
   "cards": {
-    "breadCrumb": "Tổng quan",
+    "breadCrumb": "Thẻ",
+    "sidebar": "Thẻ",
     "titleTable": "Danh sách thẻ"
   },
   "analytic": {

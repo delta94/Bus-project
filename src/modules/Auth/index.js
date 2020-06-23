@@ -1,6 +1,7 @@
 import React from 'react';
 import useAuth from 'hooks/useAuth';
 import LoginForm from 'components/LoginForm';
+import { Row } from 'antd';
 import { useAuthen } from './hooks';
 
 const Login = () => {
@@ -12,9 +13,14 @@ const Login = () => {
     });
   };
   return (
-    <div className="h-screen flex flex-center" style={{ padding: 20 }}>
+    <Row
+      justify="center"
+      align="middle"
+      className="h-screen"
+      style={{ padding: 20 }}
+    >
       <LoginForm loading={loading === 'login'} handleSubmit={handleSubmit} />
-    </div>
+    </Row>
   );
 };
 

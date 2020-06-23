@@ -1,4 +1,4 @@
-import { Card } from 'antd';
+import { Card, Row } from 'antd';
 import React from 'react';
 import {
   Area,
@@ -22,9 +22,9 @@ const StyledCard = styled(Card)`
 const AnalyticChart = ({ data }) => {
   return (
     <StyledCard style={{ height: 400 }}>
-      <div className="flex justify-between">
+      <Row justify="space-between">
         <h2 className="t-600-14px-17px text-header-table">Lịch sử giao dịch</h2>
-      </div>
+      </Row>
       <div
         style={{ width: '100%', height: 300, padding: '20px 23px 0 0' }}
         className="t-10px-12px"

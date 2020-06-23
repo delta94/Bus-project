@@ -1,12 +1,16 @@
 /* eslint-disable react/jsx-wrap-multilines */
 import React from 'react';
-import { Result, Button } from 'antd';
+import { Result, Button, Row } from 'antd';
 import useRouter from 'hooks/useRouter';
 
 function NotFoundPage() {
   const { history } = useRouter();
   return (
-    <div className="absolute h-screen inset-0 w-screen flex flex-center bg-white z-50">
+    <Row
+      justify="center"
+      align="middle"
+      className="absolute h-screen inset-0 w-screen bg-white z-50"
+    >
       <Result
         status="404"
         title="404"
@@ -17,7 +21,7 @@ function NotFoundPage() {
           </Button>
         }
       />
-    </div>
+    </Row>
   );
 }
 

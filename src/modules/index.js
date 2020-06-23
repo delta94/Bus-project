@@ -15,40 +15,35 @@ const Routes = () => {
         {/* ------------------------------Route Add on------------------------ */}
         <PrivateRoute
           path="/"
-          component={loadable(import('./Cards'), {
-            fallback: null,
-          })}
+          component={loadable(import('./Overview'))}
+          exact
+        />
+        <PrivateRoute
+          path="/cards"
+          component={loadable(import('./Cards'))}
+          exact
+        />
+        <PrivateRoute
+          path="/cards/:id"
+          component={loadable(import('./Cards/[id]'))}
           exact
         />
         <PrivateRoute
           path="/transactions"
-          component={loadable(import('./Transactions'), {
-            fallback: null,
-          })}
+          component={loadable(import('./Transactions'))}
           exact
         />
         <PrivateRoute
           path="/analytic"
-          component={loadable(import('./Analytic'), {
-            fallback: null,
-          })}
+          component={loadable(import('./Analytic'))}
           exact
         />
         <PrivateRoute
           path="/trips"
-          component={loadable(import('./Trips'), {
-            fallback: null,
-          })}
+          component={loadable(import('./Trips'))}
           exact
         />
-
-        {/* ------------------------------Route Add on------------------------ */}
-        <Route
-          path="*"
-          component={loadable(import('./404Page'), {
-            fallback: null,
-          })}
-        />
+        <Route path="*" component={loadable(import('./404Page'))} />
       </Switch>
       {/* ------------------------------Model Add on------------------------ */}
       <ModalRoute path="#cards/create" component={CreateCard} title="Tạo thẻ" />

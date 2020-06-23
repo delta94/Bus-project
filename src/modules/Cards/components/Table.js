@@ -4,6 +4,7 @@ import React from 'react';
 import { formatNumberToMoney, formatNumber } from 'utils/textUtils';
 import { Button, Typography, Avatar } from 'antd';
 import useRouter from 'hooks/useRouter';
+import { Link } from 'react-router-dom';
 
 const Table = () => {
   const { handlePushModal } = useRouter();
@@ -28,6 +29,12 @@ const Table = () => {
       ),
     },
     {
+      title: 'Tên',
+      dataIndex: 'name',
+      key: 'name',
+      render: (row, data) => <Link to={`cards/${data.id}`}>{row}</Link>,
+    },
+    {
       title: 'Email',
       dataIndex: 'email',
       key: 'email',
@@ -41,11 +48,6 @@ const Table = () => {
       ),
     },
 
-    {
-      title: 'Tên',
-      dataIndex: 'name',
-      key: 'name',
-    },
     {
       title: 'Số tiền còn lại',
       dataIndex: 'amount',

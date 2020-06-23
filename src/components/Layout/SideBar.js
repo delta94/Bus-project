@@ -5,6 +5,7 @@ import {
   TransactionOutlined,
   AreaChartOutlined,
   CarOutlined,
+  UserOutlined,
 } from '@ant-design/icons';
 import { Drawer, Layout, Menu } from 'antd';
 import useRouter from 'hooks/useRouter';
@@ -26,6 +27,12 @@ const sidebarMenu = [
     text: 'overview.sidebar',
     icon: ShopOutlined,
     url: '/',
+  },
+  {
+    key: 'cards',
+    text: 'cards.sidebar',
+    icon: UserOutlined,
+    url: '/cards',
   },
   {
     key: 'transactions',

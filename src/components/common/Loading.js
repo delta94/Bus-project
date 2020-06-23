@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Row } from 'antd';
 
 export const StyledLoading = styled.div`
   width: 48px;
@@ -29,7 +30,7 @@ export const StyledLoading = styled.div`
 `;
 const Loading = () => {
   return (
-    <div className="flex flex-center h-screen">
+    <Row align="middle" justify="center" className="h-screen">
       <div>
         <StyledLoading />
         <h2
@@ -39,7 +40,7 @@ const Loading = () => {
           Đang tải dữ liệu...
         </h2>
       </div>
-    </div>
+    </Row>
   );
 };
 

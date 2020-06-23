@@ -9,10 +9,10 @@ import AnalyticChart from '../AnalyticChart';
 const DataAnalytic = ({ data }) => {
   return (
     <>
-      <div style={{ marginBottom: 20 }} className="flex justify-between">
+      <Row style={{ marginBottom: 20 }} justify="space-between">
         <FilterTabPane />
         <DateFilter />
-      </div>
+      </Row>
       <Row gutter={20}>
         <Col sm={8} xs={24} style={{ marginBottom: 20 }}>
           {data.loading === 'analytic' ? (

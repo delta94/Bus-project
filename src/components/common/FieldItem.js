@@ -7,7 +7,8 @@ const FieldItem = ({ name, value, extraValue, gutter = 10 }) => {
     <Row
       gutter={gutter}
       style={{ marginTop: '20px' }}
-      className="flex items-center"
+      align="middle"
+      justify="center"
     >
       <Col span={7} className="flex">
         {name}

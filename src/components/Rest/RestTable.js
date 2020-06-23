@@ -1,7 +1,7 @@
 /* eslint-disable max-lines */
 /* eslint-disable react/jsx-closing-tag-location */
 import React, { useState } from 'react';
-import { Table, Card, Button, Dropdown, Menu } from 'antd';
+import { Table, Card, Button, Dropdown, Menu, Row } from 'antd';
 import { useSelector } from 'react-redux';
 import useRouter from 'hooks/useRouter';
 import CardTitle from 'components/common/CardTitle';
@@ -67,7 +67,7 @@ const RestTable = ({
           subTitle={`${t('sum')}: ${data?.totalItems}`}
         />
         className="card-padding-body-0"
-        extra=<div className="flex items-center">
+        extra=<Row align="middle">
           {extra}
           {hasCreateButton && (
             <Button
@@ -103,7 +103,7 @@ const RestTable = ({
               style={{ marginLeft: 15, fontSize: 18 }}
             />
           </Dropdown>
-        </div>
+        </Row>
       >
         <Table
           bordered={bordered}
