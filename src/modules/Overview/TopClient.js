@@ -53,7 +53,7 @@ const TopClient = () => {
       pagination={false}
       columns={columns}
       dataSource={cards}
-      loading={loading === 'getTopClient'}
+      loading={loading === 'getAll'}
     />
   );
 };

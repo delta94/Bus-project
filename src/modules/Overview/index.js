@@ -3,6 +3,7 @@ import MaterialBreadcrumb from 'components/common/MaterialBreadcrumb';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import TopClient from './TopClient';
+import MonthChart from './MonthChart';
 
 const Overview = () => {
   const { t } = useTranslation();
@@ -19,7 +20,9 @@ const Overview = () => {
           </Card>
         </Col>
         <Col xs={24} md={14}>
-          <Card>Hello</Card>
+          <Card title="Doanh Thu">
+            <MonthChart />
+          </Card>
         </Col>
       </Row>
     </>

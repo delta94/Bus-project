@@ -43,6 +43,11 @@ const Routes = () => {
           component={loadable(import('./Trips'))}
           exact
         />
+        <PrivateRoute
+          path="/predict"
+          component={loadable(import('./Predict'))}
+          exact
+        />
         <Route path="*" component={loadable(import('./404Page'))} />
       </Switch>
       {/* ------------------------------Model Add on------------------------ */}
