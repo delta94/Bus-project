@@ -38,12 +38,7 @@ const AnalyticChart = ({ data }) => {
               tickMargin={10}
               tickFormatter={(data) => formatDate(data, 'DD/MM/YYYY')}
             />
-            <YAxis
-              tickSize={0}
-              dataKey="amount"
-              tickMargin={10}
-              tickFormatter={(data) => compactNumber(+data)}
-            />
+            <YAxis tickSize={0} dataKey="amount" />
             <Tooltip
               labelFormatter={(value) => formatDate(value, 'DD/MM/YYYY')}
               formatter={(value) => [compactNumber(+value), 'Tổng']}

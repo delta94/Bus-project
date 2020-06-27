@@ -44,7 +44,7 @@ const LoginForm = ({ loading, handleSubmit }) => {
           htmlType="submit"
           style={{ marginTop: 20 }}
           className="w-full"
-          loading={loading === 'login'}
+          loading={loading}
         >
           {i18next.t('login.loginBtn')}
         </Button>

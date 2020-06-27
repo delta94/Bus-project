@@ -6,3 +6,7 @@ export async function getAnalyticApi(params) {
     params,
   });
 }
+
+export async function getPredictApi() {
+  return request(`/transactions/predict`);
+}

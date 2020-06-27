@@ -7,81 +7,71 @@ import {
   Tooltip,
   Area,
   ResponsiveContainer,
+  Legend,
 } from 'recharts';
+import { compactNumber } from 'utils/textUtils';
 
 const MonthChart = () => {
   const data = [
     {
       name: 'JAN',
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
+      uv: 100000,
+      pv: 240000,
     },
     {
       name: 'FEB',
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
+      uv: 300000,
+      pv: 139800,
     },
     {
       name: 'MAR',
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
+      uv: 200000,
+      pv: 980000,
     },
     {
       name: 'APR',
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
+      uv: 278000,
+      pv: 390800,
     },
     {
       name: 'MAY',
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
+      uv: 189000,
+      pv: 480000,
     },
     {
       name: 'JUN',
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
+      uv: 239000,
+      pv: 380000,
     },
     {
       name: 'JUL',
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
+      uv: 349000,
+      pv: 430000,
     },
     {
       name: 'AUG',
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
+      uv: 349000,
+      pv: 430000,
     },
     {
       name: 'SEP',
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
+      uv: 349000,
+      pv: 430000,
     },
     {
       name: 'OCT',
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
+      uv: 349000,
+      pv: 430000,
     },
     {
       name: 'NOV',
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
+      uv: 349000,
+      pv: 430000,
     },
     {
       name: 'DEC',
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
+      uv: 349000,
+      pv: 430000,
     },
   ];
   return (
@@ -101,19 +91,22 @@ const MonthChart = () => {
           </linearGradient>
         </defs>
         <XAxis dataKey="name" />
-        <YAxis />
+        <YAxis tickFormatter={(data) => compactNumber(data)} />
         <CartesianGrid strokeDasharray="3 3" />
         <Tooltip />
+        <Legend />
         <Area
           type="monotone"
           dataKey="uv"
           stroke="#F48282"
+          name="Chi phí"
           fillOpacity={1}
           fill="url(#colorUv)"
         />
         <Area
           type="monotone"
           dataKey="pv"
+          name="Doanh thu"
           stroke="#096DD9"
           fillOpacity={1}
           fill="url(#colorPv)"

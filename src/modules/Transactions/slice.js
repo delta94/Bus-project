@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
 import crudSlice from 'shared/crudSlice';
-import { getAnalyticApi } from 'api/transactions';
+import { getAnalyticApi, getPredictApi } from 'api/transactions';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const getAnalytic = createAsyncThunk(
@@ -15,11 +15,24 @@ export const getAnalytic = createAsyncThunk(
   },
 );
 
+export const getPredict = createAsyncThunk(
+  'transactions/getPredict',
+  async (payload, thunkAPI) => {
+    try {
+      const response = await getPredictApi();
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue();
+    }
+  },
+);
+
 export const { actions, reducer } = crudSlice({
   name: 'transactions',
   initialState: {
     analytic: {},
     loading: null,
+    predict: [],
   },
   extraReducers: {
     [getAnalytic.pending]: (state) => {
@@ -30,6 +43,16 @@ export const { actions, reducer } = crudSlice({
       state.loading = null;
     },
     [getAnalytic.rejected]: (state) => {
+      state.loading = null;
+    },
+    [getPredict.pending]: (state) => {
+      state.loading = 'predict';
+    },
+    [getPredict.fulfilled]: (state, { payload }) => {
+      state.predict = payload;
+      state.loading = null;
+    },
+    [getPredict.rejected]: (state) => {
       state.loading = null;
     },
   },
