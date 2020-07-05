@@ -1,13 +1,13 @@
 /* eslint-disable import/no-cycle */
 import crudSlice from 'shared/crudSlice';
-import { getAnalyticApi, getPredictApi } from 'api/transactions';
+import transactionApi from 'api/transactions';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const getAnalytic = createAsyncThunk(
   'transactions/getAnalytic',
   async (payload, thunkAPI) => {
     try {
-      const response = await getAnalyticApi(payload);
+      const response = await transactionApi.getAnalytic(payload);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue();
@@ -19,7 +19,7 @@ export const getPredict = createAsyncThunk(
   'transactions/getPredict',
   async (payload, thunkAPI) => {
     try {
-      const response = await getPredictApi();
+      const response = await transactionApi.getPredict();
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue();

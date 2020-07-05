@@ -1,10 +1,13 @@
 /* eslint-disable import/no-cycle */
 import request from './request';
 
-export async function loginApi(data) {
-  return request.post(`/auth/signin`, data);
-}
+const authApi = {
+  login: async (data) => {
+    return request.post(`/auth/signin`, data);
+  },
+  getInfo: async () => {
+    return request(`/auth/info`);
+  },
+};
 
-export async function getInfoApi() {
-  return request(`/auth/info`);
-}
+export default authApi;

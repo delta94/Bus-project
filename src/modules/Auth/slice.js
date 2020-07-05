@@ -1,30 +1,30 @@
 /* eslint-disable import/no-cycle */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { loginApi, getInfoApi } from 'api/auth';
 import { showError } from 'utils/exception';
+import authApi from '../../api/auth';
 
 export const login = createAsyncThunk(
   'Auth/login',
-  async (payload, thunkAPI) => {
+  async (payload, { rejectWithValue }) => {
     try {
-      const response = await loginApi(payload.data);
+      const response = await authApi.login(payload.data);
       return response.data;
     } catch (error) {
       showError(error?.data);
-      return thunkAPI.rejectWithValue(error?.data?.message);
+      return rejectWithValue(error?.data?.message);
     }
   },
 );
 
 export const getInfo = createAsyncThunk(
   'Auth/getInfo',
-  async (payload, thunkAPI) => {
+  async (payload, { rejectWithValue }) => {
     try {
-      const response = await getInfoApi();
+      const response = await authApi.getInfo();
       return response.data;
     } catch (error) {
       showError(error?.data);
-      return thunkAPI.rejectWithValue();
+      return rejectWithValue();
     }
   },
 );

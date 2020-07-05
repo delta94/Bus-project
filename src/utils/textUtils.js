@@ -56,15 +56,6 @@ export const stringToSlug = (e) => {
 
   return str;
 };
-export const makeActionName = (text) => {
-  return lowerFirstChar(
-    replaceAll(
-      upperFirstChar(replaceAll(text, '_', ' ').toLowerCase()),
-      ' ',
-      '',
-    ),
-  );
-};
 
 export const formatMoney = (number = 0, n, x, currency) => {
   const UNIT = ['', 'K', 'M'];

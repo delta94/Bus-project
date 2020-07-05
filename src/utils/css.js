@@ -1,4 +1,13 @@
 /* eslint-disable max-lines */
+export const device = {
+  mobile: '(min-width: 425px)',
+  mobileL: '(min-width: 576px)',
+  tablet: '(min-width: 768px)',
+  laptop: '(min-width: 1200px)',
+  desktop: '(min-width: 1440px)',
+  desktopL: '(min-width: 2560px)',
+};
+
 export const CSS_RESET = `
   html {
     box-sizing: border-box;

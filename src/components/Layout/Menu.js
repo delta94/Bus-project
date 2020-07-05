@@ -1,29 +1,37 @@
 import React from 'react';
+import Chat from './Chat';
+import Language from './Language';
 import MenuItem from './MenuItem';
 import Notification from './Notification';
-import UserInfo from './UserInfo';
-import Language from './Language';
 import Search from './Search';
-import Chat from './Chat';
+import UserInfo from './UserInfo';
+
+const MENU = [
+  {
+    component: <Search />,
+  },
+  {
+    component: <Notification />,
+  },
+  {
+    component: <Language />,
+  },
+  {
+    component: <Chat />,
+  },
+  {
+    component: <UserInfo />,
+  },
+];
 
 const Menu = () => {
   return (
     <div className="flex items-center h-full">
-      <MenuItem>
-        <Search />
-      </MenuItem>
-      <MenuItem>
-        <Notification />
-      </MenuItem>
-      <MenuItem>
-        <Language />
-      </MenuItem>
-      <MenuItem>
-        <Chat />
-      </MenuItem>
-      <MenuItem>
-        <UserInfo />
-      </MenuItem>
+      {MENU.map((e, index) => (
+        <MenuItem key={String(index)}>
+          {React.cloneElement(e.component)}
+        </MenuItem>
+      ))}
     </div>
   );
 };

@@ -6,6 +6,7 @@ const {
   addDecoratorsLegacy,
   useBabelRc,
 } = require('customize-cra');
+const path = require('path');
 const themeConfig = require('./src/configs/theme/adminTheme');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -31,6 +32,11 @@ module.exports = override(
     libraryName: 'antd',
     libraryDirectory: 'es',
     style: true,
+  }),
+  fixBabelImports('lodash', {
+    libraryName: 'lodash',
+    libraryDirectory: '',
+    camel2DashComponentName: false,
   }),
   addLessLoader({
     javascriptEnabled: true,
@@ -67,6 +73,7 @@ module.exports = override(
       // STEPS
       '@drawer-body-padding': '0',
     },
+    // modifyVars: path.join(__dirname, './src/configs/theme/vars.less'),
   }),
   addDecoratorsLegacy(),
   useBabelRc(),

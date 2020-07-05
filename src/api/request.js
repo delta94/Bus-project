@@ -4,6 +4,7 @@
 import axios from 'axios';
 import { actions } from 'modules/Auth/slice';
 import { REACT_APP_SERVER_URL } from 'configs/constants';
+import qs from 'query-string';
 import store from '../modules/store';
 
 const logger = (error) => {
@@ -20,6 +21,7 @@ const logger = (error) => {
 const request = axios.create({
   baseURL: REACT_APP_SERVER_URL,
   timeout: 10000,
+  paramsSerializer: (params) => qs.stringify(params),
 });
 
 request.interceptors.request.use(

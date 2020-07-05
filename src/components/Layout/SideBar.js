@@ -13,6 +13,7 @@ import I18n from 'i18next';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
+import { device } from '../../utils/css';
 
 const { SubMenu } = Menu;
 
@@ -56,7 +57,7 @@ const sidebarMenu = [
 
 const StyledSider = styled(Layout.Sider)`
   display: none;
-  @media (min-width: 576px) {
+  @media ${device.mobileL} {
     display: block;
   }
 `;

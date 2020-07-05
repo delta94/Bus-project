@@ -7,20 +7,22 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import SideBar from './SideBar';
 import Menu from './Menu';
+import { device } from '../../utils/css';
+import Setting from './Setting';
 
 const { Content, Header } = Layout;
 const { ErrorBoundary } = Alert;
 
 const StyledLayout = styled(Layout)`
   padding-left: 0;
-  @media (min-width: 576px) {
+  @media ${device.mobileL} {
     padding-left: ${(props) => (props.collapsed ? '80px' : props.width)};
   }
 `;
 
 const StyledHeader = styled(Header)`
   width: 100%;
-  @media (min-width: 576px) {
+  @media ${device.mobileL} {
     width: calc(100% - ${(props) => (props.collapsed ? '80px' : props.width)});
   }
 `;
@@ -83,6 +85,7 @@ const PrivateLayout = ({ children, px, widthSideBar, logo, fullLogo }) => {
           </div>
         </Content>
       </StyledLayout>
+      <Setting />
       <BackTop />
     </Layout>
   );

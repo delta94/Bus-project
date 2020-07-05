@@ -42,7 +42,11 @@ const DataAnalytic = ({ data }) => {
           )}
         </Col>
       </Row>
-      <AnalyticChart data={data.analytic.chart} />
+      {data.loading === 'analytic' ? (
+        <Skeleton active />
+      ) : (
+        <AnalyticChart data={data.analytic.chart} />
+      )}
     </>
   );
 };

@@ -1,23 +1,17 @@
-import React, { useState } from 'react';
 import { AppstoreOutlined } from '@ant-design/icons';
 import { Drawer } from 'antd';
+import React from 'react';
 import FadeIn from 'react-fade-in';
+import useToggle from '../../hooks/useToggle';
 
 const Chat = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const showDrawer = () => {
-    setIsVisible(true);
-  };
-
-  const onClose = () => {
-    setIsVisible(false);
-  };
+  const { isVisible, onOpen, onClose } = useToggle(false);
   return (
     <>
       <AppstoreOutlined
         style={{ fontSize: 20 }}
         className="cursor-pointer"
-        onClick={showDrawer}
+        onClick={onOpen}
       />
       <Drawer
         title="Basic Drawer"

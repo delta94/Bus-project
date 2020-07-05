@@ -2,6 +2,8 @@
 import RestTable from 'components/Rest/RestTable';
 import React from 'react';
 import { formatDate, formatNumberToMoney } from 'utils/textUtils';
+import { Typography } from 'antd';
+import { Link } from 'react-router-dom';
 
 const Table = () => {
   const columns = [
@@ -25,10 +27,18 @@ const Table = () => {
       sorter: true,
     },
     {
+      title: 'Khách hàng',
+      dataIndex: 'card',
+      key: 'card',
+      render: (row) => <Link to={`cards/${row.id}`}>{row.name}</Link>,
+    },
+    {
       title: 'Số thẻ',
       dataIndex: 'id',
       key: 'id',
-      render: (row) => <span>{row}</span>,
+      render: (row) => (
+        <Typography.Paragraph copyable>{row}</Typography.Paragraph>
+      ),
     },
   ];
   return (
