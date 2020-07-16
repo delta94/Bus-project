@@ -11,11 +11,14 @@ const Detail = () => {
   const { query } = useRouter();
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(
+    const promise = dispatch(
       actions.cards.getById({
         id: query.id,
       }),
     );
+    return () => {
+      promise.abort();
+    };
   }, [dispatch, query.id]);
   return (
     <>

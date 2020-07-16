@@ -8,9 +8,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import RestInputPassword from 'components/Rest/RestInputPassword';
 import RestInput from 'components/Rest/RestInput';
-import { Link } from 'react-router-dom';
 
-const LoginForm = ({ loading, handleSubmit }) => {
+const SignUpForm = ({ loading, handleSubmit }) => {
   const onFinishFailed = () => {
     notification.error({
       message: 'Không hợp lệ',
@@ -31,6 +30,14 @@ const LoginForm = ({ loading, handleSubmit }) => {
           placeholder="Tên người dùng"
           prefix={<Icon component={AccountIcon} className="text-gray-250" />}
         />
+        <RestInput
+          style={{ marginTop: 20 }}
+          fieldName="email"
+          messageRequire={i18next.t('input.email.validateMsg.required')}
+          messageValidate={i18next.t('input.email.validateMsg.invalid')}
+          placeholder="Email"
+          prefix={<Icon component={AccountIcon} className="text-gray-250" />}
+        />
         <RestInputPassword
           style={{ marginTop: 20 }}
           fieldName="password"
@@ -40,35 +47,28 @@ const LoginForm = ({ loading, handleSubmit }) => {
           type="password"
           prefix={<Icon component={PasswordIcon} className="text-gray-250" />}
         />
-        <div className="flex justify-end">
-          <Button type="link">
-            <span className="underline">Quên mật khẩu ?</span>
-          </Button>
-        </div>
         <Button
           type="primary"
           htmlType="submit"
+          style={{ marginTop: 20 }}
           className="w-full"
           loading={loading}
         >
-          {i18next.t('auth.loginBtn')}
+          {i18next.t('auth.signupBtn')}
         </Button>
       </Form>
-      <Link to="/signup" className="text-center" style={{ margin: 10 }}>
-        Tạo tài khoản
-      </Link>
     </div>
   );
 };
 
-LoginForm.propTypes = {
+SignUpForm.propTypes = {
   loading: PropTypes.bool,
   handleSubmit: PropTypes.func,
 };
 
-LoginForm.defaultProps = {
+SignUpForm.defaultProps = {
   loading: false,
   handleSubmit: () => {},
 };
 
-export default LoginForm;
+export default SignUpForm;

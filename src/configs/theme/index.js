@@ -1,11 +1,4 @@
 const theme = {
-  palette: {
-    primary: '#096DD9',
-    lightPrimary: '#4cb1e8',
-    secondary: '#2979FF',
-    loadingBackgroundColor: '#2c3e51cc',
-    color: ['#788195', '#E4E6E9'],
-  },
   fonts: {
     primary: 'Inter',
   },
@@ -84,4 +77,5 @@ const theme = {
   },
   summaries: ['#cc3366', '#ffce54', '#2dc3e8', '#3f51b5', '#bb1ac5', '#4baf50'],
 };
-module.exports = theme;
+
+export default theme;

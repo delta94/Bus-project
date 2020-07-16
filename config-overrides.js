@@ -6,8 +6,6 @@ const {
   addDecoratorsLegacy,
   useBabelRc,
 } = require('customize-cra');
-const path = require('path');
-const themeConfig = require('./src/configs/theme/adminTheme');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 /* eslint-disable */
@@ -41,33 +39,27 @@ module.exports = override(
   addLessLoader({
     javascriptEnabled: true,
     modifyVars: {
-      // Font
-      '@font-family': themeConfig.fonts.primary,
+      '@font-family': 'Inter',
       '@font-size-base': '14px',
-      '@primary-color': themeConfig.palette.primary,
-      '@table-header-bg': themeConfig.background.headerTable,
-      '@table-header-color': themeConfig.text.headerTable,
-      '@layout-sider-background-light': themeConfig.background.sidebar,
-      '@layout-sider-background-dark': themeConfig.background.sidebar,
+      '@table-header-bg': 'rgba(113, 119, 145, 0.05)',
+      '@table-header-color': '#717791',
+      '@layout-sider-background-light': '#fff',
+      '@layout-sider-background-dark': '#fff',
       '@input-height-base': '48px',
       '@btn-height-base': '48px',
       '@pagination-item-size': '48px',
       '@border-color-base': 'rgba(33, 33, 33, 0.1)',
-      '@dropdown-selected-color': '#448AFF',
       // Border
-      '@border-color-split': themeConfig.border.colorSplit,
+      '@border-color-split': '#F0F0F0',
       // Switch
-      '@switch-color': '#22C993',
-      '@btn-disable-bg': '#CC336670',
-      '@btn-disable-color': '#FFFFFF',
-      '@layout-header-background': themeConfig.background.sidebar,
-      '@layout-body-background': themeConfig.background.container,
+      '@layout-header-background': '#fff',
+      '@layout-body-background': '#FAFAFA',
       // Card
-      '@card-shadow': themeConfig.card.shadow,
-      '@card-radius': themeConfig.card.radius,
+      '@card-shadow': '0px 0px 20px rgba(33, 33, 33, 0.1)',
+      '@card-radius': '10px',
       // Menu and Sidebar
-      '@menu-bg': themeConfig.background.sidebar,
-      '@menu-icon-size': themeConfig.menu.iconSize,
+      '@menu-bg': '#fff',
+      '@menu-icon-size': '20px',
       // MODAL
       '@modal-body-padding': '10px 20px',
       // STEPS

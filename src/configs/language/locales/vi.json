@@ -92,10 +92,11 @@
       }
     }
   },
-  "login": {
+  "auth": {
     "title": "Đăng nhập",
     "rememberMe": "Lưu",
     "loginBtn": "Đăng nhập",
+    "signupBtn": "Đăng ký",
     "yourEmail": "Email của bạn",
     "resetPassword": "Làm mới mật khẩu",
     "password": "Mật khẩu"
@@ -126,6 +127,12 @@
     "breadCrumb": "Phân tích",
     "sidebar": "Phân tích",
     "titleTable": "Danh sách thẻ"
+  },
+  "calendar": {
+    "sidebar": "Lịch"
+  },
+  "todo": {
+    "sidebar": "Công việc"
   },
   "trips": {
     "breadCrumb": "Danh sách chuyến",

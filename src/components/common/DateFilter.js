@@ -44,10 +44,12 @@ const disabledDate = (current) => {
 const DateFilter = ({ isUserTab }) => {
   const { query, handlePushParams } = useRouter();
   const handleChange = (e) => {
-    handlePushParams({
-      startTime: formatDate(new Date(e[0]), 'YYYY-MM-DD'),
-      endTime: formatDate(new Date(e[1]), 'YYYY-MM-DD'),
-    });
+    if (e) {
+      handlePushParams({
+        startTime: formatDate(new Date(e[0]), 'YYYY-MM-DD'),
+        endTime: formatDate(new Date(e[1]), 'YYYY-MM-DD'),
+      });
+    }
   };
   return (
     <div className="flex justify-end">

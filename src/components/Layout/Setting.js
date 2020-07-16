@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { CloseOutlined, SettingOutlined } from '@ant-design/icons';
 import useToggle from '../../hooks/useToggle';
 import ThemeColor from './ThemeColor';
+import PageStyleSetting from './PageStyleSetting';
 
 export const StyledSetting = styled.div`
   position: absolute;
@@ -18,7 +19,7 @@ export const StyledSetting = styled.div`
   height: 48px;
   font-size: 16px;
   text-align: center;
-  background: #1890ff;
+  background: ${({ theme }) => theme.palette.primary};
   border-radius: 4px 0 0 4px;
   cursor: pointer;
   pointer-events: auto;
@@ -52,7 +53,10 @@ const Setting = () => {
       </StyledSetting>
     >
       <div style={{ padding: 20 }}>
-        <ThemeColor />
+        <PageStyleSetting />
+        <div style={{ marginTop: 20 }}>
+          <ThemeColor />
+        </div>
       </div>
     </Drawer>
   );

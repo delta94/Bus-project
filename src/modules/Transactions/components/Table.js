@@ -30,7 +30,7 @@ const Table = () => {
       title: 'Khách hàng',
       dataIndex: 'card',
       key: 'card',
-      render: (row) => <Link to={`cards/${row.id}`}>{row.name}</Link>,
+      render: (row) => <Link to={`cards/${row.id}`}>{row.username}</Link>,
     },
     {
       title: 'Số thẻ',

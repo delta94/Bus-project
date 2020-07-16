@@ -20,7 +20,7 @@ const crudSlice = ({
   // THUNK
   const getAll = createAsyncThunk(
     `${capitalize(name)}/getAll`,
-    async (payload, thunkAPI) => {
+    async (payload, { rejectWithValue }) => {
       try {
         const response = await request({
           ...payload,
@@ -35,14 +35,14 @@ const crudSlice = ({
         throw response;
       } catch (error) {
         showError(error?.data);
-        return thunkAPI.rejectWithValue();
+        return rejectWithValue();
       }
     },
   );
 
   const getById = createAsyncThunk(
     `${capitalize(name)}/getById`,
-    async (payload, thunkAPI) => {
+    async (payload, { rejectWithValue }) => {
       try {
         const response = await request({
           ...payload,
@@ -54,23 +54,23 @@ const crudSlice = ({
         throw response;
       } catch (error) {
         showError(error?.data);
-        return thunkAPI.rejectWithValue();
+        return rejectWithValue();
       }
     },
   );
 
   const create = createAsyncThunk(
     `${capitalize(name)}/create`,
-    async (payload, thunkAPI) => {
+    async (payload, { dispatch, getState, rejectWithValue }) => {
       try {
-        const { location } = thunkAPI.getState().router;
+        const { location } = getState().router;
         const response = await request({
           ...payload,
           url: payload?.url || name,
           method: 'POST',
         });
         if (response.data) {
-          thunkAPI.dispatch(replace(`${location.pathname}${location.search}`));
+          dispatch(replace(`${location.pathname}${location.search}`));
           notification.success({
             message: i18next.t('createSuccess'),
           });
@@ -79,7 +79,7 @@ const crudSlice = ({
         throw response;
       } catch (error) {
         showError(error?.data);
-        return thunkAPI.rejectWithValue();
+        return rejectWithValue();
       }
     },
   );

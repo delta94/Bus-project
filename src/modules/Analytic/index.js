@@ -6,7 +6,7 @@ import useRouter from 'hooks/useRouter';
 import { rangeToday } from 'utils/time';
 import { getAnalytic } from 'modules/Transactions/slice';
 import { useTranslation } from 'react-i18next';
-import { transactionsSelector } from './selectors';
+import { transactionsSelector } from '../Transactions/selectors';
 import DataAnalytic from '../../components/DataAnalytic';
 
 const Index = () => {
@@ -22,9 +22,8 @@ const Index = () => {
           endTime: query.endTime,
         }),
       );
-    } else {
-      handlePushParams(rangeToday);
     }
+    handlePushParams(rangeToday);
   }, [query.startTime, query.endTime]);
   return (
     <>

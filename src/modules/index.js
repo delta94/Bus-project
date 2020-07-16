@@ -11,7 +11,16 @@ const Routes = () => {
   return (
     <Layout>
       <Switch>
-        <Route path="/login" component={loadable(import('./Auth'))} exact />
+        <Route
+          path="/login"
+          component={loadable(import('./Auth/Login'))}
+          exact
+        />
+        <Route
+          path="/signup"
+          component={loadable(import('./Auth/SignUp'))}
+          exact
+        />
         {/* ------------------------------Route Add on------------------------ */}
         <PrivateRoute
           path="/"
@@ -41,6 +50,16 @@ const Routes = () => {
         <PrivateRoute
           path="/trips"
           component={loadable(import('./Trips'))}
+          exact
+        />
+        <PrivateRoute
+          path="/calendar"
+          component={loadable(import('./Calendar'))}
+          exact
+        />
+        <PrivateRoute
+          path="/todo"
+          component={loadable(import('./Todo'))}
           exact
         />
         <Route path="*" component={loadable(import('./404Page'))} />

@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from 'react';
-import { isEqual } from 'lodash';
-import usePrevious from './usePrevious';
+import { useState, useCallback } from 'react';
+import { changeAntdTheme, generateThemeColor } from '../utils/dynamic-theme';
 
 export const COLOR_LIST = [
   {
@@ -14,31 +13,48 @@ export const COLOR_LIST = [
   },
 ];
 
+export const THEME_LIST = [
+  {
+    key: 'light',
+    name: 'Light Style',
+    image:
+      'https://gw.alipayobjects.com/zos/antfincdn/NQ%24zoisaD2/jpRkZQMyYRryryPNtyIC.svg',
+  },
+  {
+    key: 'normal',
+    name: 'Normal Style',
+    image:
+      'https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg',
+  },
+  {
+    key: 'dark',
+    name: 'Dark Style',
+    image:
+      'https://gw.alipayobjects.com/zos/antfincdn/hmKaLQvmY2/LCkqqYNmvBEbokSDscrm.svg',
+  },
+];
+
 const useSetting = () => {
-  const [setting, setSetting] = useState({
-    primaryColor: COLOR_LIST[0].color,
-    theme: 'light',
+  const [setting, setSetting] = useState(() => {
+    const localSetting = localStorage.getItem('setting');
+    if (localSetting) {
+      return JSON.parse(localSetting);
+    }
+    return {
+      primaryColor: COLOR_LIST[0].color,
+      themeStyle: THEME_LIST[0].key,
+    };
   });
 
-  const preSetting = usePrevious(setting);
-
-  const changeSetting = (value) => {
-    setSetting({
+  const changeSetting = useCallback((value) => {
+    const newSetting = {
       ...setting,
       ...value,
-    });
-  };
-
-  useEffect(() => {
-    const localSetting = localStorage.getItem('setting');
-    localSetting && setSetting(JSON.parse(localSetting));
+    };
+    setSetting(newSetting);
+    localStorage.setItem('setting', JSON.stringify(newSetting));
+    changeAntdTheme(generateThemeColor(newSetting.primaryColor));
   }, []);
-
-  useEffect(() => {
-    if (preSetting && !isEqual(preSetting, setting)) {
-      localStorage.setItem('setting', JSON.stringify(setting));
-    }
-  }, [setting]);
 
   return {
     setting,

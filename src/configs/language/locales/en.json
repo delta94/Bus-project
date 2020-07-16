@@ -92,10 +92,11 @@
       }
     }
   },
-  "login": {
+  "auth": {
     "title": "Đăng nhập",
     "rememberMe": "Lưu",
     "loginBtn": "Đăng nhập",
+    "signupBtn": "Đăng ký",
     "yourEmail": "Email của bạn",
     "resetPassword": "Làm mới mật khẩu",
     "password": "Mật khẩu"
@@ -121,6 +122,12 @@
     "breadCrumb": "Card",
     "sidebar": "Card",
     "titleTable": "Card List"
+  },
+  "calendar": {
+    "sidebar": "Calendar"
+  },
+  "todo": {
+    "sidebar": "Todo"
   },
   "analytic": {
     "breadCrumb": "Analytic",

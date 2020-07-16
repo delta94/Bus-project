@@ -2,14 +2,15 @@ import { useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { authLoadingSelector } from './selectors';
-import { login } from './slice';
+import { login, signup } from './slice';
 
 export const useAuthen = () => {
   const loading = useSelector(authLoadingSelector);
   const dispatch = useDispatch();
-  const actions = useMemo(() => bindActionCreators({ login }, dispatch), [
-    dispatch,
-  ]);
+  const actions = useMemo(
+    () => bindActionCreators({ login, signup }, dispatch),
+    [dispatch],
+  );
 
   return useMemo(
     () => ({

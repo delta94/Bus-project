@@ -188,6 +188,9 @@ export const CLASS_UTILITY = `
     left: auto;
   }
   /*-------------------------text-------------------------------*/
+  .underline	{
+    text-decoration: underline;
+  }
   .text-center {
     text-align: center;
   }

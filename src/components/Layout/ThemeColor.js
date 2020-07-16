@@ -1,9 +1,9 @@
 import React from 'react';
-import { Tooltip } from 'antd';
+import { Tooltip, Row } from 'antd';
 import styled from 'styled-components';
 import { CheckOutlined } from '@ant-design/icons';
 import PropTypes from 'prop-types';
-import useSetting from '../../hooks/useSetting';
+import useSetting, { COLOR_LIST } from '../../hooks/useSetting';
 
 const Tag = React.forwardRef(({ color, check, ...rest }, ref) => (
   <div {...rest} style={{ backgroundColor: color }} ref={ref}>
@@ -17,7 +17,6 @@ Tag.propTypes = {
 };
 
 export const ThemeColorBlock = styled(Tag)`
-  float: left;
   width: 20px;
   height: 20px;
   margin-right: 8px;
@@ -30,16 +29,6 @@ export const ThemeColorBlock = styled(Tag)`
 
 const ThemeColor = () => {
   const { setting, changeSetting } = useSetting();
-  const colorList = [
-    {
-      name: 'Blue',
-      color: '#1890ff',
-    },
-    {
-      name: 'Red',
-      color: '#f5222d',
-    },
-  ];
 
   const selectColor = (color) => () => {
     changeSetting({
@@ -50,8 +39,8 @@ const ThemeColor = () => {
   return (
     <div>
       <h3>Theme Color</h3>
-      <div style={{ marginTop: 20 }}>
-        {colorList.map(({ color, name }, index) => {
+      <Row style={{ marginTop: 20 }}>
+        {COLOR_LIST.map(({ color, name }, index) => {
           return (
             <Tooltip key={String(index)} title={name}>
               <ThemeColorBlock
@@ -62,7 +51,7 @@ const ThemeColor = () => {
             </Tooltip>
           );
         })}
-      </div>
+      </Row>
     </div>
   );
 };

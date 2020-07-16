@@ -30,8 +30,8 @@ const Table = () => {
     },
     {
       title: 'Tên',
-      dataIndex: 'name',
-      key: 'name',
+      dataIndex: 'username',
+      key: 'username',
       render: (row, data) => <Link to={`cards/${data.id}`}>{row}</Link>,
     },
     {

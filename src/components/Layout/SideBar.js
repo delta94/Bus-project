@@ -6,6 +6,8 @@ import {
   AreaChartOutlined,
   CarOutlined,
   UserOutlined,
+  CalendarOutlined,
+  CheckSquareOutlined,
 } from '@ant-design/icons';
 import { Drawer, Layout, Menu } from 'antd';
 import useRouter from 'hooks/useRouter';
@@ -52,6 +54,18 @@ const sidebarMenu = [
     text: 'trips.sidebar',
     icon: CarOutlined,
     url: '/trips',
+  },
+  {
+    key: 'calendar',
+    text: 'calendar.sidebar',
+    icon: CalendarOutlined,
+    url: '/calendar',
+  },
+  {
+    key: 'todo',
+    text: 'todo.sidebar',
+    icon: CheckSquareOutlined,
+    url: '/todo',
   },
 ];
 

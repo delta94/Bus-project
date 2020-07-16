@@ -16,6 +16,19 @@ export const login = createAsyncThunk(
   },
 );
 
+export const signup = createAsyncThunk(
+  'Auth/signup',
+  async (payload, { rejectWithValue }) => {
+    try {
+      const response = await authApi.signup(payload.data);
+      return response.data;
+    } catch (error) {
+      showError(error?.data);
+      return rejectWithValue(error?.data?.message);
+    }
+  },
+);
+
 export const getInfo = createAsyncThunk(
   'Auth/getInfo',
   async (payload, { rejectWithValue }) => {
@@ -55,6 +68,16 @@ export const { actions, reducer } = createSlice({
       state.loading = null;
     },
     [login.rejected]: (state, { payload }) => {
+      state.loading = null;
+      state.messageError = payload;
+    },
+    [signup.pending]: (state) => {
+      state.loading = 'signup';
+    },
+    [signup.fulfilled]: (state) => {
+      state.loading = null;
+    },
+    [signup.rejected]: (state, { payload }) => {
       state.loading = null;
       state.messageError = payload;
     },
