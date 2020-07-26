@@ -19,6 +19,11 @@ const TransactionDetail = ({ transactions, loading }) => {
       render: (row) => <span>{formatNumberToMoney(row)}</span>,
       sorter: true,
     },
+    {
+      title: 'Chuyến',
+      dataIndex: ['trip', 'title'],
+      key: 'trip',
+    },
   ];
   return (
     <Card title="Lịch sử giao dịch">

@@ -32,6 +32,11 @@ const Table = () => {
       key: 'user',
       render: (row) => <Link to={`users/${row.id}`}>{row.username}</Link>,
     },
+    {
+      title: 'Chuyến',
+      dataIndex: ['trip', 'title'],
+      key: 'trip',
+    },
   ];
   return (
     <RestTable

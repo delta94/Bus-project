@@ -4,6 +4,7 @@ import Layout from 'components/Layout/Layout';
 import PrivateRoute from 'shared/PrivateRoute';
 import CreateUser from 'modules/Users/components/Create';
 import Topup from 'modules/Users/components/Topup';
+import CreateTrip from 'modules/Trips/components/Create';
 import loadable from '../utils/loadable';
 import ModalRoute from '../shared/ModalRoute';
 
@@ -71,6 +72,11 @@ const Routes = () => {
         <Route path="*" component={loadable(import('./404Page'))} />
       </Switch>
       {/* ------------------------------Model Add on------------------------ */}
+      <ModalRoute
+        path="#trips/create"
+        component={CreateTrip}
+        title="Tạo chuyến"
+      />
       <ModalRoute path="#users/create" component={CreateUser} title="Tạo thẻ" />
       <ModalRoute path="#users/topup" component={Topup} title="Nộp tiền" />
     </Layout>

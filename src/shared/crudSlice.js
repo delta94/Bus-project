@@ -29,7 +29,7 @@ const crudSlice = ({
         if (response.data) {
           return {
             ...response.data,
-            limit: payload.params.limit,
+            limit: payload?.params?.limit,
           };
         }
         throw response;

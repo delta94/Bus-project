@@ -31,7 +31,7 @@ const Table = () => {
     },
     {
       title: 'Email',
-      dataIndex: 'email',
+      dataIndex: ['user', 'email'],
       key: 'email',
     },
     {
