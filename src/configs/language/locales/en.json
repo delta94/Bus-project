@@ -127,6 +127,11 @@
     "sidebar": "User",
     "titleTable": "User List"
   },
+  "driver": {
+    "breadCrumb": "Driver",
+    "sidebar": "Driver",
+    "titleTable": "Driver List"
+  },
   "calendar": {
     "sidebar": "Calendar"
   },

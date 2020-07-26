@@ -27,19 +27,15 @@ const Routes = () => {
           exact
         />
         {/* ------------------------------Route Add on------------------------ */}
-        <PrivateRoute
-          path="/"
-          component={loadable(import('./Dashboard'))}
-          exact
-        />
-        <PrivateRoute
-          path="/overview"
-          component={loadable(import('./Overview'))}
-          exact
-        />
+        <PrivateRoute path="/" component={loadable(import('./Home'))} exact />
         <PrivateRoute
           path="/users"
           component={loadable(import('./Users'))}
+          exact
+        />
+        <PrivateRoute
+          path="/drivers"
+          component={loadable(import('./Drivers'))}
           exact
         />
         <PrivateRoute

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { Card, Table, Typography } from 'antd';
+import { Card, Table } from 'antd';
 import { formatDate, formatNumberToMoney } from 'utils/textUtils';
 
 const TransactionDetail = ({ transactions, loading }) => {
@@ -18,14 +18,6 @@ const TransactionDetail = ({ transactions, loading }) => {
       key: 'amount',
       render: (row) => <span>{formatNumberToMoney(row)}</span>,
       sorter: true,
-    },
-    {
-      title: 'Số thẻ',
-      dataIndex: 'id',
-      key: 'id',
-      render: (row) => (
-        <Typography.Paragraph copyable>{row}</Typography.Paragraph>
-      ),
     },
   ];
   return (

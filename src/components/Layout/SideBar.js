@@ -11,6 +11,7 @@ import {
   CalendarOutlined,
   CheckSquareOutlined,
   DashboardOutlined,
+  IdcardOutlined,
 } from '@ant-design/icons';
 import { Drawer, Layout, Menu } from 'antd';
 import useRouter from 'hooks/useRouter';
@@ -35,20 +36,20 @@ const sidebarMenu = [
     text: 'dashboard.sidebar',
     icon: DashboardOutlined,
     url: '/',
-    role: [ROLES.ADMIN, ROLES.USER],
-  },
-  {
-    key: 'overview',
-    text: 'overview.sidebar',
-    icon: ShopOutlined,
-    url: '/overview',
-    role: [ROLES.ADMIN],
+    role: [ROLES.USER, ROLES.ADMIN],
   },
   {
     key: 'users',
     text: 'users.sidebar',
     icon: UserOutlined,
     url: '/users',
+    role: [ROLES.ADMIN, ROLES.USER],
+  },
+  {
+    key: 'drivers',
+    text: 'drivers.sidebar',
+    icon: IdcardOutlined,
+    url: '/drivers',
     role: [ROLES.ADMIN],
   },
   {
@@ -70,7 +71,7 @@ const sidebarMenu = [
     text: 'trips.sidebar',
     icon: CarOutlined,
     url: '/trips',
-    role: [ROLES.ADMIN],
+    role: [ROLES.ADMIN, ROLES.USER],
   },
   // {
   //   key: 'calendar',

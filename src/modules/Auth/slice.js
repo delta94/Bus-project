@@ -2,6 +2,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { showError } from 'utils/exception';
 import authApi from '../../api/auth';
+import { ROLES } from '../../configs/constants';
 
 export const login = createAsyncThunk(
   'Auth/login',
@@ -47,6 +48,7 @@ export const { actions, reducer } = createSlice({
   initialState: {
     data: {
       name: '',
+      role: ROLES.USER,
     },
     isAuth: !!localStorage.getItem('sessionToken'),
     messageError: null,

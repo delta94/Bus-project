@@ -5,6 +5,8 @@ import auth from './Auth/slice';
 // import here
 import users from './Users/slice';
 import transactions from './Transactions/slice';
+import trips from './Trips/slice';
+import drivers from './Drivers/slice';
 
 export default (history) =>
   combineReducers({
@@ -13,4 +15,6 @@ export default (history) =>
     // add here
     users,
     transactions,
+    trips,
+    drivers,
   });
