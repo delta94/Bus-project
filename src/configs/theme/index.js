@@ -2,6 +2,14 @@ const theme = {
   fonts: {
     primary: 'Inter',
   },
+  breakpoints: {
+    xs: 0,
+    sm: 576,
+    md: 768,
+    lg: 992,
+    xl: 1200,
+    xxl: 1440,
+  },
   fontWeight: {
     thin: 100, // Thin
     utraLight: 200, // Ultra Light
@@ -75,7 +83,6 @@ const theme = {
   menu: {
     iconSize: '20px',
   },
-  summaries: ['#cc3366', '#ffce54', '#2dc3e8', '#3f51b5', '#bb1ac5', '#4baf50'],
 };
 
 export default theme;

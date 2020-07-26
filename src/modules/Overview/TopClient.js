@@ -6,11 +6,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import actions from '../actions';
 
 const TopClient = () => {
-  const { items: cards, loading } = useSelector((state) => state.cards);
+  const { items: users, loading } = useSelector((state) => state.users);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(
-      actions.cards.getAll({
+      actions.users.getAll({
         params: {
           limit: 5,
           sort: 'totalTransaction,DESC',
@@ -29,17 +29,13 @@ const TopClient = () => {
       title: 'Avatar',
       dataIndex: 'avatar',
       key: 'avatar',
-      render: (row) => (
-        <Avatar size={50} src="https://i.pravatar.cc">
-          {row}
-        </Avatar>
-      ),
+      render: (row) => <Avatar size={50} src={row} />,
     },
     {
       title: 'Tên',
       dataIndex: 'username',
       key: 'username',
-      render: (row, data) => <Link to={`cards/${data.id}`}>{row}</Link>,
+      render: (row, data) => <Link to={`users/${data.id}`}>{row}</Link>,
     },
     {
       title: 'Tổng số lần đi',
@@ -52,7 +48,7 @@ const TopClient = () => {
     <Table
       pagination={false}
       columns={columns}
-      dataSource={cards}
+      dataSource={users}
       loading={loading === 'getAll'}
     />
   );

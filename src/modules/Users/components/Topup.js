@@ -5,22 +5,22 @@ import { moneyFomatter } from 'utils/formatter';
 import { useDispatch } from 'react-redux';
 import actions from 'modules/actions';
 import useRouter from 'hooks/useRouter';
-import RestSelectCards from './RestSelectCards';
+import RestSelectUsers from './RestSelectUsers';
 
 const Topup = () => {
   const dispatch = useDispatch();
   const { query } = useRouter();
   const handleSubmit = (values) => {
     dispatch(
-      actions.cards.update({
-        url: `/cards/${values.id}/topup`,
+      actions.users.update({
+        url: `/users/${values.id}/topup`,
         data: {
           amount: values.amount,
         },
       }),
     ).then(() => {
       dispatch(
-        actions.cards.getAll({
+        actions.users.getAll({
           params: {
             ...query,
           },
@@ -30,8 +30,8 @@ const Topup = () => {
   };
 
   return (
-    <RestCreate resource="cards" customSubmit={handleSubmit}>
-      <RestSelectCards label="Tên" fieldName="id" />
+    <RestCreate resource="users" customSubmit={handleSubmit}>
+      <RestSelectUsers label="Tên" fieldName="id" />
       <RestInputNumber
         label="Số tiền"
         fieldName="amount"

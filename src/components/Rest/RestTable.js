@@ -13,7 +13,7 @@ import {
   FullscreenExitOutlined,
 } from '@ant-design/icons';
 import { isNull } from 'utils/validateUtils';
-import FullScreen from 'react-full-screen';
+import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import TooltipIcon from 'components/common/TooltipIcon';
 import { useTranslation } from 'react-i18next';
 import RestExportExcel from './RestExportExcel';
@@ -41,7 +41,7 @@ const RestTable = ({
   const data = useSelector((state) => state[resource]);
   const { query, handlePushModal, handlePushParams } = useRouter();
   const [size, setSize] = useState('default');
-  const [isFull, setFull] = useState(false);
+  const handle = useFullScreenHandle();
 
   const handlePaginate = (pagination, filters, sorter) => {
     const sort = hashSortParams(sorter.columnKey, sorter.order);
@@ -60,7 +60,7 @@ const RestTable = ({
   };
 
   return (
-    <FullScreen enabled={isFull} onChange={(isFull) => setFull(isFull)}>
+    <FullScreen handle={handle}>
       <Card
         title=<CardTitle
           title={title || t(`${resource}.titleTable`)}
@@ -84,8 +84,8 @@ const RestTable = ({
           {hasToggleFullScreen && (
             <TooltipIcon
               title="Open fullscreen"
-              icon={isFull ? FullscreenExitOutlined : FullscreenOutlined}
-              onClick={() => setFull(!isFull)}
+              icon={handle.active ? FullscreenExitOutlined : FullscreenOutlined}
+              onClick={handle.active ? handle.exit : handle.enter}
               className="cursor-pointer"
               style={{ marginLeft: 15, fontSize: 18 }}
             />

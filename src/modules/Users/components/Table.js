@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const Table = () => {
   const { handlePushModal } = useRouter();
   const onTopup = () => {
-    handlePushModal('cards/topup');
+    handlePushModal('users/topup');
   };
   const columns = [
     {
@@ -22,17 +22,18 @@ const Table = () => {
       title: 'Avatar',
       dataIndex: 'avatar',
       key: 'avatar',
-      render: (row) => (
-        <Avatar size={50} src="https://i.pravatar.cc">
-          {row}
-        </Avatar>
-      ),
+      render: (row) => <Avatar size={50} src={row} />,
+    },
+    {
+      title: 'Giới tính',
+      dataIndex: 'gender',
+      key: 'gender',
     },
     {
       title: 'Tên',
       dataIndex: 'username',
       key: 'username',
-      render: (row, data) => <Link to={`cards/${data.id}`}>{row}</Link>,
+      render: (row, data) => <Link to={`users/${data.id}`}>{row}</Link>,
     },
     {
       title: 'Email',
@@ -66,9 +67,10 @@ const Table = () => {
   return (
     <RestTable
       columns={columns}
-      resource="cards"
+      resource="users"
       action={{
         extra: <Button onClick={onTopup}>Nạp tiền</Button>,
+        hasCreateButton: false,
       }}
     />
   );

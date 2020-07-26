@@ -90,7 +90,7 @@ const numberToVietnamese = (number) => {
     }
     hauto = ' tỷ';
   } while (number > 0);
-  return string;
+  return string.trimLeft();
 };
 
 export default numberToVietnamese;

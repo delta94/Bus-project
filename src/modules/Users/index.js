@@ -1,9 +1,9 @@
 import React from 'react';
 import RestList from 'components/Rest/RestList';
-import CardTable from 'modules/Cards/components/Table';
+import UserTable from 'modules/Users/components/Table';
 
 const Overview = () => {
-  return <RestList resource="cards" table={CardTable} />;
+  return <RestList resource="users" table={UserTable} />;
 };
 
 Overview.propTypes = {};

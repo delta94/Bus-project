@@ -22,7 +22,7 @@ export const formatDateTime = (text) => {
     : moment().format('DD/MM/YY, hh:mma');
 };
 
-export const formatDate = (text, type = 'DD/MM/YY') => {
+export const formatDate = (text, type = 'DD/MM/YYYY') => {
   return text ? moment(text).format(type) : moment().format(type);
 };
 

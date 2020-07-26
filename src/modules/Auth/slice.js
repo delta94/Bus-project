@@ -63,7 +63,7 @@ export const { actions, reducer } = createSlice({
       state.loading = 'login';
     },
     [login.fulfilled]: (state, { payload }) => {
-      localStorage.setItem('sessionToken', payload.token);
+      localStorage.setItem('sessionToken', payload.accessToken);
       state.isAuth = true;
       state.loading = null;
     },
@@ -85,7 +85,7 @@ export const { actions, reducer } = createSlice({
       state.loading = 'getInfo';
     },
     [getInfo.fulfilled]: (state, { payload }) => {
-      state.data.name = payload.data.username;
+      state.data = payload;
       state.loading = null;
     },
     [getInfo.rejected]: (state) => {

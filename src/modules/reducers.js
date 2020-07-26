@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
 import auth from './Auth/slice';
 // import here
-import cards from './Cards/slice';
+import users from './Users/slice';
 import transactions from './Transactions/slice';
 
 export default (history) =>
@@ -11,6 +11,6 @@ export default (history) =>
     router: connectRouter(history),
     auth,
     // add here
-    cards,
+    users,
     transactions,
   });

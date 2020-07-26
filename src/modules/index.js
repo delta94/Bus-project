@@ -2,8 +2,8 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Layout from 'components/Layout/Layout';
 import PrivateRoute from 'shared/PrivateRoute';
-import CreateCard from 'modules/Cards/components/Create';
-import Topup from 'modules/Cards/components/Topup';
+import CreateUser from 'modules/Users/components/Create';
+import Topup from 'modules/Users/components/Topup';
 import loadable from '../utils/loadable';
 import ModalRoute from '../shared/ModalRoute';
 
@@ -21,20 +21,30 @@ const Routes = () => {
           component={loadable(import('./Auth/SignUp'))}
           exact
         />
+        <PrivateRoute
+          path="/info"
+          component={loadable(import('./Auth/Info'))}
+          exact
+        />
         {/* ------------------------------Route Add on------------------------ */}
         <PrivateRoute
           path="/"
+          component={loadable(import('./Dashboard'))}
+          exact
+        />
+        <PrivateRoute
+          path="/overview"
           component={loadable(import('./Overview'))}
           exact
         />
         <PrivateRoute
-          path="/cards"
-          component={loadable(import('./Cards'))}
+          path="/users"
+          component={loadable(import('./Users'))}
           exact
         />
         <PrivateRoute
-          path="/cards/:id"
-          component={loadable(import('./Cards/[id]'))}
+          path="/users/:id"
+          component={loadable(import('./Users/[id]'))}
           exact
         />
         <PrivateRoute
@@ -65,8 +75,8 @@ const Routes = () => {
         <Route path="*" component={loadable(import('./404Page'))} />
       </Switch>
       {/* ------------------------------Model Add on------------------------ */}
-      <ModalRoute path="#cards/create" component={CreateCard} title="Tạo thẻ" />
-      <ModalRoute path="#cards/topup" component={Topup} title="Nộp tiền" />
+      <ModalRoute path="#users/create" component={CreateUser} title="Tạo thẻ" />
+      <ModalRoute path="#users/topup" component={Topup} title="Nộp tiền" />
     </Layout>
   );
 };

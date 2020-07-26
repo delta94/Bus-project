@@ -12,7 +12,7 @@ const RestSelectCards = ({
   mode,
   wrapperCol,
 }) => {
-  const data = useSelector((state) => state.cards.items);
+  const data = useSelector((state) => state.users.items);
   return (
     <Form.Item
       label={label}
@@ -28,7 +28,7 @@ const RestSelectCards = ({
     >
       <Select mode={mode} style={{ width: 400 }} showArrow>
         {data.map((e) => (
-          <Select.Option key={e.id}>{e?.name}</Select.Option>
+          <Select.Option key={e.id}>{e?.username}</Select.Option>
         ))}
       </Select>
     </Form.Item>

@@ -46,7 +46,7 @@ const crudSlice = ({
       try {
         const response = await request({
           ...payload,
-          url: payload?.url || name,
+          url: payload?.url || `${name}/${payload.id}`,
         });
         if (response.data) {
           return response.data;
@@ -150,6 +150,7 @@ const crudSlice = ({
       },
       [getById.fulfilled]: (state, { payload }) => {
         state.item = payload;
+        state.loading = null;
       },
       [getById.rejected]: (state) => {
         state.loading = null;

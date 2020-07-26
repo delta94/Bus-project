@@ -1,4 +1,6 @@
 /* eslint-disable max-lines */
+/* eslint-disable no-unused-vars */
+/* eslint-disable max-lines */
 /* eslint-disable react/jsx-wrap-multilines */
 import {
   ShopOutlined,
@@ -8,6 +10,7 @@ import {
   UserOutlined,
   CalendarOutlined,
   CheckSquareOutlined,
+  DashboardOutlined,
 } from '@ant-design/icons';
 import { Drawer, Layout, Menu } from 'antd';
 import useRouter from 'hooks/useRouter';
@@ -15,7 +18,9 @@ import I18n from 'i18next';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 import { device } from '../../utils/css';
+import { ROLES } from '../../configs/constants';
 
 const { SubMenu } = Menu;
 
@@ -27,46 +32,58 @@ const getCurrentTab = (str) => {
 const sidebarMenu = [
   {
     key: 'dashboard',
-    text: 'overview.sidebar',
-    icon: ShopOutlined,
+    text: 'dashboard.sidebar',
+    icon: DashboardOutlined,
     url: '/',
+    role: [ROLES.ADMIN, ROLES.USER],
   },
   {
-    key: 'cards',
-    text: 'cards.sidebar',
+    key: 'overview',
+    text: 'overview.sidebar',
+    icon: ShopOutlined,
+    url: '/overview',
+    role: [ROLES.ADMIN],
+  },
+  {
+    key: 'users',
+    text: 'users.sidebar',
     icon: UserOutlined,
-    url: '/cards',
+    url: '/users',
+    role: [ROLES.ADMIN],
   },
   {
     key: 'transactions',
     text: 'transactions.sidebar',
     icon: TransactionOutlined,
     url: '/transactions',
+    role: [ROLES.ADMIN],
   },
   {
     key: 'analytic',
     text: 'analytic.sidebar',
     icon: AreaChartOutlined,
     url: '/analytic',
+    role: [ROLES.ADMIN],
   },
   {
     key: 'trips',
     text: 'trips.sidebar',
     icon: CarOutlined,
     url: '/trips',
+    role: [ROLES.ADMIN],
   },
-  {
-    key: 'calendar',
-    text: 'calendar.sidebar',
-    icon: CalendarOutlined,
-    url: '/calendar',
-  },
-  {
-    key: 'todo',
-    text: 'todo.sidebar',
-    icon: CheckSquareOutlined,
-    url: '/todo',
-  },
+  // {
+  //   key: 'calendar',
+  //   text: 'calendar.sidebar',
+  //   icon: CalendarOutlined,
+  //   url: '/calendar',
+  // },
+  // {
+  //   key: 'todo',
+  //   text: 'todo.sidebar',
+  //   icon: CheckSquareOutlined,
+  //   url: '/todo',
+  // },
 ];
 
 const StyledSider = styled(Layout.Sider)`
@@ -111,6 +128,7 @@ const SideBar = ({
   logo,
   fullLogo,
 }) => {
+  const info = useSelector((state) => state.auth.data);
   const { history, location } = useRouter();
   const url = getCurrentTab(location.pathname);
   const children = (
@@ -128,35 +146,37 @@ const SideBar = ({
         defaultSelectedKeys={[url || 'dashboard']}
         collapsed={collapsed.toString()}
       >
-        {sidebarMenu.map((menu) =>
-          menu.subMenu ? (
-            <SubMenu
-              key={menu.key}
-              title={
-                <span>
-                  {React.createElement(menu.icon)}
-                  <span>{I18n.t(menu.text)}</span>
-                </span>
-              }
-            >
-              {menu.subMenu.map((e) => (
-                <Menu.Item onClick={() => history.push(e.url)} key={menu.key}>
-                  {React.createElement(e.icon)}
-                  {I18n.t(e.text)}
-                </Menu.Item>
-              ))}
-            </SubMenu>
-          ) : (
-            <Menu.Item
-              key={menu.key}
-              title={I18n.t(menu.text)}
-              onClick={() => history.push(menu.url)}
-            >
-              {React.createElement(menu.icon)}
-              <span>{I18n.t(menu.text)}</span>
-            </Menu.Item>
-          ),
-        )}
+        {sidebarMenu
+          .filter((menu) => menu.role.includes(info.role))
+          .map((menu) =>
+            menu.subMenu ? (
+              <SubMenu
+                key={menu.key}
+                title={
+                  <span>
+                    {React.createElement(menu.icon)}
+                    <span>{I18n.t(menu.text)}</span>
+                  </span>
+                }
+              >
+                {menu.subMenu.map((e) => (
+                  <Menu.Item onClick={() => history.push(e.url)} key={menu.key}>
+                    {React.createElement(e.icon)}
+                    {I18n.t(e.text)}
+                  </Menu.Item>
+                ))}
+              </SubMenu>
+            ) : (
+              <Menu.Item
+                key={menu.key}
+                title={I18n.t(menu.text)}
+                onClick={() => history.push(menu.url)}
+              >
+                {React.createElement(menu.icon)}
+                <span>{I18n.t(menu.text)}</span>
+              </Menu.Item>
+            ),
+          )}
       </StyledSider.Menu>
     </>
   );

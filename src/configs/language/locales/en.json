@@ -113,15 +113,19 @@
     "sidebar": "Overview",
     "titleTable": "Danh sách công ty"
   },
+  "dashboard": {
+    "breadCrumb": "Dashboard",
+    "sidebar": "Dashboard"
+  },
   "transactions": {
     "breadCrumb": "Transaction History",
     "sidebar": "Transaction History",
     "titleTable": "Transaction List"
   },
-  "cards": {
-    "breadCrumb": "Card",
-    "sidebar": "Card",
-    "titleTable": "Card List"
+  "users": {
+    "breadCrumb": "User",
+    "sidebar": "User",
+    "titleTable": "User List"
   },
   "calendar": {
     "sidebar": "Calendar"

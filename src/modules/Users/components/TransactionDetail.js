@@ -1,17 +1,10 @@
-/* eslint-disable react/jsx-wrap-multilines */
-import RestTable from 'components/Rest/RestTable';
+/* eslint-disable react/prop-types */
 import React from 'react';
+import { Card, Table, Typography } from 'antd';
 import { formatDate, formatNumberToMoney } from 'utils/textUtils';
-import { Typography } from 'antd';
-// import { Link } from 'react-router-dom';
 
-const Table = () => {
+const TransactionDetail = ({ transactions, loading }) => {
   const columns = [
-    {
-      title: '#',
-      dataIndex: 'key',
-      key: 'key',
-    },
     {
       title: 'Ngày giao dịch',
       dataIndex: 'updatedAt',
@@ -26,12 +19,6 @@ const Table = () => {
       render: (row) => <span>{formatNumberToMoney(row)}</span>,
       sorter: true,
     },
-    // {
-    //   title: 'Khách hàng',
-    //   dataIndex: 'card',
-    //   key: 'card',
-    //   render: (row) => <Link to={`cards/${row.id}`}>{row.username}</Link>,
-    // },
     {
       title: 'Số thẻ',
       dataIndex: 'id',
@@ -42,16 +29,17 @@ const Table = () => {
     },
   ];
   return (
-    <RestTable
-      columns={columns}
-      resource="transactions"
-      action={{ hasCreateButton: false }}
-    />
+    <Card title="Lịch sử giao dịch">
+      <Table
+        pagination={false}
+        columns={columns}
+        dataSource={transactions}
+        loading={loading}
+      />
+    </Card>
   );
 };
 
-Table.propTypes = {};
+TransactionDetail.propTypes = {};
 
-Table.defaultProps = {};
-
-export default Table;
+export default TransactionDetail;

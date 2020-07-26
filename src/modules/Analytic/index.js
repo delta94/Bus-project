@@ -22,8 +22,9 @@ const Index = () => {
           endTime: query.endTime,
         }),
       );
+    } else {
+      handlePushParams(rangeToday);
     }
-    handlePushParams(rangeToday);
   }, [query.startTime, query.endTime]);
   return (
     <>

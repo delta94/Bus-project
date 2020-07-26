@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import TopClient from './TopClient';
 import MonthChart from './MonthChart';
 import PredictData from './PredictData';
+import GenderChart from './GenderChart';
 
 const Overview = () => {
   const { t } = useTranslation();
@@ -26,9 +27,14 @@ const Overview = () => {
           </Card>
         </Col>
       </Row>
-      <div style={{ marginBottom: 115, marginTop: 20 }}>
-        <PredictData />
-      </div>
+      <Row style={{ marginBottom: 115, marginTop: 20 }} gutter={30}>
+        <Col xs={24} md={10}>
+          <GenderChart />
+        </Col>
+        <Col xs={24} md={14}>
+          <PredictData />
+        </Col>
+      </Row>
     </>
   );
 };

@@ -4,7 +4,7 @@ import Form from './Form';
 
 const Create = () => {
   return (
-    <RestCreate resource="cards">
+    <RestCreate resource="users">
       <Form />
     </RestCreate>
   );

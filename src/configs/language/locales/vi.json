@@ -113,15 +113,19 @@
     "sidebar": "Tổng quan",
     "titleTable": "Danh sách công ty"
   },
+  "dashboard": {
+    "breadCrumb": "Dashboard",
+    "sidebar": "Dashboard"
+  },
   "transactions": {
     "breadCrumb": "Lịch sử giao dịch",
     "sidebar": "Lịch sử giao dịch",
     "titleTable": "Danh sách giao dịch"
   },
-  "cards": {
-    "breadCrumb": "Thẻ",
-    "sidebar": "Thẻ",
-    "titleTable": "Danh sách thẻ"
+  "users": {
+    "breadCrumb": "Người dùng",
+    "sidebar": "Người dùng",
+    "titleTable": "Danh sách người dùng"
   },
   "analytic": {
     "breadCrumb": "Phân tích",
