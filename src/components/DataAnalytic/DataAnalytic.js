@@ -56,6 +56,9 @@ DataAnalytic.propTypes = {
     loading: PropTypes.string,
     analytic: PropTypes.shape({
       chart: PropTypes.array,
+      totalTransaction: PropTypes.number,
+      totalAmount: PropTypes.number,
+      totalCustomers: PropTypes.number,
     }),
   }),
 };

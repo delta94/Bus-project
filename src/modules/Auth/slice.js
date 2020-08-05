@@ -43,6 +43,34 @@ export const getInfo = createAsyncThunk(
   },
 );
 
+export const confirmEmail = createAsyncThunk(
+  'Auth/confirmEmail',
+  async (payload, { rejectWithValue }) => {
+    try {
+      const { email } = payload.data;
+      const response = await authApi.confirmEmail({ email });
+      return response.data;
+    } catch (error) {
+      showError(error?.data);
+      return rejectWithValue();
+    }
+  },
+);
+
+export const resetPassword = createAsyncThunk(
+  'Auth/resetPassword',
+  async (payload, { rejectWithValue }) => {
+    try {
+      const { password, verifyCode } = payload.data;
+      const response = await authApi.resetPassword({ password, verifyCode });
+      return response.data;
+    } catch (error) {
+      showError(error?.data);
+      return rejectWithValue();
+    }
+  },
+);
+
 export const { actions, reducer } = createSlice({
   name: 'Auth',
   initialState: {
@@ -91,6 +119,24 @@ export const { actions, reducer } = createSlice({
       state.loading = null;
     },
     [getInfo.rejected]: (state) => {
+      state.loading = null;
+    },
+    [confirmEmail.pending]: (state) => {
+      state.loading = 'confirmEmail';
+    },
+    [confirmEmail.fulfilled]: (state) => {
+      state.loading = null;
+    },
+    [confirmEmail.rejected]: (state) => {
+      state.loading = null;
+    },
+    [resetPassword.pending]: (state) => {
+      state.loading = 'resetPassword';
+    },
+    [resetPassword.fulfilled]: (state) => {
+      state.loading = null;
+    },
+    [resetPassword.rejected]: (state) => {
       state.loading = null;
     },
   },

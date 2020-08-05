@@ -22,6 +22,16 @@ const Routes = () => {
           component={loadable(import('./Auth/SignUp'))}
           exact
         />
+        <Route
+          path="/forgot-password"
+          component={loadable(import('./Auth/ForgotPassword'))}
+          exact
+        />
+        <Route
+          path="/change-password"
+          component={loadable(import('./Auth/ResetPassword'))}
+          exact
+        />
         <PrivateRoute
           path="/info"
           component={loadable(import('./Auth/Info'))}

@@ -11,6 +11,12 @@ const authApi = {
   getInfo: async () => {
     return request(`/auth/info`);
   },
+  confirmEmail: async (data) => {
+    return request.post(`/auth/forgot-password`, data);
+  },
+  resetPassword: async (data) => {
+    return request.post(`/auth/change-password`, data);
+  },
 };
 
 export default authApi;

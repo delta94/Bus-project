@@ -31,6 +31,7 @@
   "deleteSuccess": "Xoá thành công",
   "back": "Quay lại",
   "confirm": "Xác nhận",
+  "submit": "Gửi",
   "sendOTP": "Gửi OTP",
   "createNew": "Create",
   "cancel": "Huỷ bỏ",
@@ -69,7 +70,8 @@
     "password": {
       "placeholder": "Mật khẩu",
       "validateMsg": {
-        "required": "Nhập mật khẩu của bạn!"
+        "required": "Nhập mật khẩu của bạn!",
+        "invalid": "Mật khẩu không hợp lệ"
       }
     },
     "confirmPassword": {

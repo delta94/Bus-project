@@ -1,16 +1,17 @@
 import Icon from '@ant-design/icons';
 import { Button, Form, notification } from 'antd';
-import FullLogo from 'assets/images/fullLogo.png';
 import { ReactComponent as AccountIcon } from 'assets/svg/account.svg';
 import { ReactComponent as PasswordIcon } from 'assets/svg/password.svg';
-import i18next from 'i18next';
-import React from 'react';
-import PropTypes from 'prop-types';
-import RestInputPassword from 'components/Rest/RestInputPassword';
 import RestInput from 'components/Rest/RestInput';
+import RestInputPassword from 'components/Rest/RestInputPassword';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import AuthForm from '../Layout/AuthForm';
 
 const LoginForm = ({ loading, handleSubmit }) => {
+  const { t } = useTranslation();
   const onFinishFailed = () => {
     notification.error({
       message: 'Không hợp lệ',
@@ -18,32 +19,28 @@ const LoginForm = ({ loading, handleSubmit }) => {
   };
 
   return (
-    <div
-      className="shadow-2 rounded-16 bg-white flex flex-col"
-      style={{ padding: '40px 30px 20px 30px', width: 450 }}
-    >
-      <img src={FullLogo} alt="cashbag" style={{ marginBottom: 41 }} />
+    <AuthForm>
       <Form onFinish={handleSubmit} onFinishFailed={onFinishFailed}>
         <RestInput
           fieldName="username"
-          messageRequire={i18next.t('input.username.validateMsg.required')}
-          messageValidate={i18next.t('input.username.validateMsg.invalid')}
+          messageRequire={t('input.username.validateMsg.required')}
+          messageValidate={t('input.username.validateMsg.invalid')}
           placeholder="Tên người dùng"
           prefix={<Icon component={AccountIcon} className="text-gray-250" />}
         />
         <RestInputPassword
           style={{ marginTop: 20 }}
           fieldName="password"
-          messageRequire={i18next.t('input.password.validateMsg.required')}
-          messageValidate={i18next.t('input.password.validateMsg.invalid')}
+          messageRequire={t('input.password.validateMsg.required')}
+          messageValidate={t('input.password.validateMsg.invalid')}
           placeholder="Mật khẩu"
           type="password"
           prefix={<Icon component={PasswordIcon} className="text-gray-250" />}
         />
-        <div className="flex justify-end">
-          <Button type="link">
+        <div className="flex justify-end" style={{ margin: '10px 0' }}>
+          <Link to="/forgot-password">
             <span className="underline">Quên mật khẩu ?</span>
-          </Button>
+          </Link>
         </div>
         <Button
           type="primary"
@@ -51,13 +48,13 @@ const LoginForm = ({ loading, handleSubmit }) => {
           className="w-full"
           loading={loading}
         >
-          {i18next.t('auth.loginBtn')}
+          {t('auth.loginBtn')}
         </Button>
       </Form>
       <Link to="/signup" className="text-center" style={{ margin: 10 }}>
         Tạo tài khoản
       </Link>
-    </div>
+    </AuthForm>
   );
 };
 

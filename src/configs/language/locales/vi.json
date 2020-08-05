@@ -35,6 +35,7 @@
   "createNew": "Tạo mới",
   "cancel": "Huỷ bỏ",
   "continue": "Tiếp tục",
+  "submit": "Gửi",
   "update": "Cập nhật",
   "sum": "Tổng số",
   "language": {
@@ -69,7 +70,8 @@
     "password": {
       "placeholder": "Mật khẩu",
       "validateMsg": {
-        "required": "Nhập mật khẩu của bạn!"
+        "required": "Nhập mật khẩu của bạn!",
+        "invalid": "Mật khẩu không hợp lệ"
       }
     },
     "confirmPassword": {
@@ -81,7 +83,8 @@
     "email": {
       "placeholder": "Email",
       "validateMsg": {
-        "required": "Nhập Email của bạn!"
+        "required": "Nhập Email của bạn!",
+        "invalid": "Email không hợp lệ"
       }
     },
     "phoneNumber": {
