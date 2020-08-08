@@ -6,8 +6,8 @@ import { MailOutlined } from '@ant-design/icons';
 import { unwrapResult } from '@reduxjs/toolkit';
 import { useAuthen } from './hooks';
 import AuthForm from '../../components/Layout/AuthForm';
-import { validateRegex } from '../../utils/validateUtils';
 import useRouter from '../../hooks/useRouter';
+import { validateRegex } from '../../utils/validateUtils';
 
 const ForgotPassword = () => {
   const { t } = useTranslation();

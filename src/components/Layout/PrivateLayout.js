@@ -27,7 +27,14 @@ const StyledHeader = styled(Header)`
   }
 `;
 
-const PrivateLayout = ({ children, px, widthSideBar, logo, fullLogo }) => {
+const PrivateLayout = ({
+  children,
+  px,
+  widthSideBar,
+  logo,
+  fullLogo,
+  menuList,
+}) => {
   const [collapsed, setCollapsed] = useState(true);
   const [visible, toggleVisible] = useState(false);
   const isMobileBreakpoint = useMedia('(max-width: 576px)');
@@ -74,7 +81,7 @@ const PrivateLayout = ({ children, px, widthSideBar, logo, fullLogo }) => {
               onClick={toggle}
             />
           )}
-          <Menu />
+          <Menu menuList={menuList} />
         </StyledHeader>
         <Content>
           <div
@@ -97,6 +104,7 @@ PrivateLayout.propTypes = {
   widthSideBar: PropTypes.string,
   logo: PropTypes.any,
   fullLogo: PropTypes.any,
+  menuList: PropTypes.any,
 };
 
 PrivateLayout.defaultProps = {

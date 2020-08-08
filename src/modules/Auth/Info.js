@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import MaterialBreadcrumb from 'components/common/MaterialBreadcrumb';
 import { useTranslation } from 'react-i18next';
-import { Row, Col, Card, Skeleton, Avatar } from 'antd';
+import { Row, Col, Card, Skeleton } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import FadeIn from 'react-fade-in';
 import { EditOutlined } from '@ant-design/icons';
@@ -9,6 +9,7 @@ import actions from '../actions';
 import Field from '../../components/common/Field';
 import TooltipIcon from '../../components/common/TooltipIcon';
 import TransactionDetail from '../Users/components/TransactionDetail';
+import UploadImage from '../common/UploadImage';
 
 const Detail = () => {
   const { t } = useTranslation();
@@ -24,6 +25,10 @@ const Detail = () => {
       );
     }
   }, [dispatch, data.id]);
+
+  const uploadImage = (image) => {
+    console.log(image);
+  };
   return (
     <>
       <MaterialBreadcrumb
@@ -43,7 +48,7 @@ const Detail = () => {
               <Skeleton />
             ) : (
               <FadeIn>
-                <Avatar src={user.avatar} size={100} />
+                <UploadImage defaultImage={user.avatar} onOk={uploadImage} />
                 <div style={{ marginTop: 20 }}>
                   <Field title="Tên" value={user.username} />
                   <Field title="Giới tính" value={user.gender} />

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Layout from 'components/Layout/Layout';
 import PrivateRoute from 'shared/PrivateRoute';
 import CreateUser from 'modules/Users/components/Create';
 import Topup from 'modules/Users/components/Topup';
 import CreateTrip from 'modules/Trips/components/Create';
 import loadable from '../utils/loadable';
 import ModalRoute from '../shared/ModalRoute';
+import Layout from './common/Layout';
 
 const Routes = () => {
   return (

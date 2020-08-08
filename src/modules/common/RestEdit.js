@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { PRIMARY_KEY } from 'shared/crudSlice';
 import RestForm from './RestForm';
 
-//
 const RestEdit = ({
   initialValues,
   children,

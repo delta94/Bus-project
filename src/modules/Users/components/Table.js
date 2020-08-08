@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-wrap-multilines */
-import RestTable from 'components/Rest/RestTable';
+import RestTable from 'modules/common/RestTable';
 import React from 'react';
 import { formatNumberToMoney, formatNumber } from 'utils/textUtils';
 import { Button, Typography, Avatar } from 'antd';
