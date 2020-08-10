@@ -1,10 +1,9 @@
 /* eslint-disable react/jsx-wrap-multilines */
 import React from 'react';
 import { Result, Button, Row } from 'antd';
-import useRouter from 'hooks/useRouter';
+import { Link } from 'react-router-dom';
 
 function NotFoundPage() {
-  const { history } = useRouter();
   return (
     <Row
       justify="center"
@@ -16,9 +15,9 @@ function NotFoundPage() {
         title="404"
         subTitle="Sorry, the page you visited does not exist."
         extra={
-          <Button type="primary" onClick={() => history.push('/')}>
+          <Link to="/" component={Button} type="primary">
             Back Home
-          </Button>
+          </Link>
         }
       />
     </Row>
