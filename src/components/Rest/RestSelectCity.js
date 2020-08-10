@@ -1,11 +1,8 @@
-/* eslint-disable react/jsx-curly-newline */
 /* eslint-disable no-underscore-dangle */
-import React, { useContext } from 'react';
+import React from 'react';
 import { Form, Select } from 'antd';
 import PropTypes from 'prop-types';
 import { getCitys } from 'utils/city';
-import { get } from 'lodash';
-import { FormContext } from './RestForm';
 
 const RestSelectCity = ({
   fieldName,
@@ -14,10 +11,8 @@ const RestSelectCity = ({
   defaultValue,
   message,
   placeholder,
-  record,
   labelCol,
 }) => {
-  const { source } = useContext(FormContext);
   return (
     <Form.Item
       name={fieldName}
@@ -33,7 +28,7 @@ const RestSelectCity = ({
       <Select
         showSearch
         placeholder={placeholder}
-        defaultValue={get(source, record) ?? defaultValue}
+        defaultValue={defaultValue}
         style={{ width: 200 }}
       >
         {getCitys()
@@ -52,7 +47,6 @@ RestSelectCity.propTypes = {
   defaultValue: PropTypes.any,
   required: PropTypes.bool,
   message: PropTypes.string,
-  record: PropTypes.string,
   placeholder: PropTypes.string,
   labelCol: PropTypes.object,
 };

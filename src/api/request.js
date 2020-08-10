@@ -19,7 +19,7 @@ const logger = (error) => {
 };
 
 const request = axios.create({
-  baseURL: REACT_APP_SERVER_URL,
+  baseURL: `${REACT_APP_SERVER_URL}/api`,
   timeout: 10000,
   paramsSerializer: (params) => qs.stringify(params),
 });

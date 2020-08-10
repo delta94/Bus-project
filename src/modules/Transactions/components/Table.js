@@ -1,9 +1,8 @@
 /* eslint-disable react/jsx-wrap-multilines */
-import RestTable from 'components/Rest/RestTable';
+import RestTable from 'modules/common/RestTable';
 import React from 'react';
 import { formatDate, formatNumberToMoney } from 'utils/textUtils';
 import { Link } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
 
 const Table = () => {
   const columns = [

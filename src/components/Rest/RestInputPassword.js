@@ -1,8 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Form, Input } from 'antd';
 import PropTypes from 'prop-types';
-import { get } from 'lodash';
-import { FormContext } from './RestForm';
 
 const RestInputPassword = ({
   fieldName,
@@ -14,12 +12,10 @@ const RestInputPassword = ({
   onChange,
   placeholder,
   pattern,
-  record,
   style,
   prefix,
   type,
 }) => {
-  const { source } = useContext(FormContext);
   return (
     <Form.Item
       name={fieldName}
@@ -36,7 +32,7 @@ const RestInputPassword = ({
       ]}
     >
       <Input.Password
-        defaultValue={get(source, record) ?? defaultValue}
+        defaultValue={defaultValue}
         style={style}
         onChange={onChange}
         placeholder={placeholder}
@@ -57,7 +53,6 @@ RestInputPassword.propTypes = {
   onChange: PropTypes.func,
   pattern: PropTypes.any,
   placeholder: PropTypes.string,
-  record: PropTypes.string,
   style: PropTypes.object,
   prefix: PropTypes.any,
   type: PropTypes.string,

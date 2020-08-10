@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { Upload, message, Modal } from 'antd';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { uploadPhoto } from 'api/crud';
 import { PlusOutlined, LoadingOutlined } from '@ant-design/icons';
 import i18next from 'i18next';
+import { uploadPhoto } from '../../api/upload';
 
 export const StyledUpload = styled(Upload)`
   .ant-upload {
@@ -36,7 +36,7 @@ const UploadImage = ({ onOk, defaultImage }) => {
     }
     if (info.file.status === 'done') {
       setLoading(false);
-      setImage(info.file.response.data.url);
+      setImage(info.file.response);
       Modal.confirm({
         title: i18next.t('uploadConfirm'),
         onOk() {
@@ -71,8 +71,12 @@ const UploadImage = ({ onOk, defaultImage }) => {
 };
 
 UploadImage.propTypes = {
-  onOk: PropTypes.func,
+  onOk: PropTypes.func.isRequired,
   defaultImage: PropTypes.string,
+};
+
+UploadImage.defaultProps = {
+  defaultImage: '',
 };
 
 export default UploadImage;

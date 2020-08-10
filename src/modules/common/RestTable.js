@@ -16,8 +16,8 @@ import { isNull } from 'utils/validateUtils';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import TooltipIcon from 'components/common/TooltipIcon';
 import { useTranslation } from 'react-i18next';
-import RestExportExcel from './RestExportExcel';
-import ResizeableTitle from '../common/ResizeableTitle';
+import ResizeableTitle from 'components/common/ResizeableTitle';
+import RestExportExcel from 'modules/common/RestExportExcel';
 
 const RestTable = ({
   title,

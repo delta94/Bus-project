@@ -1,4 +1,4 @@
-import RestCreate from 'components/Rest/RestCreate';
+import RestCreate from 'modules/common/RestCreate';
 import React from 'react';
 import RestInputNumber from 'components/Rest/RestInputNumber';
 import { moneyFomatter } from 'utils/formatter';
