@@ -1,14 +1,35 @@
-/* eslint-disable import/no-cycle */
+/* eslint-disable max-lines */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { showError } from 'utils/exception';
 import authApi from '../../api/auth';
 import { ROLES } from '../../configs/constants';
+
+const setToken = (token) => {
+  localStorage.setItem('sessionToken', token.accessToken);
+  localStorage.setItem('refreshToken', token.refreshToken);
+};
 
 export const login = createAsyncThunk(
   'Auth/login',
   async (payload, { rejectWithValue }) => {
     try {
       const response = await authApi.login(payload.data);
+      return response.data;
+    } catch (error) {
+      showError(error?.data);
+      return rejectWithValue(error?.data?.message);
+    }
+  },
+);
+
+export const refreshToken = createAsyncThunk(
+  'Auth/refreshToken',
+  async (payload, { rejectWithValue }) => {
+    try {
+      const token = localStorage.getItem('refreshToken');
+      const response = await authApi.refreshToken({
+        token,
+      });
       return response.data;
     } catch (error) {
       showError(error?.data);
@@ -78,6 +99,7 @@ export const { actions, reducer } = createSlice({
       name: '',
       role: ROLES.USER,
     },
+    token: {},
     isAuth: !!localStorage.getItem('sessionToken'),
     messageError: null,
     loading: null,
@@ -93,13 +115,18 @@ export const { actions, reducer } = createSlice({
       state.loading = 'login';
     },
     [login.fulfilled]: (state, { payload }) => {
-      localStorage.setItem('sessionToken', payload.accessToken);
+      setToken(payload);
+      state.token = payload;
       state.isAuth = true;
       state.loading = null;
     },
     [login.rejected]: (state, { payload }) => {
       state.loading = null;
       state.messageError = payload;
+    },
+    [refreshToken.fulfilled]: (state, { payload }) => {
+      setToken(payload);
+      state.token = payload;
     },
     [signup.pending]: (state) => {
       state.loading = 'signup';
