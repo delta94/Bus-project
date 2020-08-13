@@ -16,14 +16,16 @@ const { ErrorBoundary } = Alert;
 const StyledLayout = styled(Layout)`
   padding-left: 0;
   @media ${device.mobileL} {
-    padding-left: ${(props) => (props.collapsed ? '80px' : props.width)};
+    padding-left: ${({ collapsed, width }) => (collapsed ? '80px' : width)};
   }
 `;
 
 const StyledHeader = styled(Header)`
   width: 100%;
   @media ${device.mobileL} {
-    width: calc(100% - ${(props) => (props.collapsed ? '80px' : props.width)});
+    width: calc(
+      100% - ${({ collapsed, width }) => (collapsed ? '80px' : width)}
+    );
   }
 `;
 

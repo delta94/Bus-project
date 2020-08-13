@@ -33,8 +33,8 @@ const News = ({ src }) => {
         Tin tức
       </h1>
       <StyledNews>
-        {src.map((e) => (
-          <div className="cursor-pointer">
+        {src.map((e, index) => (
+          <div className="cursor-pointer" key={String(index)}>
             <img
               src={e.thumbnail}
               alt=""
