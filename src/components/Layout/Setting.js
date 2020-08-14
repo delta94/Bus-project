@@ -3,6 +3,7 @@ import React from 'react';
 import { Drawer } from 'antd';
 import styled from 'styled-components';
 import { CloseOutlined, SettingOutlined } from '@ant-design/icons';
+import Box from 'components/common/Box';
 import useToggle from '../../hooks/useToggle';
 import ThemeColor from './ThemeColor';
 import PageStyleSetting from './PageStyleSetting';
@@ -52,12 +53,12 @@ const Setting = () => {
         )}
       </StyledSetting>
     >
-      <div style={{ padding: 20 }}>
+      <Box p="20px">
         <PageStyleSetting />
-        <div style={{ marginTop: 20 }}>
+        <Box m="20px">
           <ThemeColor />
-        </div>
-      </div>
+        </Box>
+      </Box>
     </Drawer>
   );
 };

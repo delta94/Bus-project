@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Box from '../Box';
+import Text from '../Text';
 
 const Field = ({ title, value }) => {
   return (
-    <div className="flex" style={{ padding: '6px 0' }}>
-      <span style={{ flex: 1 }}>{`${title}:`}</span>
-      <span style={{ flex: 2 }}>{value}</span>
-    </div>
+    <Box display="flex" p="6px 0">
+      <Text flex="1">{`${title}:`}</Text>
+      <Text flex="2">{value}</Text>
+    </Box>
   );
 };
 

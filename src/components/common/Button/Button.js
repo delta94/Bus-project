@@ -13,7 +13,7 @@ const StyledButton = styled.button`
   backgroundcolor: ${({ primary }) => (primary ? '#380225' : '#fff')};
 `;
 
-export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
+const Button = ({ primary, backgroundColor, size, label, ...props }) => {
   return (
     <StyledButton
       type="button"
@@ -40,3 +40,5 @@ Button.defaultProps = {
   size: 'medium',
   onClick: undefined,
 };
+
+export default Button;
