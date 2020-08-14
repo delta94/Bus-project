@@ -3,21 +3,22 @@ import React from 'react';
 import { ReactComponent as ErrorIcon } from 'assets/svg/error.svg';
 import Icon from '@ant-design/icons';
 import PropTypes from 'prop-types';
+import Box from '../Box';
+import Text from '../Text';
 
 const AlertError = ({ text, style }) => {
   return (
-    <div
+    <Box
       style={style}
-      className="bg-error border-l-4-solid-error flex items-center"
+      display="flex"
+      alignItems="center"
+      className="bg-error border-l-4-solid-error"
     >
       <Icon component={ErrorIcon} style={{ marginLeft: 12, fontSize: 12 }} />
-      <p
-        className="text-error text-14-18 inline-block"
-        style={{ margin: '14px 10px 14px 10px' }}
-      >
+      <Text className="text-error text-14-18" m="14px 10px 14px 10px">
         {text}
-      </p>
-    </div>
+      </Text>
+    </Box>
   );
 };
 

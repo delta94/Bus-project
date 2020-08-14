@@ -1,6 +1,6 @@
 import { Button } from 'antd';
 import React from 'react';
-import Box from 'components/common/Box/Box';
+import Box from 'components/common/Box';
 
 const SideBar = () => {
   return (

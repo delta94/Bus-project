@@ -6,6 +6,7 @@
     "@manaflair/redux-batch": "^1.0.0",
     "@reduxjs/toolkit": "^1.4.0",
     "@storybook/addon-essentials": "^6.0.6",
+    "@styled-system/prop-types": "^5.1.5",
     "antd": "^4.5.4",
     "antd-theme-generator": "^1.2.4",
     "axios": "^0.19.2",
