@@ -1,17 +1,13 @@
 import { Button } from 'antd';
 import React from 'react';
-import styled from 'styled-components';
-
-export const StyledSideBar = styled.div`
-  padding: 20px;
-`;
+import Box from 'components/common/Box/Box';
 
 const SideBar = () => {
   return (
-    <StyledSideBar>
+    <Box p="20px">
       <Button type="primary">Add Task</Button>
       All
-    </StyledSideBar>
+    </Box>
   );
 };
 
