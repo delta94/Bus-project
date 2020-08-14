@@ -17,6 +17,9 @@ const authApi = {
   resetPassword: async (data) => {
     return request.post(`/auth/change-password`, data);
   },
+  refreshToken: async (data) => {
+    return request.post(`/auth/refresh-token`, data);
+  },
 };
 
 export default authApi;

@@ -1,10 +1,12 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import Language from './Language';
 
-storiesOf('Language', module).add('Default', () => (
-  <div style={{ padding: 20 }}>
-    <Language />
-  </div>
-));
+export default {
+  title: 'Language',
+  component: Language,
+};
+
+const Template = (args) => <Language {...args} />;
+
+export const Primary = Template.bind({});
