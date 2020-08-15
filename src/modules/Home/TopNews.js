@@ -14,8 +14,8 @@ const TopNews = ({ src }) => {
       >
         Có thể bạn quan tâm
       </h1>
-      {src.slice(0, 6).map((e) => (
-        <div className="flex" style={{ marginTop: 20 }}>
+      {src.slice(0, 6).map((e, index) => (
+        <div className="flex" key={String(index)} style={{ marginTop: 20 }}>
           <img
             src={e.thumbnail}
             alt=""

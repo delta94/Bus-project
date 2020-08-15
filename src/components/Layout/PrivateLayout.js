@@ -16,7 +16,8 @@ const { ErrorBoundary } = Alert;
 const StyledLayout = styled(Layout)`
   padding-left: 0;
   @media ${device.mobileL} {
-    padding-left: ${({ collapsed, width }) => (collapsed ? '80px' : width)};
+    padding-left: ${({ collapsed, width }) =>
+      collapsed === 'true' ? '80px' : width};
   }
 `;
 
@@ -24,7 +25,8 @@ const StyledHeader = styled(Header)`
   width: 100%;
   @media ${device.mobileL} {
     width: calc(
-      100% - ${({ collapsed, width }) => (collapsed ? '80px' : width)}
+      100% -
+        ${({ collapsed, width }) => (collapsed === 'true' ? '80px' : width)}
     );
   }
 `;
@@ -60,13 +62,13 @@ const PrivateLayout = ({
         logo={logo}
         fullLogo={fullLogo}
       />
-      <StyledLayout collapsed={collapsed} width={widthSideBar}>
+      <StyledLayout collapsed={collapsed.toString()} width={widthSideBar}>
         <StyledHeader
           style={{
             padding: `0 ${px}px`,
             zIndex: 9,
           }}
-          collapsed={collapsed}
+          collapsed={collapsed.toString()}
           width={widthSideBar}
           className="shadow fixed top-0 flex items-center justify-between"
         >
