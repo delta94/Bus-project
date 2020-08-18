@@ -3,7 +3,7 @@ import React from 'react';
 import Text from './Text';
 
 export default {
-  title: 'Text',
+  title: 'UIKit/Text',
   component: Text,
   argTypes: {
     color: { control: 'color' },

@@ -3,7 +3,7 @@ import React from 'react';
 import AlertError from './AlertError';
 
 export default {
-  title: 'AlertError',
+  title: 'UIKit/AlertError',
   component: AlertError,
 };
 
