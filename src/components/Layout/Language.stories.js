@@ -3,7 +3,7 @@ import React from 'react';
 import Language from './Language';
 
 export default {
-  title: 'Language',
+  title: 'UIkIt/Language',
   component: Language,
 };
 

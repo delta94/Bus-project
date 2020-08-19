@@ -4,7 +4,7 @@ import React from 'react';
 import { formatNumber, formatNumberToMoney } from 'utils/textUtils';
 import DateFilter from 'components/common/DateFilter';
 import PropTypes from 'prop-types';
-import AnalyticChart from '../AnalyticChart';
+import AnalyticChart from 'components/Chart/AnalyticChart';
 
 const DataAnalytic = ({ data }) => {
   return (

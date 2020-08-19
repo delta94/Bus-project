@@ -40,11 +40,15 @@ const setupAxiosInterceptors = ({
     (error) => {
       const {
         config,
-        response: { status },
+        response: { status, data },
       } = error;
       const originalRequest = config;
-      logger(error);
-      if (status === 401) {
+
+      if (process.env.NODE_ENV !== 'production') {
+        logger(error);
+      }
+
+      if (status === 401 && data?.message === 'jwt expired') {
         if (!isRefreshing) {
           store
             .dispatch(refreshTokenAction())
@@ -52,9 +56,6 @@ const setupAxiosInterceptors = ({
             .then((payload) => {
               isRefreshing = true;
               onRefreshed(payload.accessToken);
-            })
-            .catch(() => {
-              store.dispatch(logoutAction());
             });
         }
         const retryOriginalRequest = new Promise((resolve) => {
@@ -64,6 +65,9 @@ const setupAxiosInterceptors = ({
           });
         });
         return retryOriginalRequest;
+      }
+      if (status === 401) {
+        store.dispatch(logoutAction());
       }
       return Promise.reject(error.response || error.message);
     },

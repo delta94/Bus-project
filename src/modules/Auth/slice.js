@@ -9,6 +9,11 @@ const setToken = (token) => {
   localStorage.setItem('refreshToken', token.refreshToken);
 };
 
+const removeToken = () => {
+  localStorage.removeItem('sessionToken');
+  localStorage.removeItem('refreshToken');
+};
+
 export const login = createAsyncThunk(
   'Auth/login',
   async (payload, { rejectWithValue }) => {
@@ -107,7 +112,7 @@ export const { actions, reducer } = createSlice({
   reducers: {
     logout: (state) => {
       state.isAuth = false;
-      localStorage.removeItem('sessionToken');
+      removeToken();
     },
   },
   extraReducers: {
