@@ -17,7 +17,7 @@
     "google-map-react": "^2.0.8",
     "history": "^4.10.1",
     "i18next": "^19.6.3",
-    "i18next-browser-languagedetector": "^6.0.0",
+    "i18next-browser-languagedetector": "^6.0.1",
     "lodash": "^4.17.20",
     "mini-dynamic-antd-theme": "^0.2.1",
     "moment": "2.27.0",
