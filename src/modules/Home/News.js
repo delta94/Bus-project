@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { CalendarOutlined, EyeOutlined } from '@ant-design/icons';
 import { Tooltip } from 'antd';
+import Box from 'components/common/Box';
 import { formatDate } from '../../utils/textUtils';
 
 export const StyledNews = styled.div`
@@ -21,7 +22,7 @@ export const Title = styled.h3`
 
 const News = ({ src }) => {
   return (
-    <div>
+    <>
       <h1
         style={{
           marginBottom: 10,
@@ -34,7 +35,7 @@ const News = ({ src }) => {
       </h1>
       <StyledNews>
         {src.map((e, index) => (
-          <div className="cursor-pointer" key={String(index)}>
+          <Box cursor="pointer" key={String(index)}>
             <img
               src={e.thumbnail}
               alt=""
@@ -49,9 +50,11 @@ const News = ({ src }) => {
                 {e.title}
               </Title>
             </Tooltip>
-            <div
-              style={{ borderTop: '1px solid #f2f2f2', padding: 5 }}
-              className="flex justify-between"
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              borderTop="1px solid #f2f2f2"
+              p="5px"
             >
               <span>
                 <CalendarOutlined style={{ marginRight: 5 }} />
@@ -61,11 +64,11 @@ const News = ({ src }) => {
                 <EyeOutlined style={{ marginRight: 5 }} />
                 {`${e.totalView} lượt xem`}
               </span>
-            </div>
-          </div>
+            </Box>
+          </Box>
         ))}
       </StyledNews>
-    </div>
+    </>
   );
 };
 

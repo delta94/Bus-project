@@ -3,7 +3,7 @@ import React from 'react';
 import Field from './Field';
 
 export default {
-  title: 'Field',
+  title: 'UIKit/Field',
   component: Field,
 };
 

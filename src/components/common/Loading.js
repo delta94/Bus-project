@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Row } from 'antd';
+import Text from './Text';
 
 export const StyledLoading = styled.div`
   width: 48px;
@@ -33,12 +34,9 @@ const Loading = () => {
     <Row align="middle" justify="center" className="h-screen">
       <div>
         <StyledLoading />
-        <h2
-          className="text-600-13-16 text-header-table opacity-50"
-          style={{ marginTop: 4 }}
-        >
+        <Text mt="4px" className="text-600-13-16 text-header-table opacity-50">
           Đang tải dữ liệu...
-        </h2>
+        </Text>
       </div>
     </Row>
   );

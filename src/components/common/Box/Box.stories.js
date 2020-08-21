@@ -3,7 +3,7 @@ import React from 'react';
 import Box from './Box';
 
 export default {
-  title: 'Box',
+  title: 'UIKit/Box',
   component: Box,
   argTypes: {
     bg: { control: 'color' },
