@@ -11,7 +11,7 @@ const Overview = () => {
   if (loading === 'getInfo') {
     return <Skeleton />;
   }
-  return userInfo.role === ROLES.ADMIN ? (
+  return userInfo.role === ROLES.USER ? (
     <RestList resource="users" table={UserTable} />
   ) : (
     <UserInfo />

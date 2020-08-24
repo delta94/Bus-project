@@ -24,6 +24,7 @@ const RestInput = ({
   return (
     <Form.Item
       label={label}
+      requiredMark={false}
       name={fieldName}
       rules={[
         {

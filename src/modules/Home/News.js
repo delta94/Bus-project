@@ -6,12 +6,6 @@ import { Tooltip } from 'antd';
 import Box from 'components/common/Box';
 import { formatDate } from '../../utils/textUtils';
 
-export const StyledNews = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 30px;
-`;
-
 export const Title = styled.h3`
   overflow: hidden;
   text-overflow: ellipsis;
@@ -33,9 +27,9 @@ const News = ({ src }) => {
       >
         Tin tức
       </h1>
-      <StyledNews>
+      <Box display="grid" gridGap={30} gridTemplateColumns="repeat(3, 1fr)">
         {src.map((e, index) => (
-          <Box cursor="pointer" key={String(index)}>
+          <Box pointer key={String(index)}>
             <img
               src={e.thumbnail}
               alt=""
@@ -67,7 +61,7 @@ const News = ({ src }) => {
             </Box>
           </Box>
         ))}
-      </StyledNews>
+      </Box>
     </>
   );
 };

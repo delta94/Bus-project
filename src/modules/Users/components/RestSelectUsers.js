@@ -23,10 +23,11 @@ const RestSelectCards = ({
           message,
         },
       ]}
+      required={false}
       wrapperCol={wrapperCol}
       labelCol={wrapperCol}
     >
-      <Select mode={mode} style={{ width: 400 }} showArrow>
+      <Select mode={mode} style={{ width: 400 }} showArrow showSearch>
         {data.map((e) => (
           <Select.Option key={e.id}>{e?.username}</Select.Option>
         ))}

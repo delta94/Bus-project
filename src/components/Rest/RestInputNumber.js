@@ -60,6 +60,7 @@ const RestInputNumber = ({
         }
         name={fieldName}
         help={help}
+        required={false}
         style={style}
         labelCol={labelCol}
         wrapperCol={wrapperCol}

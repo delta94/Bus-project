@@ -34,7 +34,7 @@ const Loading = () => {
     <Row align="middle" justify="center" className="h-screen">
       <div>
         <StyledLoading />
-        <Text mt="4px" className="text-600-13-16 text-header-table opacity-50">
+        <Text mt="4px" bold className="text-header-table opacity-50">
           Đang tải dữ liệu...
         </Text>
       </div>
