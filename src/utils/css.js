@@ -206,18 +206,6 @@ export const CLASS_UTILITY = `
   .text-white {
     color: #fff;
   }
-  .truncate-250 {
-    width: 250px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .line-clamp-3 {   
-    display: -webkit-box;   
-    -webkit-line-clamp: 3;   
-    -webkit-box-orient: vertical;     
-    overflow: hidden; 
-  }
   /*--------------------Border---------------------------------*/
   .border-tr {
     border-top-width: 1px;

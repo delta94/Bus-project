@@ -1,18 +1,10 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import styled from 'styled-components';
 import { CalendarOutlined, EyeOutlined } from '@ant-design/icons';
 import { Tooltip } from 'antd';
 import Box from 'components/common/Box';
+import TextTruncate from 'components/common/TextTruncate/TextTruncate';
 import { formatDate } from '../../utils/textUtils';
-
-export const Title = styled.h3`
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-`;
 
 const News = ({ src }) => {
   return (
@@ -37,12 +29,13 @@ const News = ({ src }) => {
               style={{ height: 300 }}
             />
             <Tooltip title={e.title}>
-              <Title
+              <TextTruncate
                 className="hover:text-primary cursor-pointer"
                 style={{ marginTop: 10 }}
-              >
-                {e.title}
-              </Title>
+                line={2}
+                element="p"
+                text={e.title}
+              />
             </Tooltip>
             <Box
               display="flex"
