@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import MaterialBreadcrumb from 'components/common/MaterialBreadcrumb';
+import MaterialBreadcrumb from '@/components/common/MaterialBreadcrumb';
 import { useTranslation } from 'react-i18next';
 import { Row, Col, Card, Skeleton, Avatar } from 'antd';
-import useRouter from 'hooks/useRouter';
+import useRouter from '@/hooks/useRouter';
 import { useDispatch, useSelector } from 'react-redux';
 import FadeIn from 'react-fade-in';
 import { EditOutlined } from '@ant-design/icons';

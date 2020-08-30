@@ -3,9 +3,9 @@
 import React from 'react';
 import { Avatar, Dropdown, Menu, Spin } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { actions } from 'modules/Auth/slice';
+import { actions } from '@/modules/Auth/slice';
 import { LogoutOutlined, InfoCircleOutlined } from '@ant-design/icons';
-import useRouter from 'hooks/useRouter';
+import useRouter from '@/hooks/useRouter';
 
 const UserInfo = React.memo(() => {
   const dispatch = useDispatch();

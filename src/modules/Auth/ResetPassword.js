@@ -1,9 +1,9 @@
 import { Button, Row, Form, notification } from 'antd';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import RestInputPassword from 'components/Rest/RestInputPassword';
+import RestInputPassword from '@/components/Rest/RestInputPassword';
 import Icon from '@ant-design/icons';
-import { ReactComponent as PasswordIcon } from 'assets/svg/password.svg';
+import { ReactComponent as PasswordIcon } from '@/assets/svg/password.svg';
 import { unwrapResult } from '@reduxjs/toolkit';
 import { useAuthen } from './hooks';
 import AuthForm from '../../components/Layout/AuthForm';

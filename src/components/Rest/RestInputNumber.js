@@ -4,9 +4,9 @@
 import React, { useState } from 'react';
 import { Form, InputNumber, Tooltip } from 'antd';
 import PropTypes from 'prop-types';
-import { validateRegex } from 'utils/validateUtils';
+import { validateRegex } from '@/utils/validateUtils';
 import { QuestionCircleOutlined } from '@ant-design/icons';
-import numberToVietnamese from 'utils/numberToVietnamese';
+import numberToVietnamese from '@/utils/numberToVietnamese';
 
 const RestInputNumber = ({
   fieldName,

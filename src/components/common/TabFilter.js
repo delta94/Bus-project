@@ -1,5 +1,5 @@
 import { Col, Row, Select } from 'antd';
-import useRouter from 'hooks/useRouter';
+import useRouter from '@/hooks/useRouter';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';

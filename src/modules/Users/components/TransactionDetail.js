@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { Card, Table } from 'antd';
-import { formatDate, formatNumberToMoney } from 'utils/textUtils';
+import { formatDate, formatNumberToMoney } from '@/utils/textUtils';
 
 const TransactionDetail = ({ transactions, loading }) => {
   const columns = [

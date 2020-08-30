@@ -1,6 +1,6 @@
 import React from 'react';
-import useAuth from 'hooks/useAuth';
-import LoginForm from 'components/LoginForm';
+import useAuth from '@/hooks/useAuth';
+import LoginForm from '@/components/LoginForm';
 import { Row } from 'antd';
 import { useAuthen } from './hooks';
 

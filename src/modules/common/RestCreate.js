@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Form, notification } from 'antd';
 import PropTypes from 'prop-types';
-import actions from 'modules/actions';
+import actions from '@/modules/actions';
 import { useDispatch } from 'react-redux';
 import RestForm from './RestForm';
 

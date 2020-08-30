@@ -1,5 +1,5 @@
 import React from 'react';
-import RestList from 'modules/common/RestList';
+import RestList from '@/modules/common/RestList';
 import TripsTable from './components/Table';
 
 const Trips = () => {

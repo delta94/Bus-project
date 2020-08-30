@@ -1,6 +1,6 @@
 import React from 'react';
-import RestList from 'modules/common/RestList';
-import UserTable from 'modules/Users/components/Table';
+import RestList from '@/modules/common/RestList';
+import UserTable from '@/modules/Users/components/Table';
 import { useSelector } from 'react-redux';
 import { Skeleton } from 'antd';
 import { ROLES } from '../../configs/constants';

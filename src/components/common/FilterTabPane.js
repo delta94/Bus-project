@@ -1,9 +1,14 @@
 /* eslint-disable consistent-return */
 import { Tabs } from 'antd';
-import useRouter from 'hooks/useRouter';
+import useRouter from '@/hooks/useRouter';
 import React from 'react';
 import styled from 'styled-components';
-import { rangeMonth, rangeToday, rangeWeek, rangeYesterday } from 'utils/time';
+import {
+  rangeMonth,
+  rangeToday,
+  rangeWeek,
+  rangeYesterday,
+} from '@/utils/time';
 
 const { TabPane } = Tabs;
 

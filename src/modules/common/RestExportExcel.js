@@ -1,11 +1,11 @@
 import React, { useState, useRef } from 'react';
 import { Tooltip, Button, Spin } from 'antd';
 import Icon from '@ant-design/icons';
-import { ReactComponent as ExcelIcon } from 'assets/svg/excel.svg';
+import { ReactComponent as ExcelIcon } from '@/assets/svg/excel.svg';
 import PropTypes from 'prop-types';
 import { CSVLink } from 'react-csv';
 import request from 'api/request';
-import { showError } from 'utils/exception';
+import { showError } from '@/utils/exception';
 
 const RestExportExcel = ({ resource, style }) => {
   const csvLink = useRef();

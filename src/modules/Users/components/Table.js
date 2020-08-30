@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-wrap-multilines */
-import RestTable from 'modules/common/RestTable';
+import RestTable from '@/modules/common/RestTable';
 import React from 'react';
-import { formatNumberToMoney, formatNumber } from 'utils/textUtils';
+import { formatNumberToMoney, formatNumber } from '@/utils/textUtils';
 import { Button, Typography, Avatar } from 'antd';
-import useRouter from 'hooks/useRouter';
+import useRouter from '@/hooks/useRouter';
 import { Link } from 'react-router-dom';
 
 const Table = () => {

@@ -1,10 +1,10 @@
-import RestCreate from 'modules/common/RestCreate';
+import RestCreate from '@/modules/common/RestCreate';
 import React from 'react';
-import RestInputNumber from 'components/Rest/RestInputNumber';
-import { moneyFomatter } from 'utils/formatter';
+import RestInputNumber from '@/components/Rest/RestInputNumber';
+import { moneyFomatter } from '@/utils/formatter';
 import { useDispatch } from 'react-redux';
-import actions from 'modules/actions';
-import useRouter from 'hooks/useRouter';
+import actions from '@/modules/actions';
+import useRouter from '@/hooks/useRouter';
 import RestSelectUsers from './RestSelectUsers';
 
 const Topup = () => {

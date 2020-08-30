@@ -1,8 +1,8 @@
-import RestInput from 'components/Rest/RestInput';
+import RestInput from '@/components/Rest/RestInput';
 import React from 'react';
-import RestInputNumber from 'components/Rest/RestInputNumber';
-import { moneyFomatter } from 'utils/formatter';
-import { validateRegex } from 'utils/validateUtils';
+import RestInputNumber from '@/components/Rest/RestInputNumber';
+import { moneyFomatter } from '@/utils/formatter';
+import { validateRegex } from '@/utils/validateUtils';
 
 const Form = () => {
   return (

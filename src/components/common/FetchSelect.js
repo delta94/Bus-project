@@ -2,10 +2,10 @@
 import React, { useEffect } from 'react';
 import { Select } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
-import actions from 'modules/actions';
+import actions from '@/modules/actions';
 import { PRIMARY_KEY } from 'shared/crudSlice';
 import PropTypes from 'prop-types';
-import { hashSearchParams, DEFAULT_QUERY } from 'utils/url';
+import { hashSearchParams, DEFAULT_QUERY } from '@/utils/url';
 import { debounce } from 'lodash';
 
 const FetchSelect = ({

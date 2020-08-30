@@ -14,7 +14,7 @@ import {
   IdcardOutlined,
 } from '@ant-design/icons';
 import { Drawer, Layout, Menu } from 'antd';
-import useRouter from 'hooks/useRouter';
+import useRouter from '@/hooks/useRouter';
 import I18n from 'i18next';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -64,7 +64,7 @@ const sidebarMenu = [
     text: 'analytic.sidebar',
     icon: AreaChartOutlined,
     url: '/analytic',
-    role: [ROLES.ADMIN],
+    role: [ROLES.ADMIN, ROLES.USER],
   },
   {
     key: 'trips',

@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { logger } from 'utils/logger';
+import { logger } from '@/utils/logger';
 import axios from 'axios';
 import { unwrapResult } from '@reduxjs/toolkit';
 

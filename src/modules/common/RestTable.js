@@ -3,21 +3,21 @@
 import React, { useState } from 'react';
 import { Table, Card, Button, Dropdown, Menu, Row } from 'antd';
 import { useSelector } from 'react-redux';
-import useRouter from 'hooks/useRouter';
-import CardTitle from 'components/common/CardTitle';
+import useRouter from '@/hooks/useRouter';
+import CardTitle from '@/components/common/CardTitle';
 import PropTypes from 'prop-types';
-import { hashSortParams } from 'utils/url';
+import { hashSortParams } from '@/utils/url';
 import {
   ColumnHeightOutlined,
   FullscreenOutlined,
   FullscreenExitOutlined,
 } from '@ant-design/icons';
-import { isNull } from 'utils/validateUtils';
+import { isNull } from '@/utils/validateUtils';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
-import TooltipIcon from 'components/common/TooltipIcon';
+import TooltipIcon from '@/components/common/TooltipIcon';
 import { useTranslation } from 'react-i18next';
-import ResizeableTitle from 'components/common/ResizeableTitle';
-import RestExportExcel from 'modules/common/RestExportExcel';
+import ResizeableTitle from '@/components/common/ResizeableTitle';
+import RestExportExcel from '@/modules/common/RestExportExcel';
 
 const RestTable = ({
   title,

@@ -1,6 +1,6 @@
 /* eslint-disable max-lines */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { showError } from 'utils/exception';
+import { showError } from '@/utils/exception';
 import authApi from '../../api/auth';
 import { ROLES } from '../../configs/constants';
 

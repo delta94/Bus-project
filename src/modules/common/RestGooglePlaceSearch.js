@@ -7,7 +7,7 @@ import usePlacesAutocomplete, {
   getGeocode,
 } from 'use-places-autocomplete';
 import { get } from 'lodash';
-import GoogleMap from 'components/common/GoogleMap';
+import GoogleMap from '@/components/common/GoogleMap';
 import { FormContext } from './RestForm';
 
 const RestGooglePlaceSearch = ({

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal } from 'antd';
-import useRouter from 'hooks/useRouter';
+import useRouter from '@/hooks/useRouter';
 import PropTypes from 'prop-types';
 
 const ModalRoute = ({ component, path, width, title, ...rest }) => {

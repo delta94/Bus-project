@@ -1,10 +1,10 @@
 import { DatePicker } from 'antd';
-import useRouter from 'hooks/useRouter';
+import useRouter from '@/hooks/useRouter';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import { formatDate } from 'utils/textUtils';
+import { formatDate } from '@/utils/textUtils';
 
 const StyledDatePicker = styled(DatePicker.RangePicker)`
   width: 280px;

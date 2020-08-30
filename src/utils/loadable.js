@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import Loading from 'components/common/Loading';
+import Loading from '@/components/common/Loading';
 
 const loadable = (importFunc, { fallback } = { fallback: <Loading /> }) => {
   const LazyComponent = lazy(() => importFunc);

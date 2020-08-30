@@ -2,8 +2,8 @@
 import React from 'react';
 import { CalendarOutlined, EyeOutlined } from '@ant-design/icons';
 import { Tooltip } from 'antd';
-import Box from 'components/common/Box';
-import TextTruncate from 'components/common/TextTruncate/TextTruncate';
+import Box from '@/components/common/Box';
+import TextTruncate from '@/components/common/TextTruncate/TextTruncate';
 import { formatDate } from '../../utils/textUtils';
 
 const News = ({ src }) => {

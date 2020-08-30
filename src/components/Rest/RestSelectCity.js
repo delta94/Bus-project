@@ -2,7 +2,7 @@
 import React from 'react';
 import { Form, Select } from 'antd';
 import PropTypes from 'prop-types';
-import { getCitys } from 'utils/city';
+import { getCitys } from '@/utils/city';
 
 const RestSelectCity = ({
   fieldName,

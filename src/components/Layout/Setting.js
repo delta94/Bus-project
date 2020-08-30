@@ -3,7 +3,7 @@ import React from 'react';
 import { Drawer } from 'antd';
 import styled from 'styled-components';
 import { CloseOutlined, SettingOutlined } from '@ant-design/icons';
-import Box from 'components/common/Box';
+import Box from '@/components/common/Box';
 import useToggle from '../../hooks/useToggle';
 import ThemeColor from './ThemeColor';
 import PageStyleSetting from './PageStyleSetting';

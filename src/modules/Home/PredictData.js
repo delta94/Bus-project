@@ -10,7 +10,7 @@ import {
   Line,
   ResponsiveContainer,
 } from 'recharts';
-import { formatDate, formatNumber } from 'utils/textUtils';
+import { formatDate, formatNumber } from '@/utils/textUtils';
 import { Card, Skeleton } from 'antd';
 import { getPredict } from '../Transactions/slice';
 

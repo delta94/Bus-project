@@ -2,11 +2,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import useGetUserInfo from 'hooks/useGetUserInfo';
-import Search from 'components/Layout/Search';
-import Chat from 'components/Layout/Chat';
-import Language from 'components/Layout/Language';
-import Notification from 'components/Layout/Notification';
+import useGetUserInfo from '@/hooks/useGetUserInfo';
+import Search from '@/components/Layout/Search';
+import Chat from '@/components/Layout/Chat';
+import Language from '@/components/Layout/Language';
+import Notification from '@/components/Layout/Notification';
 import PrivateLayout from '../../components/Layout/PrivateLayout';
 import UserInfo from '../Auth/UserInfo';
 
@@ -35,8 +35,8 @@ const Layout = ({ children }) => {
     return (
       <PrivateLayout
         menuList={MENU}
-        logo={require('assets/images/logo.png')}
-        fullLogo={require('assets/images/fullLogo.png')}
+        logo={require('@/assets/images/logo.png')}
+        fullLogo={require('@/assets/images/fullLogo.png')}
       >
         {children}
       </PrivateLayout>

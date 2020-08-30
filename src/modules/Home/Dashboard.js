@@ -1,6 +1,6 @@
 /* eslint-disable max-lines */
 import React from 'react';
-import MaterialBreadcrumb from 'components/common/MaterialBreadcrumb';
+import MaterialBreadcrumb from '@/components/common/MaterialBreadcrumb';
 import { useTranslation } from 'react-i18next';
 import { Row, Col } from 'antd';
 import News from './News';

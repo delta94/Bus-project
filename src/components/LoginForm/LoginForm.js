@@ -1,9 +1,9 @@
 import Icon from '@ant-design/icons';
 import { Button, Form, notification } from 'antd';
-import { ReactComponent as AccountIcon } from 'assets/svg/account.svg';
-import { ReactComponent as PasswordIcon } from 'assets/svg/password.svg';
-import RestInput from 'components/Rest/RestInput';
-import RestInputPassword from 'components/Rest/RestInputPassword';
+import { ReactComponent as AccountIcon } from '@/assets/svg/account.svg';
+import { ReactComponent as PasswordIcon } from '@/assets/svg/password.svg';
+import RestInput from '@/components/Rest/RestInput';
+import RestInputPassword from '@/components/Rest/RestInputPassword';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useTranslation } from 'react-i18next';

@@ -1,7 +1,7 @@
 import { Button, Row, Form, notification } from 'antd';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import RestInput from 'components/Rest/RestInput';
+import RestInput from '@/components/Rest/RestInput';
 import { MailOutlined } from '@ant-design/icons';
 import { unwrapResult } from '@reduxjs/toolkit';
 import { useAuthen } from './hooks';

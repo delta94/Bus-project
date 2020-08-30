@@ -4,7 +4,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import useRouter from 'hooks/useRouter';
+import useRouter from '@/hooks/useRouter';
 import { CameraOutlined } from '@ant-design/icons';
 
 const StyledOverLay = styled.div`

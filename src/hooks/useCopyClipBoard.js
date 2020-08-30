@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { copyStringToClipboard } from 'utils/tools';
+import { copyStringToClipboard } from '@/utils/tools';
 import { message } from 'antd';
 
 const useCopyClipBoard = () => {

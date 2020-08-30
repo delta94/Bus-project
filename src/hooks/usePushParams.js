@@ -1,6 +1,6 @@
-import { convertObjToQueryParams } from 'utils/tools';
+import { convertObjToQueryParams } from '@/utils/tools';
 import { useHistory, useRouteMatch, useLocation } from 'react-router';
-import { convertParamsToObject } from 'utils/url';
+import { convertParamsToObject } from '@/utils/url';
 
 const usePushParams = () => {
   const history = useHistory();

@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { ReactComponent as ErrorIcon } from 'assets/svg/error.svg';
+import { ReactComponent as ErrorIcon } from '@/assets/svg/error.svg';
 import Icon from '@ant-design/icons';
 import PropTypes from 'prop-types';
 import Box from '../Box';

@@ -1,6 +1,6 @@
 /* eslint-disable consistent-return */
-import { rangeToday, rangeYesterday } from 'utils/time';
-import { formatDate } from 'utils/textUtils';
+import { rangeToday, rangeYesterday } from '@/utils/time';
+import { formatDate } from '@/utils/textUtils';
 import useRouter from './useRouter';
 
 const useFormatDateByChart = () => {

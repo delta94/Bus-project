@@ -1,5 +1,5 @@
 import { Card, Col, Row } from 'antd';
-import MaterialBreadcrumb from 'components/common/MaterialBreadcrumb';
+import MaterialBreadcrumb from '@/components/common/MaterialBreadcrumb';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import TopClient from './TopClient';

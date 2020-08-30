@@ -2,7 +2,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Form, Button, Icon } from 'antd';
 import PropTypes from 'prop-types';
-// import { validateRegex } from 'utils/validateUtils';
+// import { validateRegex } from '@/utils/validateUtils';
 // import RestInputNumber from './RestInputNumber';
 import { get } from 'lodash';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';

@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { Alert, BackTop, Layout } from 'antd';
-import useMedia from 'hooks/useMedia';
+import useMedia from '@/hooks/useMedia';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import styled from 'styled-components';

@@ -1,7 +1,7 @@
-import RestInput from 'components/Rest/RestInput';
+import RestInput from '@/components/Rest/RestInput';
 import React from 'react';
-import RestInputNumber from 'components/Rest/RestInputNumber';
-import { moneyFomatter } from 'utils/formatter';
+import RestInputNumber from '@/components/Rest/RestInputNumber';
+import { moneyFomatter } from '@/utils/formatter';
 import RestSelectDrivers from './RestSelectDrivers';
 
 const Form = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import Box from 'components/common/Box/Box';
+import Box from '@/components/common/Box/Box';
 import SideBar from './SideBar';
 
 const TodoList = () => {

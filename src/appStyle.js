@@ -1,6 +1,6 @@
 /* eslint-disable max-lines */
 import { createGlobalStyle } from 'styled-components';
-import { CSS_RESET, CLASS_UTILITY } from 'utils/css';
+import { CSS_RESET, CLASS_UTILITY } from '@/utils/css';
 
 const GlobalStyle = createGlobalStyle`
   ${CSS_RESET}

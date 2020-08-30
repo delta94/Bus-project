@@ -10,7 +10,7 @@ import {
   Tooltip,
 } from 'recharts';
 import styled from 'styled-components';
-import { compactNumber, formatDate } from 'utils/textUtils';
+import { compactNumber, formatDate } from '@/utils/textUtils';
 import PropTypes from 'prop-types';
 
 const StyledCard = styled(Card)`

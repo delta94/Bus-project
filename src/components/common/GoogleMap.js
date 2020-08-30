@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 import React, { useEffect, useState } from 'react';
 import Icon from '@ant-design/icons';
-import { ReactComponent as GeoIcon } from 'assets/svg/gps.svg';
+import { ReactComponent as GeoIcon } from '@/assets/svg/gps.svg';
 import GoogleMapReact from 'google-map-react';
 import PropTypes from 'prop-types';
 

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import MaterialBreadcrumb from 'components/common/MaterialBreadcrumb';
+import MaterialBreadcrumb from '@/components/common/MaterialBreadcrumb';
 import { useTranslation } from 'react-i18next';
 import { Row, Col, Card, Skeleton } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';

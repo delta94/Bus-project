@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Avatar, Table } from 'antd';
-import { formatNumber } from 'utils/textUtils';
+import { formatNumber } from '@/utils/textUtils';
 import { useSelector, useDispatch } from 'react-redux';
 import actions from '../actions';
 

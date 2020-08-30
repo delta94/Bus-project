@@ -1,7 +1,7 @@
 import React from 'react';
-import FullLogo from 'assets/images/fullLogo.png';
+import FullLogo from '@/assets/images/fullLogo.png';
 import PropTypes from 'prop-types';
-import Box from 'components/common/Box/Box';
+import Box from '@/components/common/Box/Box';
 
 const AuthForm = ({ children }) => {
   return (

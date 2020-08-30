@@ -9,7 +9,7 @@ import {
   ResponsiveContainer,
   Legend,
 } from 'recharts';
-import { compactNumber } from 'utils/textUtils';
+import { compactNumber } from '@/utils/textUtils';
 
 const MonthChart = () => {
   const data = [
