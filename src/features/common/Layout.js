@@ -7,7 +7,7 @@ import Search from '@/components/Layout/Search';
 import Chat from '@/components/Layout/Chat';
 import Language from '@/components/Layout/Language';
 import Notification from '@/components/Layout/Notification';
-import PrivateLayout from '../../components/Layout/PrivateLayout';
+import PrivateLayout from '@/components/Layout/PrivateLayout';
 import UserInfo from '../Auth/UserInfo';
 
 const MENU = [

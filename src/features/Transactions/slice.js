@@ -1,11 +1,11 @@
 /* eslint-disable import/no-cycle */
-import crudSlice from 'shared/crudSlice';
 import transactionApi from 'api/transactions';
 import {
   createAsyncThunk,
   createSlice,
   combineReducers,
 } from '@reduxjs/toolkit';
+import crudSlice from '@/shared/crudSlice';
 
 export const getAnalytic = createAsyncThunk(
   'transactions/getAnalytic',

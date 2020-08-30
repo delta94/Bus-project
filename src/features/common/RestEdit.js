@@ -4,7 +4,7 @@ import { Form, notification } from 'antd';
 import PropTypes from 'prop-types';
 import actions from '@/features/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import { PRIMARY_KEY } from 'shared/crudSlice';
+import { PRIMARY_KEY } from '@/shared/crudSlice';
 import RestForm from './RestForm';
 
 const RestEdit = ({

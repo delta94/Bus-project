@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import PrivateRoute from 'shared/PrivateRoute';
 import CreateUser from '@/features/Users/components/Create';
 import Topup from '@/features/Users/components/Topup';
 import CreateTrip from '@/features/Trips/components/Create';
-import ModalRoute from 'shared/ModalRoute';
 import Layout from '@/features/common/Layout';
 import loadable from '@/utils/loadable';
+import PrivateRoute from '@/shared/PrivateRoute';
+import ModalRoute from '@/shared/ModalRoute';
 
 const Routes = () => {
   return (
