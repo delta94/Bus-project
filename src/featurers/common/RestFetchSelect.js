@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-curly-newline */
 import React, { useEffect } from 'react';
-import { Select } from 'antd';
+import { Select, Form } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import actions from '@/features/actions';
 import { PRIMARY_KEY } from 'shared/crudSlice';
@@ -8,16 +8,20 @@ import PropTypes from 'prop-types';
 import { hashSearchParams, DEFAULT_QUERY } from '@/utils/url';
 import { debounce } from 'lodash';
 
-const FetchSelect = ({
+const RestFetchSelect = ({
   style,
   onChange,
   placeholder,
   mode,
   resource,
-  key,
   value,
   display,
   customResource,
+  rules,
+  fieldName,
+  label,
+  labelCol,
+  wrapperCol,
 }) => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state[resource].allData);
@@ -40,40 +44,59 @@ const FetchSelect = ({
     );
   }, 500);
   return (
-    <Select
-      mode={mode}
-      placeholder={placeholder}
-      style={style}
-      value={value}
-      onSearch={handleSearch}
-      onChange={onChange}
-      filterOption={false}
-      showSearch
+    <Form.Item
+      label={label}
+      name={fieldName}
+      rules={rules}
+      labelCol={labelCol}
+      wrapperCol={wrapperCol}
     >
-      {data?.map((e, index) => (
-        <Select.Option key={String(index)} value={e?.[key]}>
-          {e?.[display]}
-        </Select.Option>
-      ))}
-    </Select>
+      <Select
+        mode={mode}
+        placeholder={placeholder}
+        style={style}
+        onSearch={handleSearch}
+        onChange={onChange}
+        filterOption={false}
+        showSearch
+      >
+        {data?.map((e, index) => (
+          <Select.Option key={String(index)} value={e?.[value]}>
+            {e?.[display]}
+          </Select.Option>
+        ))}
+      </Select>
+    </Form.Item>
   );
 };
 
-FetchSelect.propTypes = {
+RestFetchSelect.propTypes = {
   style: PropTypes.object,
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
   mode: PropTypes.string,
   resource: PropTypes.string,
-  key: PropTypes.string,
+  value: PropTypes.string,
   display: PropTypes.string,
   customResource: PropTypes.string,
-  value: PropTypes.object,
+  rules: PropTypes.array,
+  fieldName: PropTypes.string,
+  label: PropTypes.string,
+  wrapperCol: PropTypes.object,
+  labelCol: PropTypes.object,
 };
 
-FetchSelect.defaultProps = {
-  key: PRIMARY_KEY,
+RestFetchSelect.defaultProps = {
+  value: PRIMARY_KEY,
   display: 'name',
+  rules: [
+    {
+      required: true,
+      message: 'Không được trông',
+    },
+  ],
+  labelCol: { span: 24 },
+  wrapperCol: { span: 24 },
 };
 
-export default FetchSelect;
+export default RestFetchSelect;
